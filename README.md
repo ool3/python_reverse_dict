@@ -7,5 +7,5 @@ Code for computing average running times of different methods of reversing a `di
 * `method_03/`:
 
 ## Usage
-usage: compute_running_times.py [-h] [--version] [OPTIONS]
+`compute_running_times.py [-h] [--version] [OPTIONS]`
 
