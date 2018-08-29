@@ -65,7 +65,7 @@ if __name__ == '__main__':
                 which_python = python3_path
             else:
                 which_python = python2_path
-        elif isinstance(v, bool):
+        if isinstance(v, bool):
             options += "--{} ".format(k)
         else:
             options += "--{}={} ".format(k, v)
