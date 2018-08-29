@@ -75,6 +75,7 @@ if __name__ == '__main__':
                                      "running the method's script"
 
     cmd = '{} {}/{} {}'.format(which_python, which_method, args.method_name+'.py', options)
+    ipdb.set_trace()
     cmd = shlex.split(cmd)
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout = result.stdout.decode('utf-8')

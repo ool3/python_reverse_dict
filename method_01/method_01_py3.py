@@ -1,4 +1,5 @@
 import argparse
+import sys
 import time
 import ipdb
 
@@ -38,4 +39,5 @@ if __name__ == '__main__':
     parser.add_argument('-s', '--small_test', action='store_true', help='')
     args, unknown = parser.parse_known_args()
 
+    print('Args: {}'.format(sys.argv[1:].__str__()))
     method_01(**args.__dict__)
