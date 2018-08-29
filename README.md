@@ -9,3 +9,5 @@ Code for computing average running times of different methods of reversing a `di
 ## Usage
 `compute_running_times.py [-h] [--version] [OPTIONS]`
 
+## Options
+
