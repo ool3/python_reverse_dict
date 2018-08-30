@@ -1,47 +1,41 @@
-import argparse
-import sys
 import time
 # import ipdb
 
+from argparser_builder import ArgParserBuilder
+from method import Method, method_names as mn
+from utils import get_args_from_namespace
 
-def method_01(**kwargs):
-    number_times = kwargs['number_times']
-    number_items = kwargs['number_items']
-    decimal_precision = kwargs['precision']
-    if kwargs['small_test']:
-        number_times = 1
-        number_items = 1
-        my_dict = {1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e', 6: 'f'}
-    else:
-        my_dict = dict(zip(range(1, number_items + 1), range(-number_items, 0)))
-    inv_dict = {}
-    durations = 0
-    count = 1
-    for i in xrange(number_times):
-        start_time = time.time()
-        if kwargs['use_items']:
-            inv_dict = {v: k for k, v in my_dict.items()}
-        else:
-            inv_dict = {v: k for k, v in my_dict.iteritems()}
-        duration = time.time() - start_time
-        durations += duration
-        print('#{} Duration: {:.{}f}'.format(count, duration, decimal_precision))
-        count += 1
 
-    print('Avg: {:.{}f} seconds'.format((durations / number_items), decimal_precision))
-    if kwargs['small_test']:
-        print(my_dict)
-        print(inv_dict)
+class Method02(Method):
+    def __init__(self, method_name, **kwargs):
+        super().__init__(method_name, **kwargs)
+        self.use_items = kwargs['use_items']
+
+    def compute_avg_run_times(self):
+        count = 1
+        for i in xrange(self.number_times):
+            start_time = time.time()
+            if self.use_items:
+                inv_dict = {v: k for k, v in self.my_dict.items()}
+            else:
+                inv_dict = {v: k for k, v in self.my_dict.iteritems()}
+            duration = time.time() - start_time
+            self.durations += duration
+            self.print_duration(count, duration)
+            count += 1
+
+        self.print_avg_run_times()
+        if self.small_test:
+            print(self.my_dict)
+            print(self.inv_dict)
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-n', '--number_times', default=10, type=int, help='')
-    parser.add_argument('-i', '--number_items', default=10000, type=int, help='')
-    parser.add_argument('-p', '--precision', default=4, type=int, help='')
-    parser.add_argument('-ui', '--use_items', action='store_true', help='')
-    parser.add_argument('-s', '--small_test', action='store_true', help='')
+    parser_builder = ArgParserBuilder(method_name=mn.method_01_py2)
+    parser = parser_builder.get_parser()
     args, unknown = parser.parse_known_args()
 
-    print('Args: {}'.format(sys.argv[1:].__str__()))
-    method_01(**args.__dict__)
+    print('Args: {}'.format(get_args_from_namespace(args)))
+    print('Unknown args: {}'.format(unknown))
+    method_02 = Method02(method_name=mn.method_01_py3, **args.__dict__)
+    method_02.compute_avg_run_times()

@@ -1,7 +1,7 @@
 import time
 import ipdb
 
-from argparser_builder import ArgParserBuilder
+from argparser_builder import ArgParserBuilder, Argument, argument_names
 from method import Method, method_names as mn
 from utils import get_args_from_namespace
 
@@ -27,7 +27,12 @@ class Method01(Method):
 
 
 if __name__ == '__main__':
-    parser_builder = ArgParserBuilder(method_name=mn.method_01_py3)
+    ipdb.set_trace()
+    parser_builder \
+        = ArgParserBuilder(method_name=mn.method_01_py3,
+                           list_arguments=[Argument(argument_names.number_items,
+                                                    '-ni', '--number-times',
+                                                    default=5, help='test')])
     parser = parser_builder.get_parser()
     args, unknown = parser.parse_known_args()
 
