@@ -35,6 +35,8 @@ if __name__ == '__main__':
     parser.add_argument('-s', '--small_test', action='store_true', help='')
     args, unknown = parser.parse_known_args()
 
+    ipdb.set_trace()
+
     print('Args: {}'.format(get_args_from_namespace(args)))
     print('Unknown args: {}'.format(unknown))
     method_01 = Method01(**args.__dict__)
