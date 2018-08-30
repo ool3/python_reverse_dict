@@ -13,6 +13,9 @@ class ArgParserBuilder:
         self.method_name = method_name
         self.list_add_arg_methods = self._get_all_add_arg_methods()
         self.parser = self._get_arg_parser()
+
+    def get_parser(self):
+        return self.parser
         
     def _get_all_add_arg_methods(self):
         methods = []
@@ -132,7 +135,6 @@ class ArgParserBuilder:
         parser.add_argument('-s', '--small_test', action='store_true', help=help_arg)
 
     def _add_common_args(self, parser):
-        self._add_method_name_arg(parser)
         self._add_number_times_arg(parser)
         self._add_number_items_arg(parser)
         self._add_precision_arg(parser)

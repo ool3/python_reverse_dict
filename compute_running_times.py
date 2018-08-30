@@ -20,7 +20,6 @@ if __name__ == '__main__':
     options = ''
     which_python = None
     which_method = None
-    ipdb.set_trace()
     for k, v in args.__dict__.items():
         if v is False:
             continue
@@ -35,7 +34,6 @@ if __name__ == '__main__':
                 which_python = python3_path
             else:
                 which_python = python2_path
-    ipdb.set_trace()
     options = options.strip()
     assert which_python is not None, "Can't determine which " \
                                      "python version (2 or 3) to use for " \

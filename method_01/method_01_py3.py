@@ -1,14 +1,14 @@
-import argparse
 import time
 import ipdb
 
-from method import Method
+from argparser_builder import ArgParserBuilder
+from method import Method, method_names as mn
 from utils import get_args_from_namespace
 
 
 class Method01(Method):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, method_name, **kwargs):
+        super().__init__(method_name, **kwargs)
 
     def compute_avg_run_times(self):
         count = 1
@@ -27,17 +27,11 @@ class Method01(Method):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-m', '--method_name', default='method_01_py3', help='')
-    parser.add_argument('-n', '--number_times', default=10, type=int, help='')
-    parser.add_argument('-i', '--number_items', default=10000, type=int, help='')
-    parser.add_argument('-p', '--precision', default=4, type=int, help='')
-    parser.add_argument('-s', '--small_test', action='store_true', help='')
+    parser_builder = ArgParserBuilder(method_name=mn.method_01_py3)
+    parser = parser_builder.get_parser()
     args, unknown = parser.parse_known_args()
-
-    ipdb.set_trace()
 
     print('Args: {}'.format(get_args_from_namespace(args)))
     print('Unknown args: {}'.format(unknown))
-    method_01 = Method01(**args.__dict__)
+    method_01 = Method01(method_name=mn.method_01_py3, **args.__dict__)
     method_01.compute_avg_run_times()

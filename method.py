@@ -1,7 +1,7 @@
 class Method:
-    def __init__(self, **kwargs):
+    def __init__(self, method_name, **kwargs):
+        self.method_name = method_name
         self.kwargs = kwargs
-        self.method_name = kwargs['method_name']
         self.number_times = kwargs['number_times']
         self.number_items = kwargs['number_items']
         self.small_test = kwargs['small_test']
