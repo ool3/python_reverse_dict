@@ -12,19 +12,19 @@ Computes average running times of different methods of reversing a `dict`'s keys
   show this help message and exit
 
 * -m METHOD_NAME, --method_name METHOD_NAME   
-Name of the method that reverses a dict's keys and values:
+  Name of the method that reverses a dict's keys and values:
 
-method_01_py2: makes use of dict comprehension, and the dict must contain
+  method_01_py2: makes use of dict comprehension, and the dict must contain
+                 unique values
+  method_01_py2: makes use of dict.get(), and the dict doesn't contain
                unique values
-method_01_py2: makes use of dict.get(), and the dict doesn't contain
-               unique values
-method_01_py2: makes use of map(reversed,), and the type and order of the
-               original dict are preserved (if for example it is an
-               OrderedDict)
+  method_01_py2: makes use of map(reversed,), and the type and order of the
+                 original dict are preserved (if for example it is an
+                 OrderedDict)
 
-method_01_py3: Python 3 version of method-01-py2
-method_01_py3: Python 3 version of method-02-py3
-method_01_py3: Python 3 version of method-03-py2
+  method_01_py3: Python 3 version of method-01-py2
+  method_01_py3: Python 3 version of method-02-py3
+  method_01_py3: Python 3 version of method-03-py2
 
 * -ui, --use_items          When working on Python 2, use dict.items() instead of the more efficient
                           dict.iteritems().
