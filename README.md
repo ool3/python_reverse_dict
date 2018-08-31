@@ -19,8 +19,7 @@ Computes average running times of different methods of reversing a `dict`'s keys
   `method_01_py2`: makes use of `dict.get()`, and the `dict` doesn't contain
                    unique values  
   `method_01_py2`: makes use of `map(reversed,)`, and the type and order of the
-                   original dict are preserved (if for example it is an
-                   `OrderedDict`)  
+                   original dict are preserved (if for example it is an `OrderedDict`)  
 
   `method_01_py3`: Python 3 version of `method-01-py2`  
   `method_01_py3`: Python 3 version of `method-02-py3`  
@@ -44,3 +43,4 @@ Computes average running times of different methods of reversing a `dict`'s keys
 * `-p PRECISION`, `--precision PRECISION`  
   Decimal precision used when displaying number results.
 
+## Examples
