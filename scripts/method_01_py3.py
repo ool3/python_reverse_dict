@@ -2,7 +2,7 @@
 import os
 import sys
 
-import ipdb
+# import ipdb
 
 # TODO: add this into env variable
 sys.path.insert(0, os.path.expanduser("~/PycharmProjects/github_projects/python_reverse_dict"))
@@ -10,7 +10,6 @@ from reverse_dict.argparser_builder import ArgParserBuilder
 from reverse_dict.arguments import get_common_arguments
 from reverse_dict.config import cfg
 from reverse_dict.methods import Method01Py3
-from reverse_dict.utils import get_args_from_namespace
 
 
 method_name = Method01Py3.__method_name__

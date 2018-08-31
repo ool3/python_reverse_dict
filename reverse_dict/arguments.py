@@ -27,19 +27,21 @@ class MethodNameArgument(Argument):
     Name of the method that reverses a dict's keys and values:
 
     {}: makes use of dict comprehension, and the dict must contain
-                   unique values
+                   unique values. Works on Python 2.7
     {}: makes use of dict.get(), and the dict doesn't contain
-                   unique values
+                   unique values. Works on Python 2.7
     {}: makes use of map(reversed,), and the type and order of the
                    original dict are preserved (if for example it is an
-                   OrderedDict)
+                   OrderedDict). Works on Python 2.7
 
-    {}: Python 3 version of method-01-py2
-    {}: Python 3 version of method-02-py3
-    {}: Python 3 version of method-03-py2
+    {}: Python 3 version of {}
+    {}: Python 3 version of {}
+    {}: Python 3 version of {}
     '''.format(Method01Py2.__method_name__, Method01Py2.__method_name__,
                Method01Py2.__method_name__, Method01Py3.__method_name__,
-               Method01Py3.__method_name__, Method01Py3.__method_name__)
+               Method01Py3.__method_name__, Method01Py3.__method_name__,
+               Method01Py3.__method_name__, Method01Py3.__method_name__,
+               Method01Py3.__method_name__)
 
     def __init__(self, option_name=None, short_option='-m',
                  long_option='--method_name', default=Method01Py3.__method_name__,

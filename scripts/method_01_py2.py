@@ -8,7 +8,6 @@ from reverse_dict.argparser_builder import ArgParserBuilder
 from reverse_dict.arguments import UseItemsArgument, get_common_arguments
 from reverse_dict.config import cfg
 from reverse_dict.methods import Method01Py2
-from reverse_dict.utils import get_args_from_namespace
 
 
 method_name = Method01Py2.__method_name__
@@ -34,8 +33,9 @@ def run_method(args=None):
                                           list_arguments=list_arguments)
         parser = parser_builder.get_parser()
         args, unknown = parser.parse_known_args()
-    method_01 = Method01Py2(**args.__dict__)
-    print('Args: {}'.format(get_args_from_namespace(args)))
+        args = args.__dict__
+    method_01 = Method01Py2(**args)
+    print('Args: {}'.format(args))
     if unknown is None:
         print('Unused args: {}'.format(method_01.get_unused_kwargs()))
     else:

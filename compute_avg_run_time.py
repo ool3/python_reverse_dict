@@ -20,7 +20,7 @@ if __name__ == '__main__':
     %(prog)s v{}
 
     Computes average running times of different methods of reversing a dict's
-    keys and values:
+    keys and values in Python 2.7 and 3:
 
         - method 1: makes use of dict comprehension, and your dict must
                     contain unique values
@@ -36,6 +36,8 @@ if __name__ == '__main__':
                                       list_arguments=list_arguments)
     parser = parser_builder.get_parser()
     args = parser.parse_args()
+
+    ipdb.set_trace()
 
     # Create temp directory & file
     directory = Path(tempfile.gettempdir()) / Path(__file__).stem
