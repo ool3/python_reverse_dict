@@ -17,14 +17,14 @@ Computes average running times of different methods of reversing a `dict`'s keys
   `method_01_py2`: makes use of `dict` comprehension, and the `dict` must contain
                    unique values.  
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Works on **Python 2.7**  
-  `method_01_py2`: makes use of `dict.get()`, and the `dict` doesn't contain
+  `method_02_py2`: makes use of `dict.get()`, and the `dict` doesn't contain
                    unique values.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Works on **Python 2.7**    
-  `method_01_py2`: makes use of `map(reversed,)`, and the type and order of the original dict are  
+  `method_03_py2`: makes use of `map(reversed,)`, and the type and order of the original dict are  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;preserved (if for example it is an `OrderedDict`). Works on **Python 2.7**  
-  `method_01_py3`: **Python 3** version of `method-01-py2`  
-  `method_01_py3`: **Python 3** version of `method-02-py3`  
-  `method_01_py3`: **Python 3** version of `method-03-py2`  
+  `method_01_py3`: **Python 3** version of `method_01_py2`  
+  `method_02_py3`: **Python 3** version of `method_02_py3`  
+  `method_03_py3`: **Python 3** version of `method_03_py2`  
 
 * `-ui`, `--use_items`  
   When working on Python 2, use `dict.items()` instead of the more efficient `dict.iteritems()`.
