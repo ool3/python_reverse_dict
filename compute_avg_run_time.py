@@ -11,13 +11,8 @@ import ipdb
 from reverse_dict.argparser_builder import ArgParserBuilder
 from reverse_dict.arguments import get_common_arguments, MethodNameArgument, \
     UseItemsArgument, UseSetDefaultArgument
+from reverse_dict.config import cfg
 import scripts
-
-
-VERSION = '0.1'
-GITHUB_URL = 'https://github.com/raul23/python_reverse_dict'
-python2_path = '/usr/local/bin/python2.7'
-python3_path = os.path.expanduser('~/miniconda3/envs/test_py3/bin/python')
 
 
 if __name__ == '__main__':
@@ -34,7 +29,7 @@ if __name__ == '__main__':
         - method 3: makes use of map(reversed,)
 
     Github project @ {}
-    '''.format(VERSION, GITHUB_URL)
+    '''.format(cfg.version, cfg.github_url)
     list_arguments = [MethodNameArgument(), UseItemsArgument(), UseSetDefaultArgument()]
     list_arguments.extend(get_common_arguments())
     parser_builder = ArgParserBuilder(script_description=script_description,

@@ -1,4 +1,5 @@
 from reverse_dict.methods import Method01Py2, Method01Py3
+from reverse_dict.config import cfg
 
 
 class Argument(object):
@@ -138,6 +139,21 @@ class UseSetDefaultArgument(Argument):
                                                     help=help, **kwargs)
 
 
+class VersionArgument(Argument):
+    __argument_name__ = 'version'
+
+    help_arg = '''\
+    Version of program.
+    '''
+
+    def __init__(self, option_name=None, short_option='-v',
+                 long_option='--version',  action='version',
+                 version='%(prog)s {}'.format(cfg.version),**kwargs):
+        super(VersionArgument, self).__init__(option_name, short_option,
+                                              long_option, action=action,
+                                              version=version, **kwargs)
+
+
 def get_common_arguments():
     return [SmallTestArgument(), NumberItemsArgument(), NumberTimesArgument(),
-            PrecisionArgument()]
+            PrecisionArgument(), VersionArgument()]
