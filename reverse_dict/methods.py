@@ -15,9 +15,6 @@ class Method (object):
         self.my_dict = self._init_data()
         self.inv_dict = None
 
-    def compute_avg_run_time(self):
-        pass
-
     def _init_data(self):
         if self.small_test:
             self.number_times = 1
@@ -27,16 +24,26 @@ class Method (object):
             return dict(zip(range(1, self.number_items + 1),
                             range(-self.number_items, 0)))
 
+    def compute_avg_run_time(self):
+        pass
+
+    def get_unused_kwargs(self):
+        all_keys = set(self.__dict__.keys())
+        keys_from_kwargs = set(self.kwargs.keys())
+        unused_keys = keys_from_kwargs - all_keys
+        return list(unused_keys)
+
     def print_duration(self, count, duration):
         print('#{} Duration: {:.{}f}'.format(count, duration, self.precision))
 
     def print_avg_run_time(self):
-        print('Avg: {:.{}f} seconds'.format((self.durations / self.number_items),
+        print('Avg: {:.{}f} seconds'.format((self.durations / self.number_times),
                                             self.precision))
 
 
 class Method01Py2(Method):
     __method_name__ = 'method_01_py2'
+    __python_version__ = 'python2'
 
     def __init__(self, **kwargs):
         from reverse_dict.arguments import UseItemsArgument
@@ -65,6 +72,7 @@ class Method01Py2(Method):
 
 class Method01Py3(Method):
     __method_name__ = 'method_01_py3'
+    __python_version__ = 'python3'
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

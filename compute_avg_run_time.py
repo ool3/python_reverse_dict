@@ -1,12 +1,17 @@
+import datetime
+import json
 import os
+from pathlib import Path
 import shlex
 import subprocess
+import tempfile
 
 import ipdb
 
 from reverse_dict.argparser_builder import ArgParserBuilder
 from reverse_dict.arguments import get_common_arguments, MethodNameArgument, \
     UseItemsArgument, UseSetDefaultArgument
+import scripts
 
 
 VERSION = '0.1'
@@ -30,7 +35,6 @@ if __name__ == '__main__':
 
     Github project @ {}
     '''.format(VERSION, GITHUB_URL)
-    ipdb.set_trace()
     list_arguments = [MethodNameArgument(), UseItemsArgument(), UseSetDefaultArgument()]
     list_arguments.extend(get_common_arguments())
     parser_builder = ArgParserBuilder(script_description=script_description,
@@ -38,32 +42,24 @@ if __name__ == '__main__':
     parser = parser_builder.get_parser()
     args = parser.parse_args()
 
-    options = ''
-    which_python = None
-    method_dirname = None
-    for k, v in args.__dict__.items():
-        if v is False:
-            continue
-        elif v is True:
-            options += "--{} ".format(k)
-        else:
-            options += "--{}={} ".format(k, v)
-        if k == 'method_name':
-            pos = v.find('_py')
-            method_dirname = v[:pos]
-            if v[pos+1:] == 'py3':
-                which_python = python3_path
-            else:
-                which_python = python2_path
-    ipdb.set_trace()
-    options = options.strip()
-    assert which_python is not None, "Can't determine which " \
-                                     "python version (2 or 3) to use for " \
-                                     "running the method's script"
+    # Create temp directory & file
+    directory = Path(tempfile.gettempdir()) / Path(__file__).stem
+    directory.mkdir(exist_ok=True)
+    json_file = directory / '{}.{}'.format(str(datetime.datetime.utcnow()).replace(' ', '_'), 'json')
+    if not json_file.exists():
+        # logger.info("json_file exists: " + str(json_file))
+        with json_file.open('w') as f:
+            json.dump(args.__dict__, f)
 
-    cmd = '{} {}/{} {}'.format(which_python, method_dirname, args.method_name+'.py', options)
-    ipdb.set_trace()
+    # Run shell command
+    method_module = scripts.scripts_lookup[args.method_name]
+    python_version = method_module.python_version
+    cmd = "./run_{}_script.py {} {}".format(python_version, args.method_name, json_file)
+    # cmd = './run_{}_script.py {}'.format(python_version, options)
     cmd = shlex.split(cmd)
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout = result.stdout.decode('utf-8')
     print(stdout)
+
+    # Remove temp file
+    os.remove(json_file)

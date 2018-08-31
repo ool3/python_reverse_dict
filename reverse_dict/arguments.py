@@ -1,10 +1,13 @@
-from reverse_dict.methods import Method01Py3
+from reverse_dict.methods import Method01Py2, Method01Py3
 
 
 class Argument(object):
     def __init__(self, option_name, short_option, long_option, **kwargs):
         self.args = None
         self.kwargs = {}
+        self.option_name = option_name
+        self.short_option = short_option
+        self.long_option = long_option
         if option_name:
             self.args = option_name
         else:
@@ -22,18 +25,20 @@ class MethodNameArgument(Argument):
     help_arg = '''\
     Name of the method that reverses a dict's keys and values:
 
-    method_01_py2: makes use of dict comprehension, and the dict must contain
+    {}: makes use of dict comprehension, and the dict must contain
                    unique values
-    method_02_py2: makes use of dict.get(), and the dict doesn't contain
+    {}: makes use of dict.get(), and the dict doesn't contain
                    unique values
-    method_03_py2: makes use of map(reversed,), and the type and order of the
+    {}: makes use of map(reversed,), and the type and order of the
                    original dict are preserved (if for example it is an
                    OrderedDict)
 
-    method_01_py3: Python 3 version of method-01-py2
-    method_02_py3: Python 3 version of method-02-py3
-    method_03_py3: Python 3 version of method-03-py2
-    '''
+    {}: Python 3 version of method-01-py2
+    {}: Python 3 version of method-02-py3
+    {}: Python 3 version of method-03-py2
+    '''.format(Method01Py2.__method_name__, Method01Py2.__method_name__,
+               Method01Py2.__method_name__, Method01Py3.__method_name__,
+               Method01Py3.__method_name__, Method01Py3.__method_name__)
 
     def __init__(self, option_name=None, short_option='-m',
                  long_option='--method_name', default=Method01Py3.__method_name__,
