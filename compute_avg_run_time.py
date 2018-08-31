@@ -4,15 +4,16 @@ import subprocess
 
 import ipdb
 
-from argparser_builder import ArgParserBuilder, get_common_arguments, \
+from reverse_dict.argparser_builder import ArgParserBuilder
+from reverse_dict.arguments import get_common_arguments, MethodNameArgument, \
     UseItemsArgument, UseSetDefaultArgument
-from method_names import method_names as mn
 
 
 VERSION = '0.1'
 GITHUB_URL = 'https://github.com/raul23/python_reverse_dict'
 python2_path = '/usr/local/bin/python2.7'
 python3_path = os.path.expanduser('~/miniconda3/envs/test_py3/bin/python')
+
 
 if __name__ == '__main__':
     script_description = '''
@@ -29,17 +30,17 @@ if __name__ == '__main__':
 
     Github project @ {}
     '''.format(VERSION, GITHUB_URL)
-    list_arguments = [UseItemsArgument(), UseSetDefaultArgument()]
+    ipdb.set_trace()
+    list_arguments = [MethodNameArgument(), UseItemsArgument(), UseSetDefaultArgument()]
     list_arguments.extend(get_common_arguments())
-    parser_builder = ArgParserBuilder(method_name=mn.main_script,
-                                      script_description=script_description,
+    parser_builder = ArgParserBuilder(script_description=script_description,
                                       list_arguments=list_arguments)
-    parser = parser_builder.parser
+    parser = parser_builder.get_parser()
     args = parser.parse_args()
 
     options = ''
     which_python = None
-    which_method = None
+    method_dirname = None
     for k, v in args.__dict__.items():
         if v is False:
             continue
@@ -49,7 +50,7 @@ if __name__ == '__main__':
             options += "--{}={} ".format(k, v)
         if k == 'method_name':
             pos = v.find('_py')
-            which_method = v[:pos]
+            method_dirname = v[:pos]
             if v[pos+1:] == 'py3':
                 which_python = python3_path
             else:
@@ -60,7 +61,7 @@ if __name__ == '__main__':
                                      "python version (2 or 3) to use for " \
                                      "running the method's script"
 
-    cmd = '{} {}/{} {}'.format(which_python, which_method, args.method_name+'.py', options)
+    cmd = '{} {}/{} {}'.format(which_python, method_dirname, args.method_name+'.py', options)
     ipdb.set_trace()
     cmd = shlex.split(cmd)
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
