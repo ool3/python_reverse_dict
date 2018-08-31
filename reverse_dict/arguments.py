@@ -28,8 +28,10 @@ class MethodNameArgument(Argument):
 
     {}: makes use of dict comprehension, and the dict must contain
                    unique values. Works on Python 2.7
-    {}: makes use of dict.get(), and the dict doesn't contain
-                   unique values. Works on Python 2.7
+    {}: the reversed dict stores as values a list of all the keys
+                   associated with the same value in the original dict,
+                   and the dict doesn't contain unique values. Works on
+                   Python 2.7
     {}: makes use of map(reversed,), and the type and order of the
                    original dict are preserved (if for example it is an
                    OrderedDict). Works on Python 2.7
@@ -44,8 +46,8 @@ class MethodNameArgument(Argument):
                Method01Py3.__method_name__)
 
     def __init__(self, option_name=None, short_option='-m',
-                 long_option='--method_name', default=Method01Py3.__method_name__,
-                 help=help_arg, **kwargs):
+                 long_option='--{}'.format(__argument_name__),
+                 default=Method01Py3.__method_name__, help=help_arg, **kwargs):
         super(MethodNameArgument, self).__init__(option_name, short_option,
                                                  long_option, default=default,
                                                  help=help, **kwargs)
@@ -59,8 +61,8 @@ class NumberItemsArgument(Argument):
     '''
 
     def __init__(self, option_name=None, short_option='-i',
-                 long_option='--number_items', default=10000, type=int,
-                 help=help_arg, **kwargs):
+                 long_option='--{}'.format(__argument_name__), default=10000,
+                 type=int, help=help_arg, **kwargs):
         super(NumberItemsArgument, self).__init__(option_name, short_option,
                                                   long_option, default=default,
                                                   type=type, help=help, **kwargs)
@@ -73,7 +75,7 @@ class NumberTimesArgument(Argument):
     '''
 
     def __init__(self, option_name=None, short_option='-n',
-                 long_option='--number_times', default=10, type=int,
+                 long_option='--{}'.format(__argument_name__), default=10, type=int,
                  help=help_arg, **kwargs):
         super(NumberTimesArgument, self).__init__(option_name, short_option,
                                                   long_option, default=default,
@@ -88,7 +90,8 @@ class PrecisionArgument(Argument):
     '''
 
     def __init__(self, option_name=None, short_option='-p', type=int,
-                 long_option='--precision', default=4, help=help_arg, **kwargs):
+                 long_option='--{}'.format(__argument_name__), default=4,
+                 help=help_arg, **kwargs):
         super(PrecisionArgument, self).__init__(option_name, short_option,
                                                 long_option, default=default,
                                                 type=type, help=help, **kwargs)
@@ -103,8 +106,8 @@ class SmallTestArgument(Argument):
     '''
 
     def __init__(self, option_name=None, short_option='-s',
-                 long_option='--small_test', action='store_true', help=help_arg,
-                 **kwargs):
+                 long_option='--{}'.format(__argument_name__), action='store_true',
+                 help=help_arg, **kwargs):
         super(SmallTestArgument, self).__init__(option_name, short_option,
                                                 long_option, action=action,
                                                 help=help, **kwargs)
@@ -119,8 +122,8 @@ class UseItemsArgument(Argument):
     '''
 
     def __init__(self, option_name=None, short_option='-ui',
-                 long_option='--use_items', action='store_true', help=help_arg,
-                 **kwargs):
+                 long_option='--{}'.format(__argument_name__), action='store_true',
+                 help=help_arg, **kwargs):
         super(UseItemsArgument, self).__init__(option_name, short_option,
                                                long_option, action=action,
                                                help=help, **kwargs)
@@ -134,7 +137,7 @@ class UseSetDefaultArgument(Argument):
     '''
 
     def __init__(self, option_name=None, short_option='-usd',
-                 long_option='--use_setdefault', action='store_true',
+                 long_option='--{}'.format(__argument_name__), action='store_true',
                  help=help_arg, **kwargs):
         super(UseSetDefaultArgument, self).__init__(option_name, short_option,
                                                     long_option, action=action,
@@ -149,7 +152,7 @@ class VersionArgument(Argument):
     '''
 
     def __init__(self, option_name=None, short_option='-v',
-                 long_option='--version',  action='version',
+                 long_option='--{}'.format(__argument_name__),  action='version',
                  version='%(prog)s {}'.format(cfg.version),**kwargs):
         super(VersionArgument, self).__init__(option_name, short_option,
                                               long_option, action=action,
@@ -159,3 +162,8 @@ class VersionArgument(Argument):
 def get_common_arguments():
     return [SmallTestArgument(), NumberItemsArgument(), NumberTimesArgument(),
             PrecisionArgument(), VersionArgument()]
+
+
+def get_options_from_common_args():
+    # TODO: to be implemented
+    raise NotImplementedError()
