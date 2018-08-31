@@ -8,10 +8,10 @@ Computes average running times of different methods of reversing a `dict`'s keys
 `compute_run_time.py [-h] [--version] [OPTIONS]`
 
 ## Options
-* `-h`, `--help`  
+* **`-h`**, **`--help`**  
   show the help message and exit
 
-* `-m METHOD_NAME`, `--method_name METHOD_NAME`   
+* **`-m METHOD_NAME`**, **`--method_name METHOD_NAME`**   
   Name of the method that reverses a `dict`'s keys and values:
 
   `method_01_py2`: makes use of `dict` comprehension, and the `dict` must contain
@@ -26,22 +26,22 @@ Computes average running times of different methods of reversing a `dict`'s keys
   `method_02_py3`: **Python 3** version of `method_02_py3`  
   `method_03_py3`: **Python 3** version of `method_03_py2`  
 
-* `-ui`, `--use_items`  
+* **`-ui`**, **`--use_items`**  
   When working on Python 2, use `dict.items()` instead of the more efficient `dict.iteritems()`.
 
-* `-usd`, `--use_setdefault`  
+* **`-usd`**, **`--use_setdefault`**  
   Use `dict.setdefault()` instead of `dict.get()` when populating the dictionary.
 
-* `-s`, `--small_test`            
+* **`-s`**, **`--small_test`**            
   Use a small dictionary with few items which the keys and values will be reversed.
 
-* `-i NUMBER_ITEMS`, `--number_items NUMBER_ITEMS`  
+* **`-i NUMBER_ITEMS`**, **`--number_items NUMBER_ITEMS`**  
   Number of items in the dictionary.
 
-* `-n NUMBER_TIMES`, `--number_times NUMBER_TIMES`  
+* **`-n NUMBER_TIMES`**, **`--number_times NUMBER_TIMES`**  
   Number of times the dictionary's keys and values will be reversed.
 
-* `-p PRECISION`, `--precision PRECISION`  
+* **`-p PRECISION`**, **`--precision PRECISION`**  
   Decimal precision used when displaying number results.
 
 ## Examples
