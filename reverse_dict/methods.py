@@ -3,10 +3,10 @@ import time
 
 
 class Method (object):
-    def __init__(self, unique_values=True, **kwargs):
+    def __init__(self, non_unique_values=False, **kwargs):
         from reverse_dict.arguments import NumberTimesArgument,\
             NumberItemsArgument, PrecisionArgument, SmallTestArgument
-        self.unique_values = unique_values
+        self.non_unique_values = non_unique_values
         self.kwargs = kwargs
         # Common options
         # TODO: call arguments.get_options_from_common_args()
@@ -14,7 +14,7 @@ class Method (object):
         self.number_items = kwargs[NumberItemsArgument.__argument_name__]
         self.small_test = kwargs[SmallTestArgument.__argument_name__]
         self.precision = kwargs[PrecisionArgument.__argument_name__]
-        # TODO: complete it
+        # TODO: complete it!
         self.use_ordered_dict = False
         # self.use_ordered_dict = kwargs[PrecisionArgument.__argument_name__]
         self.durations = 0
@@ -25,14 +25,16 @@ class Method (object):
         if self.small_test:
             self.number_times = 1
             self.number_items = 1
-            if self.unique_values:
+            if self.non_unique_values:
                 return {1: 'a', 2: 'b', 3: 'c', 4: 'a', 5: 'b', 6: 'b'}
             else:
                 return {1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e', 6: 'f'}
         else:
-            if self.unique_values:
+            if self.non_unique_values:
                 # my_dict = dict(zip(range(1, int(n_items / 2) + 1), range(1, int(n_items / 2) + 1)))
                 # my_dict.update(dict(zip(range(int(n_items / 2) + 1, n_items + 1), range(1, int(n_items / 2) + 1))))
+                # my_dict = dict(zip(range(1, int(number_items / 2) + 1), range(-int(number_items / 2) + 1, 0)))
+                # my_dict.update(dict(zip(range(int(number_items / 2) + 1, number_items + 1), range(-int(number_items / 2) + 1, 0))))
                 return {}
             else:
                 return dict(zip(range(1, self.number_items + 1), range(-self.number_items, 0)))
@@ -127,7 +129,7 @@ class Method02Py2(Method):
     def __init__(self, **kwargs):
         # Lazy import
         from reverse_dict.arguments import UseItemsArgument
-        super(Method02Py2, self).__init__(unique_values=True, **kwargs)
+        super(Method02Py2, self).__init__(non_unique_values=True, **kwargs)
         # Extra options that are specific to this method
         self.use_items = self.kwargs[UseItemsArgument.__argument_name__]
 
@@ -141,6 +143,31 @@ class Method02Py2(Method):
             else:
                 items = self.orig_dict.iteritems()
             for k, v in items:
+                self.inv_dict[v] = self.inv_dict.get(v, [])
+                self.inv_dict[v].append(k)
+            duration = time.time() - start_time
+            self.durations += duration
+            self.print_duration(i, duration)
+
+        self.print_avg_run_time()
+        if self.small_test:
+            print(self.orig_dict)
+            print(self.inv_dict)
+
+
+class Method02Py3(Method):
+    __method_name__ = 'method_02_py3'
+    __python_version__ = 'python3'
+
+    def __init__(self, **kwargs):
+        super().__init__(non_unique_values=True, **kwargs)
+
+    def compute_avg_run_time(self):
+        self.reset_data()
+        for i in range(1, self.number_times + 1):
+            start_time = time.time()
+            self.inv_dict = {}
+            for k, v in self.orig_dict.items():
                 self.inv_dict[v] = self.inv_dict.get(v, [])
                 self.inv_dict[v].append(k)
             duration = time.time() - start_time
