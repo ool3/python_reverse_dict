@@ -5,7 +5,7 @@ Computes average running times of different methods of reversing a `dict`'s keys
 * **method 3**: makes use of `map(reversed,)`
 
 ## Usage
-`compute_running_times.py [-h] [--version] [OPTIONS]`
+`compute_run_time.py [-h] [--version] [OPTIONS]`
 
 ## Options
 * `-h`, `--help`  
