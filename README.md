@@ -9,7 +9,7 @@ Computes average running times of different methods of reversing a `dict`'s keys
 
 ## Options
 * `-h`, `--help`  
-  show this help message and exit
+  show the help message and exit
 
 * `-m METHOD_NAME`, `--method_name METHOD_NAME`   
   Name of the method that reverses a `dict`'s keys and values:
