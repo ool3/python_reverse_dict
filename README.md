@@ -15,9 +15,9 @@ Computes average running times of different methods of reversing a `dict`'s keys
   Name of the method that reverses a `dict`'s keys and values:
 
   `method_01_py2`: makes use of `dict` comprehension, and the `dict` must contain
-                   unique values. Works on **Python 2.7**  
+                   unique values.     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Works on **Python 2.7**  
   `method_01_py2`: makes use of `dict.get()`, and the `dict` doesn't contain
-                   unique values. Works on **Python 2.7**  
+                   unique values.         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Works on **Python 2.7**    
   `method_01_py2`: makes use of `map(reversed,)`, and the type and order of the original dict are  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;preserved (if for example it is an `OrderedDict`). Works on **Python 2.7**  
 
