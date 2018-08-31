@@ -1,11 +1,11 @@
 # python_reverse_dict
-Computes average running times of different methods of reversing a `dict`'s keys and values in Python 2.7 &amp; 3:
+Computes average running times of different methods of reversing a `dict`'s keys and values in **Python 2.7 &amp; 3**:
 * **method 1**: makes use of `dict` comprehension, and your `dict` must contain unique values
 * **method 2**: makes use of `dict.get()`, and your `dict` doesn't contain unique values
 * **method 3**: makes use of `map(reversed,)`
 
 ## Usage
-`compute_running_times.py [-h] [--version] [OPTIONS]`
+`compute_run_time.py [-h] [--version] [OPTIONS]`
 
 ## Options
 * `-h`, `--help`  
@@ -15,22 +15,22 @@ Computes average running times of different methods of reversing a `dict`'s keys
   Name of the method that reverses a `dict`'s keys and values:
 
   `method_01_py2`: makes use of `dict` comprehension, and the `dict` must contain
-                   unique values  
-  `method_01_py2`: makes use of `dict.get()`, and the `dict` doesn't contain
-                   unique values  
-  `method_01_py2`: makes use of `map(reversed,)`, and the type and order of the
-                   original dict are preserved (if for example it is an
-                   `OrderedDict`)  
-
-  `method_01_py3`: Python 3 version of `method-01-py2`  
-  `method_01_py3`: Python 3 version of `method-02-py3`  
-  `method_01_py3`: Python 3 version of `method-03-py2`  
+                   unique values.  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Works on **Python 2.7**  
+  `method_02_py2`: makes use of `dict.get()`, and the `dict` doesn't contain
+                   unique values.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Works on **Python 2.7**    
+  `method_03_py2`: makes use of `map(reversed,)`, and the type and order of the original dict are  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;preserved (if for example it is an `OrderedDict`). Works on **Python 2.7**  
+  `method_01_py3`: **Python 3** version of `method_01_py2`  
+  `method_02_py3`: **Python 3** version of `method_02_py3`  
+  `method_03_py3`: **Python 3** version of `method_03_py2`  
 
 * `-ui`, `--use_items`  
-  When working on Python 2, use dict.items() instead of the more efficient dict.iteritems().
+  When working on Python 2, use `dict.items()` instead of the more efficient `dict.iteritems()`.
 
 * `-usd`, `--use_setdefault`  
-  Use dict.setdefault() instead of dict.get() when populating the dictionary.
+  Use `dict.setdefault()` instead of `dict.get()` when populating the dictionary.
 
 * `-s`, `--small_test`            
   Use a small dictionary with few items which the keys and values will be reversed.
@@ -44,3 +44,4 @@ Computes average running times of different methods of reversing a `dict`'s keys
 * `-p PRECISION`, `--precision PRECISION`  
   Decimal precision used when displaying number results.
 
+## Examples
