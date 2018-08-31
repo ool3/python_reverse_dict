@@ -1,26 +1,50 @@
-import time
-# import ipdb
+#!/usr/bin/env python2
+import os
+import sys
+
+import ipdb
+
+# TODO: add this into env variable
+sys.path.insert(0, os.path.expanduser("~/PycharmProjects/github_projects/python_reverse_dict"))
+from reverse_dict.argparser_builder import ArgParserBuilder
+from reverse_dict.arguments import UseItemsArgument, get_common_arguments
+from reverse_dict.config import cfg
+from reverse_dict.methods import Method03Py3
 
 
-def reverse_mapping(f):
-    # return f.__class__(map(reversed, f.iteritems()))
-    return f.__class__(map(reversed, f.items()))
+method_name = Method03Py3.__method_name__
+python_version = Method03Py3.__python_version__
 
 
-n_times = 10
-n_items = 100000
-my_dict = dict(zip(range(1, n_items+1), range(1, n_items+1)))
-# my_dict = {1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e', 6: 'f'}
-inv_dict = {}
-durations = 0
-for i in xrange(n_times):
-    start_time = time.time()
-    inv_dict = reverse_mapping(my_dict)
-    duration = time.time() - start_time
-    durations += duration
-    print(duration)
+def run_method(args=None):
+    ipdb.set_trace()
+    unknown = None
+    if args is None:
+        script_description = '''
+        %(prog)s v{}
 
-print("Avg: {} seconds".format(durations/n_times))
-# ipdb.set_trace()
-# print(my_dict)
-# print(inv_dict)
+        %(prog)s works on Python 3 by reversing a dict's keys and values. It
+        saves all the keys associated with the same values in a list. It makes
+        use of dict.get() and dict.items() when populating the reversed dict,
+        and assumes that the dict contains NON-UNIQUE values.
+
+        Github project @ {}
+        '''.format(cfg.version, Method03Py3.__method_name__, cfg.github_url)
+        list_arguments = [UseItemsArgument()]
+        list_arguments.extend(get_common_arguments())
+        parser_builder = ArgParserBuilder(script_description=script_description,
+                                          list_arguments=list_arguments)
+        parser = parser_builder.get_parser()
+        args, unknown = parser.parse_known_args()
+        args = args.__dict__
+    method_03 = Method03Py3(**args)
+    print('Args: {}'.format(args))
+    if unknown is None:
+        print('Unused args: {}'.format(method_03.get_unused_kwargs()))
+    else:
+        print('Unknown args: {}'.format(unknown))
+    method_03.compute_avg_run_time()
+
+
+if __name__ == '__main__':
+    run_method()
