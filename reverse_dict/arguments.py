@@ -120,23 +120,6 @@ class PrintDictsArgument(Argument):
                                                   help=help, **kwargs)
 
 
-class SmallTestArgument(Argument):
-    __argument_name__ = 'small_test'
-    __common_option__ = True
-
-    help_arg = '''\
-    Use a small dictionary with few items which the keys and values will be
-    reversed.
-    '''
-
-    def __init__(self, option_name=None, short_option='-s',
-                 long_option='--{}'.format(__argument_name__), action='store_true',
-                 help=help_arg, **kwargs):
-        super(SmallTestArgument, self).__init__(option_name, short_option,
-                                                long_option, action=action,
-                                                help=help, **kwargs)
-
-
 class UseItemsArgument(Argument):
     __argument_name__ = 'use_items'
     __common_option__ = False
