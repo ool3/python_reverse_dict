@@ -55,17 +55,6 @@ class Method (object):
     def init_inv_dict(self):
         self.inv_dict = self.dict_()
 
-    @staticmethod
-    def reset_data(func):
-        @functools.wraps(func)
-        def wrapper_reset_data(self, *args, **kwargs):
-            # TODO: to be used and tested
-            self.run_times = 0
-            self.init_orig_dict()
-            self.init_inv_dict()
-            func(self, *args, **kwargs)
-        return wrapper_reset_data
-
     # TODO: implement all abstract methods in subclasses
     def compute_avg_run_time(self):
         raise NotImplementedError()
@@ -85,6 +74,18 @@ class Method (object):
             self.precision))
 
     @staticmethod
+    def reset_data(func):
+        @functools.wraps(func)
+        def wrapper_reset_data(self, *args, **kwargs):
+            # TODO: to be used and tested
+            self.run_times = 0
+            func(self, *args, **kwargs)
+        return wrapper_reset_data
+
+    def reverse_dict(self, dict_):
+        raise NotImplementedError()
+
+    @staticmethod
     def timer(func):
         @functools.wraps(func)
         def wrapper_timer(self, *args, **kwargs):
@@ -98,9 +99,6 @@ class Method (object):
             return retval
         wrapper_timer.num_calls = 0
         return wrapper_timer
-
-    def reverse_dict(self, dict_):
-        raise NotImplementedError()
 
 
 class Method01Py2(Method):
@@ -193,22 +191,23 @@ class Method02Py3(Method):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
+    @Method.reset_data
     def compute_avg_run_time(self):
-        for i in self.range_(1, self.number_times + 1):
-            start_time = time.time()
-            # Init inverted dict
-            self.inv_dict = self.dict_()
-            for k, v in self.orig_dict.items():
-                self.inv_dict[v] = self.inv_dict.get(v, [])
-                self.inv_dict[v].append(k)
-            duration = time.time() - start_time
-            self.run_times += duration
-            self.print_run_time(i, duration)
-
+        for _ in self.range_(1, self.number_times + 1):
+            self.inv_dict = self.reverse_dict(self.orig_dict)
         self.print_avg_run_time()
         if self.print_dicts:
             print(self.orig_dict)
             print(self.inv_dict)
+
+    @Method.timer
+    def reverse_dict(self, orig_dict):
+        # Init inverted dict
+        inv_dict = self.dict_()
+        for k, v in orig_dict.items():
+            inv_dict[v] = inv_dict.get(v, [])
+            inv_dict[v].append(k)
+        return inv_dict
 
 
 class Method03Py2(Method):
@@ -251,16 +250,15 @@ class Method03Py3(Method):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-    @Method.timer
-    def reverse_dict(self, dict_):
-        return dict_.__class__(map(reversed, dict_.items()))
-
     @Method.reset_data
     def compute_avg_run_time(self):
         for _ in self.range_(1, self.number_times + 1):
             self.inv_dict = self.reverse_dict(self.orig_dict)
-
         self.print_avg_run_time()
         if self.print_dicts:
             print(self.orig_dict)
             print(self.inv_dict)
+
+    @Method.timer
+    def reverse_dict(self, orig_dict):
+        return orig_dict.__class__(map(reversed, orig_dict.items()))
