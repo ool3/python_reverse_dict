@@ -9,7 +9,7 @@ Computes average run times of different methods of reversing a dictionary's keys
 ## Usage
 `compute_run_time.py [-h] [--version] [OPTIONS]`
 
-## Options
+### Options
 * **`-h`**, **`--help`**  
   show the help message and exit
 
@@ -43,6 +43,6 @@ Computes average run times of different methods of reversing a dictionary's keys
 * **`-p PRECISION`**, **`--precision PRECISION`**  
   Decimal precision used when displaying number results.
 
-## Examples of usage
+### Examples of usage
 
 ## Results
