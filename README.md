@@ -43,6 +43,6 @@ Computes average run times of different methods of reversing a dictionary's keys
 * **`-p PRECISION`**, **`--precision PRECISION`**  
   Decimal precision used when displaying number results.
 
-## Examples of usage
+### Examples of usage
 
 ## Results
