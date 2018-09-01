@@ -1,4 +1,5 @@
-from reverse_dict.methods import Method01Py2, Method01Py3
+from reverse_dict.methods import (Method01Py2, Method01Py3, Method02Py2,
+                                  Method02Py3, Method03Py2, Method03Py3)
 from reverse_dict.config import cfg
 
 
@@ -39,11 +40,12 @@ class MethodNameArgument(Argument):
     {}: Python 3 version of {}
     {}: Python 3 version of {}
     {}: Python 3 version of {}
-    '''.format(Method01Py2.__method_name__, Method01Py2.__method_name__,
-               Method01Py2.__method_name__, Method01Py3.__method_name__,
-               Method01Py3.__method_name__, Method01Py3.__method_name__,
-               Method01Py3.__method_name__, Method01Py3.__method_name__,
-               Method01Py3.__method_name__)
+    '''.format(Method01Py2.__method_name__, Method02Py2.__method_name__,
+               Method03Py2.__method_name__, Method01Py3.__method_name__,
+               Method01Py2.__method_name__, Method02Py3.__method_name__,
+               Method02Py2.__method_name__, Method03Py3.__method_name__,
+               Method03Py2.__method_name__)
+    __common_option__ = True
 
     def __init__(self, option_name=None, short_option='-m',
                  long_option='--{}'.format(__argument_name__),
@@ -55,6 +57,7 @@ class MethodNameArgument(Argument):
 
 class NumberItemsArgument(Argument):
     __argument_name__ = 'number_items'
+    __common_option__ = True
 
     help_arg = '''\
     Number of items in the dictionary.
@@ -71,8 +74,11 @@ class NumberItemsArgument(Argument):
 class NumberTimesArgument(Argument):
     __argument_name__ = 'number_times'
     help_arg = '''\
-    Number of times the dictionary's keys and values will be reversed.
+    Number of times the dictionary's keys and values will be reversed. Each time,
+    the run time of the reversal is computed and at the end of all the tries, 
+    the average run time is computed.
     '''
+    __common_option__ = True
 
     def __init__(self, option_name=None, short_option='-nt',
                  long_option='--{}'.format(__argument_name__), default=10, type=int,
@@ -84,6 +90,7 @@ class NumberTimesArgument(Argument):
 
 class PrecisionArgument(Argument):
     __argument_name__ = 'precision'
+    __common_option__ = True
 
     help_arg = '''\
     Decimal precision used when displaying number results.
@@ -99,6 +106,7 @@ class PrecisionArgument(Argument):
 
 class SmallTestArgument(Argument):
     __argument_name__ = 'small_test'
+    __common_option__ = True
 
     help_arg = '''\
     Use a small dictionary with few items which the keys and values will be
@@ -115,10 +123,11 @@ class SmallTestArgument(Argument):
 
 class UseItemsArgument(Argument):
     __argument_name__ = 'use_items'
+    __common_option__ = False
 
     help_arg = '''\
-    When working on Python 2, use dict.items() instead of the more efficient
-    dict.iteritems().
+    When working on Python 2, uses dict.items() instead of the more efficient
+    dict.iteritems() (default).
     '''
 
     def __init__(self, option_name=None, short_option='-ui',
@@ -129,11 +138,29 @@ class UseItemsArgument(Argument):
                                                help=help, **kwargs)
 
 
-class UseSetDefaultArgument(Argument):
-    __argument_name__ = 'use_setdefault'
+class UseOrderedDictArgument(Argument):
+    __argument_name__ = 'use_ordered_dict'
+    __common_option__ = True
 
     help_arg = '''\
-    Use dict.setdefault() instead of dict.get() when populating the dictionary.
+    Uses OrderedDict instead of dict (default).
+    '''
+
+    def __init__(self, option_name=None, short_option='-uod',
+                 long_option='--{}'.format(__argument_name__), action='store_true',
+                 help=help_arg, **kwargs):
+        super(UseOrderedDictArgument, self).__init__(option_name, short_option,
+                                                     long_option, action=action,
+                                                     help=help, **kwargs)
+
+
+class UseSetDefaultArgument(Argument):
+    __argument_name__ = 'use_setdefault'
+    __common_option__ = False
+
+    help_arg = '''\
+    Uses dict.setdefault() instead of dict.get() (default) when populating the
+    dictionary.
     '''
 
     def __init__(self, option_name=None, short_option='-usd',
@@ -146,6 +173,7 @@ class UseSetDefaultArgument(Argument):
 
 class VersionArgument(Argument):
     __argument_name__ = 'version'
+    __common_option__ = True
 
     help_arg = '''\
     Version of program.
@@ -153,17 +181,13 @@ class VersionArgument(Argument):
 
     def __init__(self, option_name=None, short_option='-v',
                  long_option='--{}'.format(__argument_name__),  action='version',
-                 version='%(prog)s {}'.format(cfg.version),**kwargs):
+                 version='%(prog)s {}'.format(cfg.version), **kwargs):
         super(VersionArgument, self).__init__(option_name, short_option,
                                               long_option, action=action,
                                               version=version, **kwargs)
 
 
 def get_common_arguments():
+    # TODO: make use of `__common_option__` to know which argument to add to the list
     return [SmallTestArgument(), NumberItemsArgument(), NumberTimesArgument(),
-            PrecisionArgument(), VersionArgument()]
-
-
-def get_options_from_common_args():
-    # TODO: to be implemented
-    raise NotImplementedError()
+            PrecisionArgument(), UseOrderedDictArgument(), VersionArgument()]

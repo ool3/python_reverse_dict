@@ -6,13 +6,15 @@ import time
 class Method (object):
     def __init__(self, non_unique_values=False, **kwargs):
         from reverse_dict.arguments import NumberTimesArgument,\
-            NumberItemsArgument, PrecisionArgument, SmallTestArgument
+            NumberItemsArgument, PrecisionArgument, SmallTestArgument,\
+            UseOrderedDictArgument
         # TODO: add it as an option, -unu, --use_non_uniques
         # self.use_non_uniques = kwargs[UseNonUniquesArgument.__argument_name__]
         self.non_unique_values = non_unique_values
         self.kwargs = kwargs
         # Common options
-        # TODO: call arguments.get_options_from_common_args()
+        # TODO: make use of Argument.`__common_option__` to know what arguments
+        # have options that are common to all methods
         self.number_times = kwargs[NumberTimesArgument.__argument_name__]
         self.number_items = kwargs[NumberItemsArgument.__argument_name__]
         self.small_test = kwargs[SmallTestArgument.__argument_name__]
@@ -20,9 +22,17 @@ class Method (object):
         self.precision = kwargs[PrecisionArgument.__argument_name__]
         # TODO; print dicts at the end
         # self.print_dicts = kwargs[PrintDictsArgument.__argument_name__]
-        # TODO: complete it!
-        self.use_ordered_dict = False
-        # self.use_ordered_dict = kwargs[UseOrderedDictArgument.__argument_name__]
+        self.use_ordered_dict = kwargs[UseOrderedDictArgument.__argument_name__]
+        if self.use_ordered_dict:
+            self.dict_ = OrderedDict
+        else:
+            self.dict_ = dict
+        try:
+            # Python 2 uses xrange
+            self.range_ = xrange
+        except NameError as e:
+            # Python 3 uses range (same as xrange in Python 2)
+            self.range_ = range
         self.run_times = 0
         self.orig_dict = None
         self.inv_dict = None
@@ -32,33 +42,26 @@ class Method (object):
     def init_orig_dict(self):
         #import ipdb
         #ipdb.set_trace()
-        try:
-            range_ = xrange
-        except NameError as e:
-            range_ = range
         if self.non_unique_values:
             # First half
-            k1 = ['k{}'.format(i) for i in range_(1, int(self.number_items / 2) + 1)]
-            v1 = ['v{}'.format(i) for i in range_(1, int(self.number_items / 2) + 1)]
-            dict1 = dict(zip(k1, v1))
+            k1 = ['k{}'.format(i) for i in self.range_(1, int(self.number_items / 2) + 1)]
+            v1 = ['v{}'.format(i) for i in self.range_(1, int(self.number_items / 2) + 1)]
+            dict1 = self.dict_(zip(k1, v1))
             # Second half: different keys but same values as in first half
-            k2 = ['k{}'.format(i) for i in range_(int(self.number_items / 2) + 1, self.number_items + 1)]
-            v2 = ['v{}'.format(i) for i in range_(1, int(self.number_items / 2) + 2)]
-            dict2 = dict(zip(k2, v2))
+            k2 = ['k{}'.format(i) for i in self.range_(int(self.number_items / 2) + 1, self.number_items + 1)]
+            v2 = ['v{}'.format(i) for i in self.range_(1, int(self.number_items / 2) + 2)]
+            dict2 = self.dict_(zip(k2, v2))
             # Merge both halves
             dict1.update(dict2)
             self.orig_dict = dict1
         else:
-            k = ['k{}'.format(i) for i in range_(1, self.number_items + 1)]
-            v = ['v{}'.format(i) for i in range_(1, self.number_items + 1)]
-            self.orig_dict = dict(zip(k, v))
+            k = ['k{}'.format(i) for i in self.range_(1, self.number_items + 1)]
+            v = ['v{}'.format(i) for i in self.range_(1, self.number_items + 1)]
+            self.orig_dict = self.dict_(zip(k, v))
         #ipdb.set_trace()
 
     def init_inv_dict(self):
-        if self.use_ordered_dict:
-            self.inv_dict = OrderedDict({})
-        else:
-            self.inv_dict = {}
+        self.inv_dict = self.dict_()
 
     @staticmethod
     def reset_data(func):
@@ -119,12 +122,12 @@ class Method01Py2(Method):
         self.use_items = self.kwargs[UseItemsArgument.__argument_name__]
 
     def compute_avg_run_time(self):
-        for i in xrange(1, self.number_times + 1):
+        for i in self.range_(1, self.number_times + 1):
             start_time = time.time()
             if self.use_items:
-                self.inv_dict = {v: k for k, v in self.orig_dict.items()}
+                self.inv_dict = self.dict_({v: k for k, v in self.orig_dict.items()})
             else:
-                self.inv_dict = {v: k for k, v in self.orig_dict.iteritems()}
+                self.inv_dict = self.dict_({v: k for k, v in self.orig_dict.iteritems()})
             duration = time.time() - start_time
             self.run_times += duration
             self.print_run_time(i, duration)
@@ -143,9 +146,9 @@ class Method01Py3(Method):
         super().__init__(**kwargs)
 
     def compute_avg_run_time(self):
-        for i in range(1, self.number_times + 1):
+        for i in self.range_(1, self.number_times + 1):
             start_time = time.time()
-            self.inv_dict = {v: k for k, v in self.orig_dict.items()}
+            self.inv_dict = self.dict_({v: k for k, v in self.orig_dict.items()})
             duration = time.time() - start_time
             self.run_times += duration
             self.print_run_time(i, duration)
@@ -168,7 +171,7 @@ class Method02Py2(Method):
         self.use_items = self.kwargs[UseItemsArgument.__argument_name__]
 
     def compute_avg_run_time(self):
-        for i in range(1, self.number_times + 1):
+        for i in self.range_(1, self.number_times + 1):
             start_time = time.time()
             self.inv_dict = {}
             if self.use_items:
@@ -196,9 +199,10 @@ class Method02Py3(Method):
         super().__init__(non_unique_values=True, **kwargs)
 
     def compute_avg_run_time(self):
-        for i in range(1, self.number_times + 1):
+        for i in self.range_(1, self.number_times + 1):
             start_time = time.time()
-            self.inv_dict = {}
+            # Init inversed dict
+            self.inv_dict = self.dict_()
             for k, v in self.orig_dict.items():
                 self.inv_dict[v] = self.inv_dict.get(v, [])
                 self.inv_dict[v].append(k)
@@ -232,7 +236,7 @@ class Method03Py2(Method):
 
     @Method.reset_data
     def compute_avg_run_time(self):
-        for i in range(1, self.number_times + 1):
+        for i in self.range_(1, self.number_times + 1):
             start_time = time.time()
             self.inv_dict = self.reverse_dict(self.orig_dict)
             duration = time.time() - start_time
@@ -258,7 +262,7 @@ class Method03Py3(Method):
 
     @Method.reset_data
     def compute_avg_run_time(self):
-        for i in range(1, self.number_times + 1):
+        for i in self.range_(1, self.number_times + 1):
             self.inv_dict = self.reverse_dict(self.orig_dict)
 
         self.print_avg_run_time()
