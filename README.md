@@ -39,7 +39,7 @@ Computes average running times of different methods of reversing a `dict`'s keys
   Number of items in the dictionary.
 
 * **`-n NUMBER_TIMES`**, **`--number_times NUMBER_TIMES`**  
-  Number of times the dictionary's keys and values will be reversed.
+  Number of times the dictionary's keys and values will be reversed. Each time, the run time of the reversal is computed and at the end of all the tries, the average run time is computed.
 
 * **`-p PRECISION`**, **`--precision PRECISION`**  
   Decimal precision used when displaying number results.
