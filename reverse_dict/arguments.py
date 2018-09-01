@@ -221,6 +221,6 @@ class VersionArgument(Argument):
 
 def get_common_arguments():
     # TODO: make use of `__common_option__` to know which argument to add to the list
-    return [SmallTestArgument(), NumberItemsArgument(), NumberTimesArgument(),
-            PrecisionArgument(), PrintDictsArgument(), UseNonUniquesArgument(),
-            UseOrderedDictArgument(), VersionArgument()]
+    return [NumberItemsArgument(), NumberTimesArgument(), PrecisionArgument(),
+            PrintDictsArgument(), UseNonUniquesArgument(), UseOrderedDictArgument(),
+            VersionArgument()]
