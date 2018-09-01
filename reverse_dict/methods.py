@@ -137,18 +137,18 @@ class Method01Py3(Method):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
+    @Method.reset_data
     def compute_avg_run_time(self):
-        for i in self.range_(1, self.number_times + 1):
-            start_time = time.time()
-            self.inv_dict = self.dict_({v: k for k, v in self.orig_dict.items()})
-            duration = time.time() - start_time
-            self.run_times += duration
-            self.print_run_time(i, duration)
-
+        for _ in self.range_(1, self.number_times + 1):
+            self.inv_dict = self.reverse_dict(self.orig_dict)
         self.print_avg_run_time()
         if self.print_dicts:
             print(self.orig_dict)
             print(self.inv_dict)
+
+    @Method.timer
+    def reverse_dict(self, orig_dict):
+        return self.dict_({v: k for k, v in orig_dict.items()})
 
 
 class Method02Py2(Method):
@@ -261,4 +261,5 @@ class Method03Py3(Method):
 
     @Method.timer
     def reverse_dict(self, orig_dict):
-        return orig_dict.__class__(map(reversed, orig_dict.items()))
+        # NOTE: Equivalent --> orig_dict.__class__ AND self.dict_
+        return self.dict_(map(reversed, orig_dict.items()))
