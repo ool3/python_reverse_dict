@@ -4,24 +4,19 @@ import time
 
 
 class Method (object):
-    def __init__(self, non_unique_values=False, **kwargs):
-        from reverse_dict.arguments import NumberTimesArgument,\
-            NumberItemsArgument, PrecisionArgument, SmallTestArgument,\
-            UseOrderedDictArgument
-        # TODO: add it as an option, -unu, --use_non_uniques
-        # self.use_non_uniques = kwargs[UseNonUniquesArgument.__argument_name__]
-        self.non_unique_values = non_unique_values
-        self.kwargs = kwargs
-        # Common options
+    def __init__(self, **kwargs):
         # TODO: make use of Argument.`__common_option__` to know what arguments
         # have options that are common to all methods
+        from reverse_dict.arguments import NumberTimesArgument,\
+            NumberItemsArgument, PrecisionArgument, PrintDictsArgument,\
+            UseNonUniquesArgument, UseOrderedDictArgument
+        self.kwargs = kwargs
+        # Common options
         self.number_times = kwargs[NumberTimesArgument.__argument_name__]
         self.number_items = kwargs[NumberItemsArgument.__argument_name__]
-        self.small_test = kwargs[SmallTestArgument.__argument_name__]
-        self.small_test = True
         self.precision = kwargs[PrecisionArgument.__argument_name__]
-        # TODO; print dicts at the end
-        # self.print_dicts = kwargs[PrintDictsArgument.__argument_name__]
+        self.use_non_uniques = kwargs[UseNonUniquesArgument.__argument_name__]
+        self.print_dicts = kwargs[PrintDictsArgument.__argument_name__]
         self.use_ordered_dict = kwargs[UseOrderedDictArgument.__argument_name__]
         if self.use_ordered_dict:
             self.dict_ = OrderedDict
@@ -40,9 +35,7 @@ class Method (object):
         self.init_inv_dict()
 
     def init_orig_dict(self):
-        #import ipdb
-        #ipdb.set_trace()
-        if self.non_unique_values:
+        if self.use_non_uniques:
             # First half
             k1 = ['k{}'.format(i) for i in self.range_(1, int(self.number_items / 2) + 1)]
             v1 = ['v{}'.format(i) for i in self.range_(1, int(self.number_items / 2) + 1)]
@@ -58,7 +51,6 @@ class Method (object):
             k = ['k{}'.format(i) for i in self.range_(1, self.number_items + 1)]
             v = ['v{}'.format(i) for i in self.range_(1, self.number_items + 1)]
             self.orig_dict = self.dict_(zip(k, v))
-        #ipdb.set_trace()
 
     def init_inv_dict(self):
         self.inv_dict = self.dict_()
@@ -74,6 +66,7 @@ class Method (object):
             func(self, *args, **kwargs)
         return wrapper_reset_data
 
+    # TODO: implement all abstract methods in subclasses
     def compute_avg_run_time(self):
         raise NotImplementedError()
 
@@ -132,8 +125,9 @@ class Method01Py2(Method):
             self.run_times += duration
             self.print_run_time(i, duration)
 
+        # TODO: should be in a decorator method in the parent class
         self.print_avg_run_time()
-        if self.small_test:
+        if self.print_dicts:
             print(self.orig_dict)
             print(self.inv_dict)
 
@@ -154,7 +148,7 @@ class Method01Py3(Method):
             self.print_run_time(i, duration)
 
         self.print_avg_run_time()
-        if self.small_test:
+        if self.print_dicts:
             print(self.orig_dict)
             print(self.inv_dict)
 
@@ -166,14 +160,14 @@ class Method02Py2(Method):
     def __init__(self, **kwargs):
         # Lazy import
         from reverse_dict.arguments import UseItemsArgument
-        super(Method02Py2, self).__init__(non_unique_values=True, **kwargs)
+        super(Method02Py2, self).__init__(**kwargs)
         # Extra options that are specific to this method
         self.use_items = self.kwargs[UseItemsArgument.__argument_name__]
 
     def compute_avg_run_time(self):
         for i in self.range_(1, self.number_times + 1):
             start_time = time.time()
-            # Init inversed dict
+            # Init inverted dict
             self.inv_dict = self.dict_()
             if self.use_items:
                 items = self.orig_dict.items()
@@ -187,7 +181,7 @@ class Method02Py2(Method):
             self.print_run_time(i, duration)
 
         self.print_avg_run_time()
-        if self.small_test:
+        if self.print_dicts:
             print(self.orig_dict)
             print(self.inv_dict)
 
@@ -197,12 +191,12 @@ class Method02Py3(Method):
     __python_version__ = 'python3'
 
     def __init__(self, **kwargs):
-        super().__init__(non_unique_values=True, **kwargs)
+        super().__init__(**kwargs)
 
     def compute_avg_run_time(self):
         for i in self.range_(1, self.number_times + 1):
             start_time = time.time()
-            # Init inversed dict
+            # Init inverted dict
             self.inv_dict = self.dict_()
             for k, v in self.orig_dict.items():
                 self.inv_dict[v] = self.inv_dict.get(v, [])
@@ -212,7 +206,7 @@ class Method02Py3(Method):
             self.print_run_time(i, duration)
 
         self.print_avg_run_time()
-        if self.small_test:
+        if self.print_dicts:
             print(self.orig_dict)
             print(self.inv_dict)
 
@@ -245,7 +239,7 @@ class Method03Py2(Method):
             self.print_run_time(i, duration)
 
         self.print_avg_run_time()
-        if self.small_test:
+        if self.print_dicts:
             print(self.orig_dict)
             print(self.inv_dict)
 
@@ -263,10 +257,10 @@ class Method03Py3(Method):
 
     @Method.reset_data
     def compute_avg_run_time(self):
-        for i in self.range_(1, self.number_times + 1):
+        for _ in self.range_(1, self.number_times + 1):
             self.inv_dict = self.reverse_dict(self.orig_dict)
 
         self.print_avg_run_time()
-        if self.small_test:
+        if self.print_dicts:
             print(self.orig_dict)
             print(self.inv_dict)

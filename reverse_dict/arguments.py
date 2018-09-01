@@ -104,6 +104,22 @@ class PrecisionArgument(Argument):
                                                 type=type, help=help, **kwargs)
 
 
+class PrintDictsArgument(Argument):
+    __argument_name__ = 'print_dicts'
+    __common_option__ = True
+
+    help_arg = '''\
+    Prints the original and reversed dictionaries at the end.
+    '''
+
+    def __init__(self, option_name=None, short_option='-pd',
+                 long_option='--{}'.format(__argument_name__), action='store_true',
+                 help=help_arg, **kwargs):
+        super(PrintDictsArgument, self).__init__(option_name, short_option,
+                                                 long_option, action=action,
+                                                  help=help, **kwargs)
+
+
 class SmallTestArgument(Argument):
     __argument_name__ = 'small_test'
     __common_option__ = True
@@ -136,6 +152,22 @@ class UseItemsArgument(Argument):
         super(UseItemsArgument, self).__init__(option_name, short_option,
                                                long_option, action=action,
                                                help=help, **kwargs)
+
+
+class UseNonUniquesArgument(Argument):
+    __argument_name__ = 'use_non_uniques'
+    __common_option__ = True
+
+    help_arg = '''\
+    Initializes the original dictionary with non-unique values.
+    '''
+
+    def __init__(self, option_name=None, short_option='-unu',
+                 long_option='--{}'.format(__argument_name__), action='store_true',
+                 help=help_arg, **kwargs):
+        super(UseNonUniquesArgument, self).__init__(option_name, short_option,
+                                                    long_option, action=action,
+                                                    help=help, **kwargs)
 
 
 class UseOrderedDictArgument(Argument):
@@ -190,4 +222,5 @@ class VersionArgument(Argument):
 def get_common_arguments():
     # TODO: make use of `__common_option__` to know which argument to add to the list
     return [SmallTestArgument(), NumberItemsArgument(), NumberTimesArgument(),
-            PrecisionArgument(), UseOrderedDictArgument(), VersionArgument()]
+            PrecisionArgument(), PrintDictsArgument(), UseNonUniquesArgument(),
+            UseOrderedDictArgument(), VersionArgument()]
