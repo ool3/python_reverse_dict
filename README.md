@@ -34,10 +34,10 @@ Computes average run times of different methods of reversing a dictionary's keys
 * **`-usd`**, **`--use_setdefault`**  
   Uses `dict.setdefault()` instead of `dict.get()` when populating the dictionary.
 
-* **`-i NUMBER_ITEMS`**, **`--number_items NUMBER_ITEMS`**  
+* **`-ni NUMBER_ITEMS`**, **`--number_items NUMBER_ITEMS`**  
   Number of items in the dictionary.
 
-* **`-n NUMBER_TIMES`**, **`--number_times NUMBER_TIMES`**  
+* **`-nt NUMBER_TIMES`**, **`--number_times NUMBER_TIMES`**  
   Number of times the dictionary's keys and values will be reversed. Each time, the run time of the reversal is computed and at the end of all the tries, the average run time is computed.
 
 * **`-p PRECISION`**, **`--precision PRECISION`**  
