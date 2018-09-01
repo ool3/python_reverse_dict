@@ -3,6 +3,7 @@ import functools
 import time
 
 
+# Abstract class for all methods (Python 2 & 3)
 class Method (object):
     def __init__(self, **kwargs):
         # TODO: make use of Argument.`__common_option__` to know what arguments
@@ -55,9 +56,12 @@ class Method (object):
     def init_inv_dict(self):
         self.inv_dict = self.dict_()
 
-    # TODO: implement all abstract methods in subclasses
     def compute_avg_run_time(self):
         raise NotImplementedError()
+
+    @staticmethod
+    def get_items(dict_):
+        return dict_.items()
 
     def get_unused_kwargs(self):
         all_keys = set(self.__dict__.keys())
@@ -72,12 +76,14 @@ class Method (object):
         print('Avg run time: {:.{}f} seconds'.format(
             (self.run_times / self.number_times),
             self.precision))
+        if self.print_dicts:
+            print(self.orig_dict)
+            print(self.inv_dict)
 
     @staticmethod
     def reset_data(func):
         @functools.wraps(func)
         def wrapper_reset_data(self, *args, **kwargs):
-            # TODO: to be used and tested
             self.run_times = 0
             func(self, *args, **kwargs)
         return wrapper_reset_data
@@ -101,33 +107,61 @@ class Method (object):
         return wrapper_timer
 
 
-class Method01Py2(Method):
+# Abstract class only for Python2-based Methods
+class MethodPy2(Method):
+    def __init__(self, **kwargs):
+        super(MethodPy2, self).__init__(**kwargs)
+        # Lazy import
+        from reverse_dict.arguments import UseItemsArgument
+        # Extra options that are specific to Python2-based methods
+        self.use_items = self.kwargs[UseItemsArgument.__argument_name__]
+
+    def compute_avg_run_time(self):
+        raise NotImplementedError()
+
+    def get_items(self, dict_):
+        if self.use_items:
+            return dict_.items()
+        else:
+            return dict_.iteritems()
+
+    def reverse_dict(self, dict_):
+        raise NotImplementedError()
+
+    # No perf_counter() in Python2
+    @staticmethod
+    def timer(func):
+        @functools.wraps(func)
+        def wrapper_timer(self, *args, **kwargs):
+            wrapper_timer.num_calls += 1
+            start_time = time.time()
+            retval = func(self, *args, **kwargs)
+            end_time = time.time()
+            run_time = end_time - start_time
+            self.run_times += run_time
+            self.print_run_time(wrapper_timer.num_calls, run_time)
+            return retval
+
+        wrapper_timer.num_calls = 0
+        return wrapper_timer
+
+
+class Method01Py2(MethodPy2):
     __method_name__ = 'method_01_py2'
     __python_version__ = 'python2'
 
     def __init__(self, **kwargs):
-        # Lazy import
-        from reverse_dict.arguments import UseItemsArgument
         super(Method01Py2, self).__init__(**kwargs)
-        # Extra options that are specific to this method
-        self.use_items = self.kwargs[UseItemsArgument.__argument_name__]
 
+    @Method.reset_data
     def compute_avg_run_time(self):
-        for i in self.range_(1, self.number_times + 1):
-            start_time = time.time()
-            if self.use_items:
-                self.inv_dict = self.dict_({v: k for k, v in self.orig_dict.items()})
-            else:
-                self.inv_dict = self.dict_({v: k for k, v in self.orig_dict.iteritems()})
-            duration = time.time() - start_time
-            self.run_times += duration
-            self.print_run_time(i, duration)
-
-        # TODO: should be in a decorator method in the parent class
+        for _ in self.range_(1, self.number_times + 1):
+            self.inv_dict = self.reverse_dict(self.orig_dict)
         self.print_avg_run_time()
-        if self.print_dicts:
-            print(self.orig_dict)
-            print(self.inv_dict)
+
+    @MethodPy2.timer
+    def reverse_dict(self, orig_dict):
+        return self.dict_({v: k for k, v in self.get_items(orig_dict)})
 
 
 class Method01Py3(Method):
@@ -142,46 +176,33 @@ class Method01Py3(Method):
         for _ in self.range_(1, self.number_times + 1):
             self.inv_dict = self.reverse_dict(self.orig_dict)
         self.print_avg_run_time()
-        if self.print_dicts:
-            print(self.orig_dict)
-            print(self.inv_dict)
 
     @Method.timer
     def reverse_dict(self, orig_dict):
         return self.dict_({v: k for k, v in orig_dict.items()})
 
 
-class Method02Py2(Method):
+class Method02Py2(MethodPy2):
     __method_name__ = 'method_02_py2'
     __python_version__ = 'python2'
 
     def __init__(self, **kwargs):
-        # Lazy import
-        from reverse_dict.arguments import UseItemsArgument
         super(Method02Py2, self).__init__(**kwargs)
-        # Extra options that are specific to this method
-        self.use_items = self.kwargs[UseItemsArgument.__argument_name__]
 
+    @Method.reset_data
     def compute_avg_run_time(self):
         for i in self.range_(1, self.number_times + 1):
-            start_time = time.time()
             # Init inverted dict
-            self.inv_dict = self.dict_()
-            if self.use_items:
-                items = self.orig_dict.items()
-            else:
-                items = self.orig_dict.iteritems()
-            for k, v in items:
-                self.inv_dict[v] = self.inv_dict.get(v, [])
-                self.inv_dict[v].append(k)
-            duration = time.time() - start_time
-            self.run_times += duration
-            self.print_run_time(i, duration)
-
+            self.inv_dict = self.reverse_dict(self.orig_dict)
         self.print_avg_run_time()
-        if self.print_dicts:
-            print(self.orig_dict)
-            print(self.inv_dict)
+
+    @MethodPy2.timer
+    def reverse_dict(self, orig_dict):
+        inv_dict = self.dict_()
+        for k, v in self.get_items(orig_dict):
+            inv_dict[v] = inv_dict.get(v, [])
+            inv_dict[v].append(k)
+        return inv_dict
 
 
 class Method02Py3(Method):
@@ -196,9 +217,6 @@ class Method02Py3(Method):
         for _ in self.range_(1, self.number_times + 1):
             self.inv_dict = self.reverse_dict(self.orig_dict)
         self.print_avg_run_time()
-        if self.print_dicts:
-            print(self.orig_dict)
-            print(self.inv_dict)
 
     @Method.timer
     def reverse_dict(self, orig_dict):
@@ -210,37 +228,23 @@ class Method02Py3(Method):
         return inv_dict
 
 
-class Method03Py2(Method):
+class Method03Py2(MethodPy2):
     __method_name__ = 'method_03_py2'
     __python_version__ = 'python2'
 
     def __init__(self, **kwargs):
-        # Lazy import
-        from reverse_dict.arguments import UseItemsArgument
         super(Method03Py2, self).__init__(**kwargs)
-        # Extra options that are specific to this method
-        self.use_items = self.kwargs[UseItemsArgument.__argument_name__]
-
-    def reverse_dict(self, dict_):
-        if self.use_items:
-            items = self.orig_dict.items()
-        else:
-            items = self.orig_dict.iteritems()
-        return dict_.__class__(map(reversed, items))
 
     @Method.reset_data
     def compute_avg_run_time(self):
-        for i in self.range_(1, self.number_times + 1):
-            start_time = time.time()
+        for _ in self.range_(1, self.number_times + 1):
             self.inv_dict = self.reverse_dict(self.orig_dict)
-            duration = time.time() - start_time
-            self.run_times += duration
-            self.print_run_time(i, duration)
-
         self.print_avg_run_time()
-        if self.print_dicts:
-            print(self.orig_dict)
-            print(self.inv_dict)
+
+    @MethodPy2.timer
+    def reverse_dict(self, orig_dict):
+        # NOTE: Equivalent --> orig_dict.__class__ AND self.dict_
+        return self.dict_(map(reversed, self.get_items(orig_dict)))
 
 
 class Method03Py3(Method):
@@ -255,9 +259,6 @@ class Method03Py3(Method):
         for _ in self.range_(1, self.number_times + 1):
             self.inv_dict = self.reverse_dict(self.orig_dict)
         self.print_avg_run_time()
-        if self.print_dicts:
-            print(self.orig_dict)
-            print(self.inv_dict)
 
     @Method.timer
     def reverse_dict(self, orig_dict):
