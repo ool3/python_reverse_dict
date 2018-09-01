@@ -22,7 +22,7 @@ def run_method(args=None):
         script_description = '''
         %(prog)s v{}
     
-        %(prog)s works on Python 3 by reversing a dict's keys and values using a dict comprehension,
+        %(prog)s works with Python 3 by reversing a dict's keys and values using a dict comprehension,
         and assumes that the dict contains UNIQUE values.
     
         Github project @ {}

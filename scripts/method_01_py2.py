@@ -17,10 +17,12 @@ python_version = Method01Py2.__python_version__
 def run_method(args=None):
     unknown = None
     if args is None:
+        # TODO: use Argument.{short_option, long_option} instead of `-ui` and `--use_items`
+        # in the script description
         script_description = '''
         %(prog)s v{}
     
-        %(prog)s works on Python 2 by reversing a dict's keys and values using a dict
+        %(prog)s works with Python 2 by reversing a dict's keys and values using a dict
         comprehension, and assumes that the dict contains UNIQUE values. Also, by
         default dict.iteritems() is used when populating the reversed dict. Use the
         option -ui, --use_items to instead use dict.items() which is less efficient.

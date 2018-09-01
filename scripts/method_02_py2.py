@@ -22,7 +22,7 @@ def run_method(args=None):
         script_description = '''
         %(prog)s v{}
 
-        %(prog)s works on Python 2 by reversing a dict's keys and values. It
+        %(prog)s works with Python 2 by reversing a dict's keys and values. It
         saves all the keys associated with the same values in a list. It makes
         use of dict.get() and dict.iteritems() by default when populating the
         reversed dict, and assumes that the dict contains NON-UNIQUE values.
