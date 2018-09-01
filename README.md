@@ -9,7 +9,7 @@ Computes average run times of different methods of reversing a dictionary's keys
 ## Usage
 `compute_run_time.py [-h] [--version] [OPTIONS]`
 
-## Options
+### Options
 * **`-h`**, **`--help`**  
   show the help message and exit
 
