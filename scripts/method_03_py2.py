@@ -9,15 +9,14 @@ sys.path.insert(0, os.path.expanduser("~/PycharmProjects/github_projects/python_
 from reverse_dict.argparser_builder import ArgParserBuilder
 from reverse_dict.arguments import UseItemsArgument, get_common_arguments
 from reverse_dict.config import cfg
-from reverse_dict.methods import Method03Py3
+from reverse_dict.methods import Method03Py2
 
 
-method_name = Method03Py3.__method_name__
-python_version = Method03Py3.__python_version__
+method_name = Method03Py2.__method_name__
+python_version = Method03Py2.__python_version__
 
 
 def run_method(args=None):
-    ipdb.set_trace()
     unknown = None
     if args is None:
         script_description = '''
@@ -29,7 +28,7 @@ def run_method(args=None):
         and assumes that the dict contains NON-UNIQUE values.
 
         Github project @ {}
-        '''.format(cfg.version, Method03Py3.__method_name__, cfg.github_url)
+        '''.format(cfg.version, Method03Py2.__method_name__, cfg.github_url)
         list_arguments = [UseItemsArgument()]
         list_arguments.extend(get_common_arguments())
         parser_builder = ArgParserBuilder(script_description=script_description,
@@ -37,7 +36,7 @@ def run_method(args=None):
         parser = parser_builder.get_parser()
         args, unknown = parser.parse_known_args()
         args = args.__dict__
-    method_03 = Method03Py3(**args)
+    method_03 = Method03Py2(**args)
     print('Args: {}'.format(args))
     if unknown is None:
         print('Unused args: {}'.format(method_03.get_unused_kwargs()))
