@@ -84,8 +84,9 @@ class Method (object):
         print('#{} Run time: {:.{}f}'.format(n, duration, self.precision))
 
     def print_avg_run_time(self):
-        print('Avg: {:.{}f} seconds'.format((self.run_times / self.number_times),
-                                            self.precision))
+        print('Avg run time: {:.{}f} seconds'.format(
+            (self.run_times / self.number_times),
+            self.precision))
 
     @staticmethod
     def timer(func):
