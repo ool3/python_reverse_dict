@@ -4,6 +4,8 @@ Computes average run times of different methods of reversing a dictionary's keys
 * **method 2**: the dictitionary doesn't contain unique values and saves all the keys with the same values in a list
 * **method 3**: makes use of `map(reversed,)`, useful when the type and order of the original dictionary must be preserved (e.g. `OrderedDict`)
 
+## Installation
+
 ## Usage
 `compute_run_time.py [-h] [--version] [OPTIONS]`
 
@@ -44,4 +46,6 @@ Computes average run times of different methods of reversing a dictionary's keys
 * **`-p PRECISION`**, **`--precision PRECISION`**  
   Decimal precision used when displaying number results.
 
-## Examples
+## Examples of usage
+
+## Results
