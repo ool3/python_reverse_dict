@@ -60,7 +60,7 @@ class NumberItemsArgument(Argument):
     Number of items in the dictionary.
     '''
 
-    def __init__(self, option_name=None, short_option='-i',
+    def __init__(self, option_name=None, short_option='-ni',
                  long_option='--{}'.format(__argument_name__), default=10000,
                  type=int, help=help_arg, **kwargs):
         super(NumberItemsArgument, self).__init__(option_name, short_option,
@@ -74,7 +74,7 @@ class NumberTimesArgument(Argument):
     Number of times the dictionary's keys and values will be reversed.
     '''
 
-    def __init__(self, option_name=None, short_option='-n',
+    def __init__(self, option_name=None, short_option='-nt',
                  long_option='--{}'.format(__argument_name__), default=10, type=int,
                  help=help_arg, **kwargs):
         super(NumberTimesArgument, self).__init__(option_name, short_option,
