@@ -35,7 +35,7 @@ Computes average run times of different methods of reversing a dictionary's keys
   Uses `dict.setdefault()` instead of `dict.get()` when populating the dictionary.
 
 * **`-s`**, **`--small_test`**            
-  Uses a small dictionary with few items which the keys and values will be reversed.
+  Uses a small dictionary with 10 items which the keys and values will be reversed.
 
 * **`-i NUMBER_ITEMS`**, **`--number_items NUMBER_ITEMS`**  
   Number of items in the dictionary.
