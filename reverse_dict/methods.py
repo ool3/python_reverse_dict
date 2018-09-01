@@ -173,7 +173,8 @@ class Method02Py2(Method):
     def compute_avg_run_time(self):
         for i in self.range_(1, self.number_times + 1):
             start_time = time.time()
-            self.inv_dict = {}
+            # Init inversed dict
+            self.inv_dict = self.dict_()
             if self.use_items:
                 items = self.orig_dict.items()
             else:
