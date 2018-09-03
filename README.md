@@ -6,9 +6,10 @@ Computes average run times of different methods of reversing a dictionary's keys
 
 ## Directories and files description
 * [`compute_avg_run_time.py.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py): it is the **main** script that computes the average run time of a reverse-dict method. It is run by providing it the right [options](#options) through the command-line. It can be called with Python 2 or 3.   
-* [`run_python2_script.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python2_script.py): calls the right **Python 2** dict-reversing method that is defined in [`./scripts`](https://github.com/raul23/python_reverse_dict/tree/master/scripts)  
-* [`run_python3_script.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python3_script.py): calls the right **Python 3** dict-reversing method that is defined in [`./scripts`](https://github.com/raul23/python_reverse_dict/tree/master/scripts)  
-
+* [`run_python2_script.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python2_script.py): calls the right **Python 2** dict-reversing method that is defined in [`scripts/`](https://github.com/raul23/python_reverse_dict/tree/master/scripts)  
+* [`run_python3_script.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python3_script.py): calls the right **Python 3** dict-reversing method that is defined in [`scripts/`](https://github.com/raul23/python_reverse_dict/tree/master/scripts)  
+* [reserve_dict/](https://github.com/raul23/python_reverse_dict/tree/master/reverse_dict):  
+* [scripts/](https://github.com/raul23/python_reverse_dict/tree/master/scripts):
 
 ## Installation
 To use the **main** Python script [`compute_avg_run_time.py.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py):
