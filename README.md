@@ -1,8 +1,6 @@
 # python_reverse_dict
-## Contents
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Contents](#contents)
 - [Introduction](#introduction)
 - [Directories and files description](#directories-and-files-description)
 - [Installation](#installation)
