@@ -157,6 +157,8 @@ option `-uod`), then the initial order of insertion would been maintained in the
 inverse dictionary.
 * `-p 8` will display the results with 8 decimals.
 
+<div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
+
 #### Example 2: method 2
 Try 1000 times the [method 2](#method02) with Python 3 on 9 items using
 `dict.setdefault()`:  
@@ -189,6 +191,8 @@ Inverse dictionary:
 * In my work environment, `python` points to `Python 3.6.5`
 * [Method 2](#method02) works also with non-unique values (`-unu`) with keys
 having the same values being added to a list.
+
+<div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 #### Example 3: method 3
 Try 100 times the [method 3](#method03) with Python 3 on 10 items using
