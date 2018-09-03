@@ -13,7 +13,7 @@
 ## Introduction
 Computes average run times of different methods of reversing a dictionary's keys and values in **Python 2.7 &amp; 3**:
 * **method 1**: makes use of dictionary comprehension, and the dictionary must contain unique values
-* **method 2**: the dictitionary doesn't contain unique values and saves all the keys with the same values in a list
+* **method 2**: the dictionary doesn't contain unique values and saves all the keys with the same values in a list
 * **method 3**: makes use of `map(reversed,)`, useful when the type and order of the original dictionary must be preserved (e.g. `OrderedDict`)
 
 ## Directories and files description
