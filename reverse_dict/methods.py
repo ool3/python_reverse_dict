@@ -168,7 +168,13 @@ class Method01Py2(MethodPy2):
 
     @MethodPy2.timer
     def reverse_dict(self, orig_dict):
-        return self.dict_({v: k for k, v in self.get_items(orig_dict)})
+        # Dict comprehension template for Python 2.7+:
+        # {key:value for (key,value) in dictionary.items()}
+        # Dict comprehension template in Python2.6:
+        # dict((key, value) for (key, value) in dictionary.items())
+        # ref.: https://bit.ly/2Ce9xjm and https://stackoverflow.com/a/14507623
+        # return self.dict_({v: k for k, v in self.get_items(orig_dict)})
+        return self.dict_([(v, k) for k, v in self.get_items(orig_dict)])
 
 
 class Method01Py3(Method):
@@ -190,7 +196,8 @@ class Method01Py3(Method):
 
     @Method.timer
     def reverse_dict(self, orig_dict):
-        return self.dict_({v: k for k, v in orig_dict.items()})
+        # return self.dict_({v: k for k, v in orig_dict.items()})
+        return self.dict_([(v, k) for k, v in orig_dict.items()])
 
 
 class Method02Py2(MethodPy2):
@@ -208,7 +215,7 @@ class Method02Py2(MethodPy2):
 
     @Method.reset_data
     def compute_avg_run_time(self):
-        for i in self.range_(1, self.number_times + 1):
+        for _ in self.range_(1, self.number_times + 1):
             # Init inverted dict
             self.inv_dict = self.reverse_dict(self.orig_dict)
         self.print_avg_run_time()

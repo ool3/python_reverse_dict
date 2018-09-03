@@ -115,8 +115,9 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
 ### Examples of usage
 
 #### Example 1: method 1
-Try [method 1](#method01) with **Python 2** on 10 items using `dict.items()`:  
-`$ python3 compute_avg_run_time.py -m method_01_py2 -ni 10 -nt 5 -p 8 -ui -pd`
+Try 1000 times the [method 1](#method01) with **Python 2** on 10 items using
+`dict.items()`:  
+`$ python3 compute_avg_run_time.py -m method_01_py2 -ni 10 -nt 100 -p 8 -ui -pd`
 
 **Output**:
 ```commandline
@@ -126,7 +127,14 @@ Method name: method_01_py2
 #3 Run time: 0.00000501
 #4 Run time: 0.00000405
 #5 Run time: 0.00000381
-Avg run time: 0.00000458 seconds
+[...]
+#995 Run time: 0.00000501
+#996 Run time: 0.00000501
+#997 Run time: 0.00000405
+#998 Run time: 0.00000501
+#999 Run time: 0.00000501
+#1000 Run time: 0.00000501
+Avg run time: 0.00000514 seconds
 
 Original dict:
 {'k10': 'v10', 'k3': 'v3', 'k2': 'v2', 'k1': 'v1', 'k7': 'v7', 'k6': 'v6', 'k5': 'v5', 'k4': 'v4', 'k9': 'v9', 'k8': 'v8'}
@@ -143,30 +151,36 @@ previously, `compute_avg_run_time.py`, which can be run with `python2` or
 `method_01_py2` method.
 * From the content of the reversed dictionary, we see that the order of
 insertion was not fully respected (`{'v10': 'k10'}` is at the beginning) as can
-be expected since `method_01_py2` is a Python2-based method.
-* `-p 8` will display the results with 8 decimals
+be expected since `method_01_py2` is a Python2-based method that was using a
+`dict` as the data structure. If an `OrderedDict` would have been used (with the
+option `-uod`), then the initial order of insertion would been maintained in the
+inverse dictionary.
+* `-p 8` will display the results with 8 decimals.
 
 #### Example 2: method 2
 Try [method 2](#method02) with Python 3 on 9 items using `dict.setdefault()`:  
-`$ python compute_avg_run_time.py -m method_02_py3 -ni 9 -nt 5 -p 8 -usd -pd`
+`$ python compute_avg_run_time.py -m method_02_py3 -ni 9 -nt 5 -p 8 -usd -pd -unu`
 
 **Output**:
 ```commandline
 Method name: method_02_py3
-#1 Run time: 0.00000779
-#2 Run time: 0.00000531
-#3 Run time: 0.00000480
-#4 Run time: 0.00000448
-#5 Run time: 0.00000454
-Avg run time: 0.00000538 seconds
+#1 Run time: 0.00000890
+#2 Run time: 0.00000545
+#3 Run time: 0.00000500
+#4 Run time: 0.00000476
+#5 Run time: 0.00000467
+Avg run time: 0.00000576 seconds
 
 Original dict:
-{'k1': 'v1', 'k2': 'v2', 'k3': 'v3', 'k4': 'v4', 'k5': 'v5', 'k6': 'v6', 'k7': 'v7', 'k8': 'v8', 'k9': 'v9'}
+{'k1': 'v1', 'k2': 'v2', 'k3': 'v3', 'k4': 'v4', 'k5': 'v1', 'k6': 'v2', 'k7': 'v3', 'k8': 'v4', 'k9': 'v5'}
 Inverse dictionary:
-{'v1': ['k1'], 'v2': ['k2'], 'v3': ['k3'], 'v4': ['k4'], 'v5': ['k5'], 'v6': ['k6'], 'v7': ['k7'], 'v8': ['k8'], 'v9': ['k9']}
+{'v1': ['k1', 'k5'], 'v2': ['k2', 'k6'], 'v3': ['k3', 'k7'], 'v4': ['k4', 'k8'], 'v5': ['k9']}
 ```
 
-**Note**: In my work environment, `python` points to `Python 3.6.5`
+**Note**:
+* In my work environment, `python` points to `Python 3.6.5`
+* [Method 2](#method02) works also with non-unique values (`-unu`) with keys
+having the same values being added to a list.
 
 #### Example 3: method 3
 Try [method 3](#method03) with Python 3 on 10 items using `OrderedDict`:  
@@ -187,6 +201,14 @@ OrderedDict([('k1', 'v1'), ('k2', 'v2'), ('k3', 'v3'), ('k4', 'v4'), ('k5', 'v5'
 Inverse dictionary:
 OrderedDict([('v1', 'k1'), ('v2', 'k2'), ('v3', 'k3'), ('v4', 'k4'), ('v5', 'k5'), ('v6', 'k6'), ('v7', 'k7'), ('v8', 'k8'), ('v9', 'k9'), ('v10', 'k10')])
 ```
+
+**Note**:
+* An `OrderedDict()` is used instead but if a simple `dict` would have been used,
+the inverse dictionary would have respected the original insertion order also
+since starting from Python 3.6, the insertion order is an implementation detail
+(though **not a guarantee** in Python 3.6). However,
+[as of Python 3.7](https://stackoverflow.com/a/39980744), you can be guaranteed
+that insertion order is supported for `dict`.
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
