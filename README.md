@@ -8,7 +8,7 @@ Computes average run times of different methods of reversing a dictionary's keys
 To use the **main** Python script [compute_avg_run_time.py.py](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py):
 
 * Clone the repository and extract it
-* You can now run the main script `compute_avg_run_time.py`. Go to the section Script usage for more details on script usage.
+* You can now run the main script `compute_avg_run_time.py`. Go to the section [Usage](#usage) for more details.
 
 ## Usage
 `compute_run_time.py [-h] [--version] [OPTIONS]`
