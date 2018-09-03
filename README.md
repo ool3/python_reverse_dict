@@ -91,7 +91,7 @@ Try [method 1](#method01) with Python 2 on 10k items:
 Try [method 2](#method02) with Python 3 on 100k items using `dict.items()`:
 
 #### Example 3: method 3
-Try [method 2](#method02) with Python 3 on 1M items using `OrderedDict`:
+Try [method 3](#method03) with Python 3 on 1M items using `OrderedDict`:
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
