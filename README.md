@@ -4,6 +4,12 @@ Computes average run times of different methods of reversing a dictionary's keys
 * **method 2**: the dictitionary doesn't contain unique values and saves all the keys with the same values in a list
 * **method 3**: makes use of `map(reversed,)`, useful when the type and order of the original dictionary must be preserved (e.g. `OrderedDict`)
 
+## Directories and files description
+[compute_avg_run_time.py.py](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py): it is the **main** script that is run by giving it the right [options](#options) through the command-line
+[run_python2_script.py]: calls the right Python2 dict-reversing method that is defined in [./scripts]()
+[run_python3_script.py]: calls the right Python3 dict-reversing method that is defined in [./scripts]()
+
+
 ## Installation
 To use the **main** Python script [compute_avg_run_time.py.py](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py):
 
