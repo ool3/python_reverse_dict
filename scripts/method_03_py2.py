@@ -1,9 +1,9 @@
 #!/usr/bin/env python2
-import os
-import sys
+# import os
+# import sys
 
 # TODO: add this into env variable
-sys.path.insert(0, os.path.expanduser("~/PycharmProjects/github_projects/python_reverse_dict"))
+# sys.path.insert(0, os.path.expanduser("~/PycharmProjects/github_projects/python_reverse_dict"))
 from reverse_dict.argparser_builder import ArgParserBuilder
 from reverse_dict.arguments import UseItemsArgument, get_common_arguments
 from reverse_dict.config import cfg
