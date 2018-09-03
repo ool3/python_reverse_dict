@@ -13,8 +13,6 @@ import shlex
 import subprocess
 import tempfile
 
-# import ipdb
-
 from reverse_dict.argparser_builder import ArgParserBuilder
 from reverse_dict.arguments import get_common_arguments, MethodNameArgument, \
     UseItemsArgument, UseSetDefaultArgument

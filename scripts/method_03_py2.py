@@ -2,8 +2,6 @@
 import os
 import sys
 
-# import ipdb
-
 # TODO: add this into env variable
 sys.path.insert(0, os.path.expanduser("~/PycharmProjects/github_projects/python_reverse_dict"))
 from reverse_dict.argparser_builder import ArgParserBuilder
