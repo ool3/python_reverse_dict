@@ -5,13 +5,13 @@ Computes average run times of different methods of reversing a dictionary's keys
 * **method 3**: makes use of `map(reversed,)`, useful when the type and order of the original dictionary must be preserved (e.g. `OrderedDict`)
 
 ## Directories and files description
-[compute_avg_run_time.py.py](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py): it is the **main** script that is run by giving it the right [options](#options) through the command-line
-[run_python2_script.py]: calls the right Python2 dict-reversing method that is defined in [./scripts]()
-[run_python3_script.py]: calls the right Python3 dict-reversing method that is defined in [./scripts]()
+[`compute_avg_run_time.py.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py): it is the **main** script that is run by giving it the right [options](#options) through the command-line. It can be called with Python 2 or 3.   
+[`run_python2_script.py`]: calls the right **Python 2** dict-reversing method that is defined in [`./scripts`]()  
+[`run_python3_script.py`]: calls the right **Python 3** dict-reversing method that is defined in [`./scripts`]()  
 
 
 ## Installation
-To use the **main** Python script [compute_avg_run_time.py.py](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py):
+To use the **main** Python script [`compute_avg_run_time.py.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py):
 
 * Clone the repository and extract it
 * You can now run the main script `compute_avg_run_time.py`. Go to the section [Usage](#usage) for more details on the script [options](#options) and [examples of usage](#examples-of-usage).
