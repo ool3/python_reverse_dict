@@ -40,9 +40,6 @@ if __name__ == '__main__':
     parser = parser_builder.get_parser()
     args = parser.parse_args()
 
-    import ipdb
-    ipdb.set_trace()
-
     # Use dict.iteritems() if Python2, else use dict.items()
     args_items = args.__dict__.iteritems() if python2 else args.__dict__.items()
 
@@ -54,7 +51,7 @@ if __name__ == '__main__':
         else:
             options += '--{}={} '.format(k, v)
     options = options.strip()
-    ipdb.set_trace()
+
     # Run shell command
     method_class_name = cfg.methods[args.method_name]
     method_class = methods.__getattribute__(method_class_name)
