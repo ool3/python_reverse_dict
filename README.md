@@ -7,18 +7,18 @@
 - [Usage](#usage)
 	- [Options](#options)
 	- [Examples of usage](#examples-of-usage)
-		- [Example 1:](#example-1)
-		- [Example 2:](#example-2)
-		- [Example 3:](#example-3)
+		- [Example 1: method 1](#example-1-method-1)
+		- [Example 2: method 2](#example-2-method-2)
+		- [Example 3: method 3](#example-3-method-3)
 - [Results](#results)
 - [License](#license)
 
 <!-- /TOC -->
 ## Introduction
 Computes average run times of different methods of reversing a dictionary's keys and values in **Python 2.7 &amp; 3**:
-* **method 1**: makes use of dictionary comprehension, and the dictionary must contain unique values
-* **method 2**: the dictionary doesn't contain unique values and saves all the keys with the same values in a list
-* **method 3**: makes use of `map(reversed,)`, useful when the type and order of the original dictionary must be preserved (e.g. `OrderedDict`)
+* **method 1**<a id="method01"></a>: makes use of dictionary comprehension, and the dictionary must contain unique values
+* **method 2**<a id="method02"></a>: the dictionary doesn't contain unique values and saves all the keys with the same values in a list
+* **method 3**<a id="method03"></a>: makes use of `map(reversed,)`, useful when the type and order of the original dictionary must be preserved (e.g. `OrderedDict`)
 
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
@@ -83,13 +83,15 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
 
 ### Examples of usage
 
-#### Example 1:
+#### Example 1: method 1
+Try [method 1](#method01) with Python 2 on 10k items:
 
 
-#### Example 2:
+#### Example 2: method 2
+Try [method 2](#method02) with Python 3 on 100k items using `dict.items()`:
 
-
-#### Example 3:
+#### Example 3: method 3
+Try [method 2](#method02) with Python 3 on 1M items using `OrderedDict`:
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
