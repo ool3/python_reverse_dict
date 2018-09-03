@@ -7,9 +7,9 @@ Computes average run times of different methods of reversing a dictionary's keys
 ## Installation
 Add the `python_reverse_dict` directory to your `PYTHONPATH` environment variable:
 * macOS:
-```commandline
-export PYTHONPATH=/path/to/dir:$PYTHONPATH
-```
+ ```commandline
+ export PYTHONPATH=/path/to/dir:$PYTHONPATH
+ ```
 
 * Windows
 ```commandline
