@@ -7,7 +7,11 @@
 - [Usage](#usage)
 	- [Options](#options)
 	- [Examples of usage](#examples-of-usage)
+		- [Example 1:](#example-1)
+	- [Example 2:](#example-2)
+	- [Example 3:](#example-3)
 - [Results](#results)
+- [License](#license)
 
 <!-- /TOC -->
 ## Introduction
@@ -79,6 +83,22 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
 
 ### Examples of usage
 
+#### Example 1:
+
+
+### Example 2:
+
+
+### Example 3:
+
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## Results
+
+<div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
+
+## License
+
+The code is licensed under the MIT license. See the [license](https://github.com/raul23/python_reverse_dict/blob/master/LICENSE) for more details.
+
+<div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
