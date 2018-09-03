@@ -149,6 +149,12 @@ class MethodPy2(Method):
 class Method01Py2(MethodPy2):
     __method_name__ = 'method_01_py2'
     __python_version__ = 'python2'
+    __method_description__ = '''
+    %(prog)s works with Python 2 by reversing a dict's keys and values using a 
+    dict comprehension, and assumes that the dict contains UNIQUE values. Also, by 
+    default dict.iteritems() is used when populating the reversed dict. Use the option 
+    -ui, --use_items to instead use dict.items() which is less efficient.
+    '''
 
     def __init__(self, **kwargs):
         super(Method01Py2, self).__init__(**kwargs)
@@ -167,6 +173,10 @@ class Method01Py2(MethodPy2):
 class Method01Py3(Method):
     __method_name__ = 'method_01_py3'
     __python_version__ = 'python3'
+    __method_description__ = '''
+    %(prog)s works with Python 3 by reversing a dict's keys and values using a dict 
+    comprehension, and assumes that the dict contains UNIQUE values.
+    '''
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -185,6 +195,12 @@ class Method01Py3(Method):
 class Method02Py2(MethodPy2):
     __method_name__ = 'method_02_py2'
     __python_version__ = 'python2'
+    __method_description__ = '''
+    %(prog)s works with Python 2 by reversing a dict's keys and values. 
+    It saves all the keys associated with the same values in a list. It makes 
+    use of dict.get() by default when populating the reversed dict, and assumes 
+    that the dict contains NON-UNIQUE values.
+    '''
 
     def __init__(self, **kwargs):
         super(Method02Py2, self).__init__(**kwargs)
@@ -208,6 +224,12 @@ class Method02Py2(MethodPy2):
 class Method02Py3(Method):
     __method_name__ = 'method_02_py3'
     __python_version__ = 'python3'
+    __method_description__ = '''
+    %(prog)s works with Python 3 by reversing a dict's keys and values. 
+    It saves all the keys associated with the same values in a list. It makes 
+    use of dict.get() by default when populating the reversed dict, and assumes 
+    that the dict contains NON-UNIQUE values.
+    '''
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -231,6 +253,11 @@ class Method02Py3(Method):
 class Method03Py2(MethodPy2):
     __method_name__ = 'method_03_py2'
     __python_version__ = 'python2'
+    __method_description__ = '''
+    %(prog)s works with Python 2 by reversing a dict's keys and values. 
+    It makes use of map(reversed,), useful when the type and order of the original 
+    dictionary must be preserved (e.g. OrderedDict).
+    '''
 
     def __init__(self, **kwargs):
         super(Method03Py2, self).__init__(**kwargs)
@@ -250,6 +277,11 @@ class Method03Py2(MethodPy2):
 class Method03Py3(Method):
     __method_name__ = 'method_03_py3'
     __python_version__ = 'python3'
+    __method_description__ = '''
+    %(prog)s works with Python 3 by reversing a dict's keys and values. 
+    It makes use of map(reversed,), useful when the type and order of the original 
+    dictionary must be preserved (e.g. OrderedDict).
+    '''
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

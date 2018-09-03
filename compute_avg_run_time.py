@@ -1,6 +1,3 @@
-import datetime
-import json
-import os
 try:
     from pathlib import Path
 except ImportError as e:
@@ -11,13 +8,12 @@ else:
     python2 = False
 import shlex
 import subprocess
-import tempfile
-
+# Own modules
 from reverse_dict.argparser_builder import ArgParserBuilder
 from reverse_dict.arguments import get_common_arguments, MethodNameArgument, \
     UseItemsArgument, UseSetDefaultArgument
 from reverse_dict.config import cfg
-import scripts
+import reverse_dict.methods as methods
 
 
 if __name__ == '__main__':
@@ -35,41 +31,35 @@ if __name__ == '__main__':
 
     Github project @ {}
     '''.format(cfg.version, cfg.github_url)
-    list_arguments = [MethodNameArgument(), UseItemsArgument(), UseSetDefaultArgument()]
+    list_arguments = [MethodNameArgument(), UseItemsArgument(),
+                      UseSetDefaultArgument()]
     list_arguments.extend(get_common_arguments())
-    parser_builder = ArgParserBuilder(script_description=script_description,
+    parser_builder = ArgParserBuilder(prog=__file__,
+                                      script_description=script_description,
                                       list_arguments=list_arguments)
     parser = parser_builder.get_parser()
     args = parser.parse_args()
 
-    # Create temp directory & JSON file
-    # The JSON file stores the arguments for the script to be run with the shell
-    # command
-    temp_dir_path = tempfile.gettempdir()
-    json_filename = '{}.{}'.format(str(datetime.datetime.utcnow()).replace(' ', '_'), 'json')
-    if python2:
-        cur_filename = os.path.basename(__file__)[:-3]
-        directory = os.path.join(temp_dir_path, cur_filename)
-        try:
-            os.mkdir(directory)
-        except OSError as e:
-            # print(e)
-            pass
-        json_file_path = os.path.join(directory, json_filename)
-        with open(json_file_path, 'w') as f:
-            json.dump(args.__dict__, f)
-    else:
-        directory = Path(temp_dir_path) / Path(__file__).stem
-        directory.mkdir(exist_ok=True)
-        json_file_path = directory / json_filename
-        with json_file_path.open('w') as f:
-            json.dump(args.__dict__, f)
+    import ipdb
+    ipdb.set_trace()
 
+    # Use dict.iteritems() if Python2, else use dict.items()
+    args_items = args.__dict__.iteritems() if python2 else args.__dict__.items()
+
+    options = ''
+    for k, v in args_items:
+        if isinstance(v, bool):
+            if v is True:
+                options += '--{} '.format(k)
+        else:
+            options += '--{}={} '.format(k, v)
+    options = options.strip()
+    ipdb.set_trace()
     # Run shell command
-    method_module = scripts.scripts_lookup[args.method_name]
-    python_version = method_module.python_version
-    # TODO: run_{python2, python3}_scripts.py should be in ./scripts
-    cmd = "./run_{}_script.py {} {}".format(python_version, args.method_name, json_file_path)
+    method_class_name = cfg.methods[args.method_name]
+    method_class = methods.__getattribute__(method_class_name)
+    python_version = method_class.__python_version__
+    cmd = "./run_{}_method.py {} {}".format(python_version, args.method_name, options)
     cmd = shlex.split(cmd)
     try:
         output = subprocess.check_output(cmd, stderr=subprocess.PIPE).decode()
@@ -77,6 +67,3 @@ if __name__ == '__main__':
         output = e.output.decode()
     finally:
         print('{}'.format(output))
-
-    # Remove temp file
-    os.remove(json_file_path)

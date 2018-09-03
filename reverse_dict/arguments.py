@@ -71,9 +71,9 @@ class NumberItemsArgument(Argument):
 
 class NumberTimesArgument(Argument):
     __argument_name__ = 'number_times'
-    help_arg = '''Number of times the dictionary's keys and values will be reversed. Each time,
-the run time of the reversal is computed and at the end of all the tries, the 
-average run time is computed.
+    help_arg = '''Number of times the dictionary's keys and values will be reversed. 
+Each time, the run time of the reversal is computed and at the end 
+of all the tries, the average run time is computed.
     '''
     __common_option__ = True
 
