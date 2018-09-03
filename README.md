@@ -26,10 +26,10 @@ values and saves all the keys with the same values in a list
 the type and order of the original dictionary must be preserved (e.g.
 `OrderedDict`)
 
-I ran some tests, and method 2 is the one that provides the best average run
-for reversing the keys and values of a dictionary. See section [Comparaisons
-between different methods](#comparaisons-between-different-methods) for the
-average run times of the different methods based on the number of items.
+I ran some tests, and **method 1 is the one that provides the best average run
+time** for reversing the keys and values of a dictionary. See section
+[Comparaisons between different methods](#comparaisons-between-different-methods)
+for the average run times of the different methods based on the number of items.
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
@@ -117,20 +117,20 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
 #### Example 1: method 1
 Try 1000 times the [method 1](#method01) with **Python 2** on 10 items using
 `dict.items()`:  
-`$ python3 compute_avg_run_time.py -m method_01_py2 -ni 10 -nt 100 -p 8 -ui -pd`
+`$ python3 compute_avg_run_time.py -m method_01_py2 -ni 10 -nt 1000 -p 8 -ui -pd`
 
 **Output**:
 ```commandline
 Method name: method_01_py2
-#1 Run time: 0.00000501
-#2 Run time: 0.00000501
+#1 Run time: 0.00001192
+#2 Run time: 0.00000596
 #3 Run time: 0.00000501
-#4 Run time: 0.00000405
-#5 Run time: 0.00000381
+#4 Run time: 0.00000501
+#5 Run time: 0.00000501
 [...]
-#995 Run time: 0.00000501
+#995 Run time: 0.00000477
 #996 Run time: 0.00000501
-#997 Run time: 0.00000405
+#997 Run time: 0.00000501
 #998 Run time: 0.00000501
 #999 Run time: 0.00000501
 #1000 Run time: 0.00000501
@@ -158,18 +158,26 @@ inverse dictionary.
 * `-p 8` will display the results with 8 decimals.
 
 #### Example 2: method 2
-Try [method 2](#method02) with Python 3 on 9 items using `dict.setdefault()`:  
-`$ python compute_avg_run_time.py -m method_02_py3 -ni 9 -nt 5 -p 8 -usd -pd -unu`
+Try 1000 times the [method 2](#method02) with Python 3 on 9 items using
+`dict.setdefault()`:  
+`$ python compute_avg_run_time.py -m method_02_py3 -ni 9 -nt 1000 -p 8 -usd -pd -unu`
 
 **Output**:
 ```commandline
 Method name: method_02_py3
-#1 Run time: 0.00000890
-#2 Run time: 0.00000545
-#3 Run time: 0.00000500
-#4 Run time: 0.00000476
-#5 Run time: 0.00000467
-Avg run time: 0.00000576 seconds
+#1 Run time: 0.00001048
+#2 Run time: 0.00000666
+#3 Run time: 0.00000626
+#4 Run time: 0.00000615
+#5 Run time: 0.00000594
+[...]
+#995 Run time: 0.00000449
+#996 Run time: 0.00000448
+#997 Run time: 0.00000450
+#998 Run time: 0.00000451
+#999 Run time: 0.00000447
+#1000 Run time: 0.00000448
+Avg run time: 0.00000492 seconds
 
 Original dict:
 {'k1': 'v1', 'k2': 'v2', 'k3': 'v3', 'k4': 'v4', 'k5': 'v1', 'k6': 'v2', 'k7': 'v3', 'k8': 'v4', 'k9': 'v5'}
@@ -183,18 +191,26 @@ Inverse dictionary:
 having the same values being added to a list.
 
 #### Example 3: method 3
-Try [method 3](#method03) with Python 3 on 10 items using `OrderedDict`:  
-`$ python compute_avg_run_time.py -m method_03_py3 -ni 10 -nt 5 -p 8 -uod -pd`
+Try 100 times the [method 3](#method03) with Python 3 on 10 items using
+`OrderedDict`:  
+`$ python compute_avg_run_time.py -m method_03_py3 -ni 10 -nt 1000 -p 8 -uod -pd`
 
 **Output**:
 ```commandline
 Method name: method_03_py3
-#1 Run time: 0.00001193
-#2 Run time: 0.00000622
-#3 Run time: 0.00000565
-#4 Run time: 0.00000503
-#5 Run time: 0.00000519
-Avg run time: 0.00000681 seconds
+#1 Run time: 0.00001387
+#2 Run time: 0.00000630
+#3 Run time: 0.00000594
+#4 Run time: 0.00000544
+#5 Run time: 0.00000533
+[...]
+#995 Run time: 0.00000512
+#996 Run time: 0.00000490
+#997 Run time: 0.00000509
+#998 Run time: 0.00000504
+#999 Run time: 0.00000499
+#1000 Run time: 0.00000498
+Avg run time: 0.00000515 seconds
 
 Original dict:
 OrderedDict([('k1', 'v1'), ('k2', 'v2'), ('k3', 'v3'), ('k4', 'v4'), ('k5', 'v5'), ('k6', 'v6'), ('k7', 'v7'), ('k8', 'v8'), ('k9', 'v9'), ('k10', 'v10')])
