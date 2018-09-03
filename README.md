@@ -7,16 +7,12 @@ Computes average run times of different methods of reversing a dictionary's keys
 ## Installation
 Add the `python_reverse_dict` directory to your `PYTHONPATH` environment variable:
 * macOS:
- `export PYTHONPATH=/path/to/dir:$PYTHONPATH`
+`export PYTHONPATH=/path/to/dir:$PYTHONPATH`
 
 * Windows
- `export PYTHONPATH=/path/to/dir:$PYTHONPATH`
+`export PYTHONPATH=/path/to/dir:$PYTHONPATH`
 
 Where `/path/to/dir` is the path to the `python_reverse_dict` directory.
-
-If you are lazy, just perform
-
- `$ pip install decorator`
 
 ## Usage
 `compute_run_time.py [-h] [--version] [OPTIONS]`
