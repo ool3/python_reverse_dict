@@ -86,15 +86,15 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
 ### Examples of usage
 
 #### Example 1: method 1
-Try [method 1](#method01) with Python 2 on 10k items using `dict.items()`:
+Try [method 1](#method01) with Python 2 on 10k items using `dict.items()`:  
 `$ python compute_avg_run_time.py -m method_01_py2 -ni 10000 -p 8`
 
 #### Example 2: method 2
-Try [method 2](#method02) with Python 3 on 100k items using `dict.setdefault()`:
+Try [method 2](#method02) with Python 3 on 100k items using `dict.setdefault()`:  
 `$ python compute_avg_run_time.py -m method_02_py3 -ni 100000 -usd -p 8`
 
 #### Example 3: method 3
-Try [method 3](#method03) with Python 3 on 1M items using `OrderedDict`:
+Try [method 3](#method03) with Python 3 on 1M items using `OrderedDict`:  
 `$ python compute_avg_run_time.py -m method_03_py3 -ni 1000000 -uod -p 8`
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
