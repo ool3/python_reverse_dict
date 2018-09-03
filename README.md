@@ -81,6 +81,8 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
 * **`-p PRECISION`**, **`--precision PRECISION`**  
   Decimal precision used when displaying number results.
 
+<div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
+
 ### Examples of usage
 
 #### Example 1: method 1
