@@ -17,7 +17,7 @@ Computes average run times of different methods of reversing a dictionary's keys
 * **method 3**: makes use of `map(reversed,)`, useful when the type and order of the original dictionary must be preserved (e.g. `OrderedDict`)
 
 
-<div style="text-align: justify"><span> [top](#python_reverse_dict) </span></div>
+<p align="left"> [top](#python_reverse_dict) </p>
 
 ## Directories and files description
 * [`compute_avg_run_time.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py): it is the **main** script that will build the right `shell` command for computing the average run time of a dict-reversing method. It is run by providing it the right [options](#options) through the command-line.  It will call either `run_python2_method.py` if the wanted method is Python2-based or `run_python3_method.py` if the method is Python3-based. It can be called with `python2` or `python3` through the command-line.   
