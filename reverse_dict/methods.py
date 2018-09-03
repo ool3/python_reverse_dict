@@ -69,8 +69,8 @@ class Method (object):
         unused_keys = keys_from_kwargs - all_keys
         return list(unused_keys)
 
-    def print_run_time(self, n, duration):
-        print('#{} Run time: {:.{}f}'.format(n, duration, self.precision))
+    def print_run_time(self, i, duration):
+        print('#{} Run time: {:.{}f}'.format(i, duration, self.precision))
 
     def print_avg_run_time(self):
         print('Avg run time: {:.{}f} seconds'.format(
@@ -142,7 +142,6 @@ class MethodPy2(Method):
             self.run_times += run_time
             self.print_run_time(wrapper_timer.num_calls, run_time)
             return retval
-
         wrapper_timer.num_calls = 0
         return wrapper_timer
 
@@ -173,8 +172,8 @@ class Method01Py2(MethodPy2):
         # Dict comprehension template in Python2.6:
         # dict((key, value) for (key, value) in dictionary.items())
         # ref.: https://bit.ly/2Ce9xjm and https://stackoverflow.com/a/14507623
-        # return self.dict_({v: k for k, v in self.get_items(orig_dict)})
-        return self.dict_([(v, k) for k, v in self.get_items(orig_dict)])
+        return self.dict_({v: k for k, v in self.get_items(orig_dict)})
+        # return self.dict_([(v, k) for k, v in self.get_items(orig_dict)])
 
 
 class Method01Py3(Method):
@@ -196,8 +195,8 @@ class Method01Py3(Method):
 
     @Method.timer
     def reverse_dict(self, orig_dict):
-        # return self.dict_({v: k for k, v in orig_dict.items()})
-        return self.dict_([(v, k) for k, v in orig_dict.items()])
+        return self.dict_({v: k for k, v in orig_dict.items()})
+        # return self.dict_([(v, k) for k, v in orig_dict.items()])
 
 
 class Method02Py2(MethodPy2):

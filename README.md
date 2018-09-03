@@ -153,8 +153,8 @@ previously, `compute_avg_run_time.py`, which can be run with `python2` or
 insertion was not fully respected (`{'v10': 'k10'}` is at the beginning) as can
 be expected since `method_01_py2` is a Python2-based method that was using a
 `dict` as the data structure. If an `OrderedDict` would have been used (with the
-option `-uod`), then the initial order of insertion would been maintained in the
-inverse dictionary.
+option `-uod`), then the initial order of insertion would have been maintained
+in the inverse dictionary.
 * `-p 8` will display the results with 8 decimals.
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
