@@ -4,15 +4,17 @@ Computes average run times of different methods of reversing a dictionary's keys
 * **method 2**: the dictitionary doesn't contain unique values and saves all the keys with the same values in a list
 * **method 3**: makes use of `map(reversed,)`, useful when the type and order of the original dictionary must be preserved (e.g. `OrderedDict`)
 
+## Directories and files description
+* [`compute_avg_run_time.py.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py): it is the **main** script that will build the right `shell` command for computing the average run time of a reverse-dict method. It is run by providing it the right [options](#options) through the command-line. It can be called with Python 2 or 3.   
+* [`run_python2_script.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python2_script.py): calls the right **Python 2** dict-reversing method that is defined in [`./reverse/methods.py`](https://github.com/raul23/python_reverse_dict/tree/master/scripts).    
+* [`run_python3_script.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python3_script.py): calls the right **Python 3** dict-reversing method that is defined in [`./reverse/methods.py`](https://github.com/raul23/python_reverse_dict/tree/master/scripts).  
+* [`reverse_dict/`](https://github.com/raul23/python_reverse_dict/tree/master/reverse_dict): a package where everything that is needed to compute the average run time of a method is defined such as the reverse-dict methods, and the arguments accepted by the methods through the commad-line.   
+
 ## Installation
-Add the `python_reverse_dict` directory to your `PYTHONPATH` environment variable:
-* macOS:
-`export PYTHONPATH=/path/to/dir:$PYTHONPATH`
+To use the **main** Python script [`compute_avg_run_time.py.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py):
 
-* Windows
-`export PYTHONPATH=/path/to/dir:$PYTHONPATH`
-
-Where `/path/to/dir` is the path to the `python_reverse_dict` directory.
+* Clone the repository and extract it
+* You can now run the main script `compute_avg_run_time.py`. Go to the section [Usage](#usage) for more details on the script [options](#options) and [examples of usage](#examples-of-usage).
 
 ## Usage
 `compute_run_time.py [-h] [--version] [OPTIONS]`
