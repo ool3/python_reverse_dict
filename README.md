@@ -14,6 +14,10 @@ Add the `python_reverse_dict` directory to your `PYTHONPATH` environment variabl
 
 Where `/path/to/dir` is the path to the `python_reverse_dict` directory.
 
+If you are lazy, just perform
+
+ `$ pip install decorator`
+
 ## Usage
 `compute_run_time.py [-h] [--version] [OPTIONS]`
 
