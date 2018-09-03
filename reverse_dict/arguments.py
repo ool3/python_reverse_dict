@@ -25,21 +25,21 @@ class Argument(object):
 class MethodNameArgument(Argument):
     __argument_name__ = 'method_name'
     help_arg = '''\
-    Name of the method that reverses a dict's keys and values:
+Name of the method that reverses a dict's keys and values:
 
-    {}: makes use of dict comprehension, and the dict must contain
-                   unique values. Works on Python 2.7
-    {}: the reversed dict stores as values a list of all the keys
-                   associated with the same value in the original dict,
-                   and the dict doesn't contain unique values. Works on
-                   Python 2.7
-    {}: makes use of map(reversed,), and the type and order of the
-                   original dict are preserved (if for example it is an
-                   OrderedDict). Works on Python 2.7
+{}: makes use of dict comprehension, and the dict must contain
+               unique values. Works on Python 2.7
+{}: the reversed dict stores as values a list of all the keys
+               associated with the same value in the original dict,
+               and the dict doesn't contain unique values. Works on
+               Python 2.7
+{}: makes use of map(reversed,), and the type and order of the
+               original dict are preserved (if for example it is an
+               OrderedDict). Works on Python 2.7
 
-    {}: Python 3 version of {}
-    {}: Python 3 version of {}
-    {}: Python 3 version of {}
+{}: Python 3 version of {}
+{}: Python 3 version of {}
+{}: Python 3 version of {}
     '''.format(Method01Py2.__method_name__, Method02Py2.__method_name__,
                Method03Py2.__method_name__, Method01Py3.__method_name__,
                Method01Py2.__method_name__, Method02Py3.__method_name__,

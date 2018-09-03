@@ -1,4 +1,16 @@
 # python_reverse_dict
+<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Introduction](#introduction)
+- [Directories and files description](#directories-and-files-description)
+- [Installation](#installation)
+- [Usage](#usage)
+	- [Options](#options)
+	- [Examples of usage](#examples-of-usage)
+- [Results](#results)
+
+<!-- /TOC -->
+## Introduction
 Computes average run times of different methods of reversing a dictionary's keys and values in **Python 2.7 &amp; 3**:
 * **method 1**: makes use of dictionary comprehension, and the dictionary must contain unique values
 * **method 2**: the dictitionary doesn't contain unique values and saves all the keys with the same values in a list

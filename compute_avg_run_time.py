@@ -23,11 +23,12 @@ if __name__ == '__main__':
     Computes average running times of different methods of reversing a dict's
     keys and values in Python 2.7 and 3:
 
-        - method 1: makes use of dict comprehension, and your dict must
-                    contain unique values
-        - method 2: makes use of dict.get(), and your dict doesn't contain
+        - method 1: makes use of dict comprehension, and the dict must contain 
                     unique values
-        - method 3: makes use of map(reversed,)
+        - method 2: the dictionary doesn't contain unique values and saves all the 
+                    keys with the same values in a list
+        - method 3: makes use of map(reversed,), useful when the type and order of 
+                    the original dictionary must be preserved (e.g. OrderedDict)
 
     Github project @ {}
     '''.format(cfg.version, cfg.github_url)
