@@ -14,7 +14,7 @@ Computes average run times of different methods of reversing a dictionary's keys
 To use the **main** Python script [`compute_avg_run_time.py.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py):
 
 * Clone the repository and extract it
-* Change permission to the two files `run_python2_method.py` and `run_python3_method.py`  so they can be executed:  
+* Change permission to the two files [`run_python2_method.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python2_method.py) and [`run_python3_method.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python2_method.py)  so they can be executed:  
 `$ chmod 744 run_python*`
 * You can now run the main script `compute_avg_run_time.py`. Go to the section [Usage](#usage) for more details on the script [options](#options) and [examples of usage](#examples-of-usage).
 
