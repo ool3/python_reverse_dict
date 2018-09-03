@@ -79,7 +79,7 @@ class Method (object):
         if self.print_dicts:
             print("")
             print('Original dict:\n{}'.format(self.orig_dict))
-            print('Inversed dictionary:\n{}'.format(self.inv_dict))
+            print('Inverse dictionary:\n{}'.format(self.inv_dict))
 
     @staticmethod
     def reset_data(func):

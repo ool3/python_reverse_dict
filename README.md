@@ -115,7 +115,7 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
 ### Examples of usage
 
 #### Example 1: method 1
-Try [method 1](#method01) with Python 2 on 10 items using `dict.items()`:  
+Try [method 1](#method01) with **Python 2** on 10 items using `dict.items()`:  
 `$ python3 compute_avg_run_time.py -m method_01_py2 -ni 10 -nt 5 -p 8 -ui -pd`
 
 **Output**:
@@ -130,7 +130,7 @@ Avg run time: 0.00000458 seconds
 
 Original dict:
 {'k10': 'v10', 'k3': 'v3', 'k2': 'v2', 'k1': 'v1', 'k7': 'v7', 'k6': 'v6', 'k5': 'v5', 'k4': 'v4', 'k9': 'v9', 'k8': 'v8'}
-Inversed dictionary:
+Inverse dictionary:
 {'v10': 'k10', 'v1': 'k1', 'v2': 'k2', 'v3': 'k3', 'v4': 'k4', 'v5': 'k5', 'v6': 'k6', 'v7': 'k7', 'v8': 'k8', 'v9': 'k9'}
 ```
 
@@ -142,8 +142,8 @@ previously, `compute_avg_run_time.py`, which can be run with `python2` or
 `python3`, calls `run_python2_method.py` (a Python 2 script) which will run the
 `method_01_py2` method.
 * From the content of the reversed dictionary, we see that the order of
-insertion was not fully respected (`{'v10': 'k10'}` is at the beginning) as can be
-expected since `method_01_py2` is a Python2-based method.
+insertion was not fully respected (`{'v10': 'k10'}` is at the beginning) as can
+be expected since `method_01_py2` is a Python2-based method.
 * `-p 8` will display the results with 8 decimals
 
 #### Example 2: method 2
@@ -162,11 +162,11 @@ Avg run time: 0.00000538 seconds
 
 Original dict:
 {'k1': 'v1', 'k2': 'v2', 'k3': 'v3', 'k4': 'v4', 'k5': 'v5', 'k6': 'v6', 'k7': 'v7', 'k8': 'v8', 'k9': 'v9'}
-Inversed dictionary:
+Inverse dictionary:
 {'v1': ['k1'], 'v2': ['k2'], 'v3': ['k3'], 'v4': ['k4'], 'v5': ['k5'], 'v6': ['k6'], 'v7': ['k7'], 'v8': ['k8'], 'v9': ['k9']}
 ```
 
-**Note**: In my environment, `python` points to `Python 3.6.5`
+**Note**: In my work environment, `python` points to `Python 3.6.5`
 
 #### Example 3: method 3
 Try [method 3](#method03) with Python 3 on 10 items using `OrderedDict`:  
@@ -184,7 +184,7 @@ Avg run time: 0.00000681 seconds
 
 Original dict:
 OrderedDict([('k1', 'v1'), ('k2', 'v2'), ('k3', 'v3'), ('k4', 'v4'), ('k5', 'v5'), ('k6', 'v6'), ('k7', 'v7'), ('k8', 'v8'), ('k9', 'v9'), ('k10', 'v10')])
-Inversed dictionary:
+Inverse dictionary:
 OrderedDict([('v1', 'k1'), ('v2', 'k2'), ('v3', 'k3'), ('v4', 'k4'), ('v5', 'k5'), ('v6', 'k6'), ('v7', 'k7'), ('v8', 'k8'), ('v9', 'k9'), ('v10', 'k10')])
 ```
 
