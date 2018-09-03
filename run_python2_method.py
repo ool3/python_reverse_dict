@@ -11,6 +11,7 @@ if __name__ == '__main__':
     method_name = sys.argv[1]
     method_class_name = cfg.methods[method_name]
     method_class = methods.__getattribute__(method_class_name)
+    print("Method name: {}".format(method_name))
     unknown = None
     script_description = '''
         %(prog)s v{}
@@ -30,8 +31,9 @@ if __name__ == '__main__':
     method = method_class(**args)
     print('Args: {}'.format(args))
     if unknown is None:
-        print('Unused args: {}'.format(method.get_unused_kwargs()))
+        # print('Unused args: {}'.format(method.get_unused_kwargs()))
+        pass
     else:
-        print('Unknown args: {}'.format(unknown))
+        # print('Unknown args: {}'.format(unknown))
         method.compute_avg_run_time()
 
