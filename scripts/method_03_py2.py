@@ -2,7 +2,7 @@
 import os
 import sys
 
-import ipdb
+# import ipdb
 
 # TODO: add this into env variable
 sys.path.insert(0, os.path.expanduser("~/PycharmProjects/github_projects/python_reverse_dict"))

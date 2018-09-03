@@ -2,7 +2,7 @@
 import os
 import sys
 
-import ipdb
+# import ipdb
 
 # TODO: add this into env variable
 sys.path.insert(0, os.path.expanduser("~/PycharmProjects/github_projects/python_reverse_dict"))
@@ -37,11 +37,11 @@ def run_method(args=None):
         args, unknown = parser.parse_known_args()
         args = args.__dict__
     method_02 = Method02Py2(**args)
-    print('Args: {}'.format(args))
+    print(u"Args: {}".format(str(args)))
     if unknown is None:
-        print('Unused args: {}'.format(method_02.get_unused_kwargs()))
+        print(u"Unused args: {}".format(str(method_02.get_unused_kwargs())))
     else:
-        print('Unknown args: {}'.format(unknown))
+        print(u"sUnknown args: {}".format(str(unknown)))
     method_02.compute_avg_run_time()
 
 
