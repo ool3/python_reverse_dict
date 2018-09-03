@@ -29,7 +29,7 @@ if __name__ == '__main__':
     args, unknown = parser.parse_known_args()
     args = args.__dict__
     method = method_class(**args)
-    print('Args: {}'.format(args))
+    # print('Args: {}'.format(args))
     if unknown is None:
         # print('Unused args: {}'.format(method.get_unused_kwargs()))
         pass

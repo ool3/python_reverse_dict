@@ -77,8 +77,9 @@ class Method (object):
             (self.run_times / self.number_times),
             self.precision))
         if self.print_dicts:
-            print(self.orig_dict)
-            print(self.inv_dict)
+            print("")
+            print('Original dict:\n{}'.format(self.orig_dict))
+            print('Inversed dictionary:\n{}'.format(self.inv_dict))
 
     @staticmethod
     def reset_data(func):

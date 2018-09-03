@@ -121,13 +121,16 @@ Try [method 1](#method01) with Python 2 on 10 items using `dict.items()`:
 **Output**:
 ```commandline
 Method name: method_01_py2
-#1 Run time: 0.00001502
-#2 Run time: 0.00001001
+#1 Run time: 0.00000501
+#2 Run time: 0.00000501
 #3 Run time: 0.00000501
-#4 Run time: 0.00000501
-#5 Run time: 0.00000405
-Avg run time: 0.00000782 seconds
+#4 Run time: 0.00000405
+#5 Run time: 0.00000381
+Avg run time: 0.00000458 seconds
+
+Original dict:
 {'k10': 'v10', 'k3': 'v3', 'k2': 'v2', 'k1': 'v1', 'k7': 'v7', 'k6': 'v6', 'k5': 'v5', 'k4': 'v4', 'k9': 'v9', 'k8': 'v8'}
+Inversed dictionary:
 {'v10': 'k10', 'v1': 'k1', 'v2': 'k2', 'v3': 'k3', 'v4': 'k4', 'v5': 'k5', 'v6': 'k6', 'v7': 'k7', 'v8': 'k8', 'v9': 'k9'}
 ```
 
@@ -135,11 +138,13 @@ Avg run time: 0.00000782 seconds
 * The main script `compute_avg_run_time.py` was called with `python3` even
 though we are executing a **Python2-based** dict-reversing method
 (`method_01_py2`). As was [explained](#compute_avg_run_time_description)
-previously, `compute_avg_run_time.py` which can be run with `python2` or
-`python3` calls `run_python2_method.py` (a Python 2 script) which will run the  
+previously, `compute_avg_run_time.py`, which can be run with `python2` or
+`python3`, calls `run_python2_method.py` (a Python 2 script) which will run the
 `method_01_py2` method.
-* `p 8` will display the run time durations with 8 decimals
-
+* From the content of the reversed dictionary, we see that the order of
+insertion was not fully respected (`{'v10': 'k10'}` is at the beginning) as can be
+expected since `method_01_py2` is a Python2-based method.
+* `-p 8` will display the results with 8 decimals
 
 #### Example 2: method 2
 Try [method 2](#method02) with Python 3 on 9 items using `dict.setdefault()`:  
@@ -148,13 +153,16 @@ Try [method 2](#method02) with Python 3 on 9 items using `dict.setdefault()`:
 **Output**:
 ```commandline
 Method name: method_02_py3
-#1 Run time: 0.00000746
-#2 Run time: 0.00000521
-#3 Run time: 0.00000454
-#4 Run time: 0.00000416
-#5 Run time: 0.00000418
-Avg run time: 0.00000511 seconds
+#1 Run time: 0.00000779
+#2 Run time: 0.00000531
+#3 Run time: 0.00000480
+#4 Run time: 0.00000448
+#5 Run time: 0.00000454
+Avg run time: 0.00000538 seconds
+
+Original dict:
 {'k1': 'v1', 'k2': 'v2', 'k3': 'v3', 'k4': 'v4', 'k5': 'v5', 'k6': 'v6', 'k7': 'v7', 'k8': 'v8', 'k9': 'v9'}
+Inversed dictionary:
 {'v1': ['k1'], 'v2': ['k2'], 'v3': ['k3'], 'v4': ['k4'], 'v5': ['k5'], 'v6': ['k6'], 'v7': ['k7'], 'v8': ['k8'], 'v9': ['k9']}
 ```
 
@@ -167,13 +175,16 @@ Try [method 3](#method03) with Python 3 on 10 items using `OrderedDict`:
 **Output**:
 ```commandline
 Method name: method_03_py3
-#1 Run time: 0.00001283
-#2 Run time: 0.00000653
-#3 Run time: 0.00000586
-#4 Run time: 0.00000549
-#5 Run time: 0.00000532
-Avg run time: 0.00000721 seconds
+#1 Run time: 0.00001193
+#2 Run time: 0.00000622
+#3 Run time: 0.00000565
+#4 Run time: 0.00000503
+#5 Run time: 0.00000519
+Avg run time: 0.00000681 seconds
+
+Original dict:
 OrderedDict([('k1', 'v1'), ('k2', 'v2'), ('k3', 'v3'), ('k4', 'v4'), ('k5', 'v5'), ('k6', 'v6'), ('k7', 'v7'), ('k8', 'v8'), ('k9', 'v9'), ('k10', 'v10')])
+Inversed dictionary:
 OrderedDict([('v1', 'k1'), ('v2', 'k2'), ('v3', 'k3'), ('v4', 'k4'), ('v5', 'k5'), ('v6', 'k6'), ('v7', 'k7'), ('v8', 'k8'), ('v9', 'k9'), ('v10', 'k10')])
 ```
 
