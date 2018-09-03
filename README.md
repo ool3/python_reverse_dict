@@ -15,7 +15,7 @@ To use the **main** Python script [`compute_avg_run_time.py.py`](https://github.
 
 * Clone the repository and extract it
 * Change permission to the two scripts `run_python2_method.py` and `run_python3_method.py` 
-```
+```commandline
 $ chmod 744 run_python*
 ```
 * You can now run the main script `compute_avg_run_time.py`. Go to the section [Usage](#usage) for more details on the script [options](#options) and [examples of usage](#examples-of-usage).
