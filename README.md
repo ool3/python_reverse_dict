@@ -16,14 +16,14 @@ Computes average run times of different methods of reversing a dictionary's keys
 * **method 2**: the dictionary doesn't contain unique values and saves all the keys with the same values in a list
 * **method 3**: makes use of `map(reversed,)`, useful when the type and order of the original dictionary must be preserved (e.g. `OrderedDict`)
 
-[^top](#contents)
+[^top](#python_reverse_dict)
 ## Directories and files description
 * [`compute_avg_run_time.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py): it is the **main** script that will build the right `shell` command for computing the average run time of a dict-reversing method. It is run by providing it the right [options](#options) through the command-line.  It will call either `run_python2_method.py` if the wanted method is Python2-based or `run_python3_method.py` if the method is Python3-based. It can be called with `python2` or `python3` through the command-line.   
 * [`run_python2_method.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python2_method.py): gets executed by `compute_avg_run_time.py`, and calls the right **Python 2** dict-reversing method that is defined in [`methods.py`](https://github.com/raul23/python_reverse_dict/blob/master/reverse_dict/methods.py).  
 * [`run_python3_method.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python3_method.py): gets executed by `compute_avg_run_time.py`, and calls the right **Python 3** dict-reversing method that is defined in [`methods.py`](https://github.com/raul23/python_reverse_dict/blob/master/reverse_dict/methods.py).  
 * [`reverse_dict/`](https://github.com/raul23/python_reverse_dict/tree/master/reverse_dict): a package where everything that is needed to compute the average run time of a method is defined such as the dict-reversing [methods](https://github.com/raul23/python_reverse_dict/blob/master/reverse_dict/methods.py), and the [arguments](https://github.com/raul23/python_reverse_dict/blob/master/reverse_dict/arguments.py) accepted by the methods through the command-line.   
 
-[^top](#contents)
+[^top](#python_reverse_dict)
 
 ## Installation
 To use the **main** Python script [`compute_avg_run_time.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py):
@@ -36,7 +36,7 @@ To use the **main** Python script [`compute_avg_run_time.py`](https://github.com
 
 Go to the section [Usage](#usage) for more details on the script [options](#options) and [examples of usage](#examples-of-usage).
 
-[^top](#contents)
+[^top](#python_reverse_dict)
 
 ## Usage
 `compute_run_time.py [-h] [--version] [OPTIONS]`
@@ -77,6 +77,6 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
 
 ### Examples of usage
 
-[^top](#contents)
+[^top](#python_reverse_dict)
 
 ## Results
