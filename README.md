@@ -280,7 +280,7 @@ of reversing a <code>dict</code> in <b>Python 2.7</b>
 
 | Method | Avg time (sec),  1k items, 100k times | Avg time (sec), 10k items, 1k times | Avg time (sec), 100k items, 1k times |
 |:---------------------------------------------:|:-------------------------------------:|:-----------------------------------:|:------------------------------------:|
-| Method 1: Py2,  dict comprehension, iteritems | 0.00023302 | 0.00300904 | 0.04581560 |
+| Method 1: Py2,  dict comprehension, iteritems | <h3>0.00023302</h3> | <h3>0.00300904</h3> | <h3>0.04581560</h3> |
 | Method 1: Py2,  dict comprehension,  items | 0.00027322 | 0.00448439 | 0.07332781 |
 | Method 2: Py2,  dict.get, iteritems | 0.00077242 | 0.01003583 | 0.12503990 |
 | Method 2: Py2,  setdefault, iteritems | 0.00091063 | 0.01136959 | 0.13122012 |
