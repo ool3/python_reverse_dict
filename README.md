@@ -23,7 +23,7 @@ and values in **Python 2.7 &amp; 3**:
 the dictionary must contain unique values
 * **method 2**<a id="method02"></a>: the dictionary doesn't contain unique
 values and saves all the keys with the same values in a list
-* **method 3**<a id="method03"></a>: makes use of `map(reversed,)`, useful when
+* **method 3**<a id="method03"></a>: makes use of `map(reversed, iter)`, useful when
 the type and order of the original dictionary must be preserved (e.g.
 `OrderedDict`)
 
@@ -92,7 +92,7 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
   `method_02_py2`: makes use of `dict.get()`, and the dictionary doesn't contain
                    unique values.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Works on **Python 2.7**    
-  `method_03_py2`: makes use of `map(reversed,)`, and the type and order of the original dictionary are  
+  `method_03_py2`: makes use of `map(reversed, iter)`, and the type and order of the original dictionary are  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;preserved (if for example it is an `OrderedDict`). Works on **Python 2.7**  
   `method_01_py3`: **Python 3** version of `method_01_py2`  
   `method_02_py3`: **Python 3** version of `method_02_py3`  
