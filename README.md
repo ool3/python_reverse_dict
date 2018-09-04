@@ -277,11 +277,13 @@ of reversing a <code>dict</code> in <b>Python 2.7</b>
 </div>
 
 | Method | Avg time (sec),  1k items, 100k times | Avg time (sec), 10k items, 1k times | Avg time (sec), 100k items, 1k times |
-|:-----------------------------:|:-------------------------------------:|:-----------------------------------:|:------------------------------------:|
-| Method 1: Py3, dict compre. | 0.00009681 | 0.00094601 | 0.02040542 |
-| Method 2: Py3, dict.get | 0.00037360 | 0.00428752 | 0.06315073 |
-| Method 2: Py3, setdefault | 0.00037267 | 0.00432150 | 0.06343281 |
-| Method 3: Py3, map(reversed,) | 0.00031213 | 0.00319019 | 0.04577668 |
+|:---------------------------------------------:|:-------------------------------------:|:-----------------------------------:|:------------------------------------:|
+| Method 1: Py2,  dict comprehension, iteritems | 0.00023302 | 0.00300904 | 0.04581560 |
+| Method 1: Py2,  dict comprehension,  items | 0.00027322 | 0.00448439 | 0.07332781 |
+| Method 2: Py2,  dict.get, iteritems | 0.00077242 | 0.01003583 | 0.12503990 |
+| Method 2: Py2,  setdefault, iteritems | 0.00091063 | 0.01136959 | 0.13122012 |
+| Method 3: Py2,  map(reversed,),  iteritems | 0.00085657 | 0.01071258 | 0.12190458 |
+
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## References
