@@ -260,6 +260,14 @@ The following tables present the average run times of the different methods of r
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
+## References
+
+* Method 1: code from https://stackoverflow.com/a/483833
+* Method 2: 
+  * code with `dict.get()` from https://stackoverflow.com/a/485368
+  * code with `dict.setdefault()` from https://stackoverflow.com/a/13057382
+* Method 3: code from https://stackoverflow.com/a/1679702
+
 ## License
 
 The code is licensed under the MIT license. See the
