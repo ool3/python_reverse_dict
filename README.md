@@ -89,7 +89,7 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
 * **`-m METHOD_NAME`**, **`--method_name METHOD_NAME`**  
   Name of the method that reverses a dictionary's keys and values:
 
-  `method_01_py2`: makes use of dictionary comprehension, and the dictionary must contain unique values. Works with **Python 2.7**  
+  `method_01_py2`: makes use of dictionary comprehension, and the dictionary must contain unique values. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Works with **Python 2.7**  
   `method_02_py2`: makes use of `dict.get()`, and the dictionary doesn't contain
                    unique values.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Works with **Python 2.7**    
