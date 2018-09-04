@@ -123,7 +123,7 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
   (**default**: `False`)
   
 * **`-uod`**, **`--use_ordered_dict`**  
-  Initialize the original dictionary with non-unique values.  
+  Use `OrderedDict` instead of `dict` for both dictionaries (original and inverse).   
   (**default**: `False`)
   
 * **`-v`**, **`--version`**  
