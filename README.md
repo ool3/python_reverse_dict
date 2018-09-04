@@ -94,20 +94,29 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
   `method_03_py3`: **Python 3** version of `method_03_py2`  
    (**default**: `method_01_py3`)
 * **`-ui`**, **`--use_items`**  
-  When working on Python 2, uses `dict.items()` instead of the more efficient `dict.iteritems()`.
+  When working on Python 2, uses `dict.items()` instead of the more efficient `dict.iteritems()`.  
+  (**default**: `False`)
 
 * **`-usd`**, **`--use_setdefault`**  
-  Uses `dict.setdefault()` instead of `dict.get()` when populating the dictionary.
+  Uses `dict.setdefault()` instead of `dict.get()` when populating the dictionary.  
+  (**default**: `False`)
 
 * **`-ni NUMBER_ITEMS`**, **`--number_items NUMBER_ITEMS`**  
-  Number of items in the dictionary.
+  Number of items in the dictionary.  
+  (**default**: `1000`)
 
 * **`-nt NUMBER_TIMES`**, **`--number_times NUMBER_TIMES`**  
   Number of times the dictionary's keys and values will be reversed. Each time, the run time of the reversal is computed
-  and at the end of all the tries, the average run time is computed.
+  and at the end of all the tries, the average run time is computed.  
+  (**default**: `10`)
 
 * **`-p PRECISION`**, **`--precision PRECISION`**  
-  Decimal precision used when displaying number results.
+  Decimal precision used when displaying number results.  
+  (**default**: `8`)
+  
+* **`-pd`**, **`--print_dicts`** . 
+  Print the original and reversed dictionaries at the end.  
+  (**default**: False)
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
