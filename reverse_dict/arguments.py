@@ -35,7 +35,7 @@ Name of the method that reverses a dict's keys and values:
                associated with the same value in the original dict,
                and the dict doesn't contain unique values. Works on
                Python 2.7
-{}: makes use of map(reversed,), and the type and order of the
+{}: makes use of map(reversed, iter), and the type and order of the
                original dict are preserved (if for example it is an
                OrderedDict). Works on Python 2.7
 {}: Python 3 version of {}
