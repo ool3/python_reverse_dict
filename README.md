@@ -252,8 +252,9 @@ that insertion order is supported for `dict`.
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## Comparaisons between methods
+The following tables present the the average run times of each methods. As can be seen, method 1 is the big winner, offering
+the best average run times in Python 2 & 3. More details on the results can be found on my blog post [Python tips: reverse a dictionary](), which the tables are taken from.
 
-test
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## License
