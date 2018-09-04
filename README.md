@@ -89,13 +89,13 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
 * **`-m METHOD_NAME`**, **`--method_name METHOD_NAME`**  
   Name of the method that reverses a dictionary's keys and values:
 
-  `method_01_py2`: **Python 2.7** version of [method 1](#method_01)
-  `method_02_py2`: **Python 2.7** version of [method 2](#method_02)
-  `method_03_py2`: **Python 2.7** version of [method 3](#method_03)
-  `method_01_py3`: **Python 3** version of [method 1](#method_01)
-  `method_02_py3`: **Python 3** version of [method 2](#method_02)
-  `method_03_py3`: **Python 3** version of [method 3](#method_03)
-   (**default**: `method_01_py3`)
+  `method_01_py2`: **Python 2.7** version of [method 1](#method_01)   
+  `method_02_py2`: **Python 2.7** version of [method 2](#method_02)  
+  `method_03_py2`: **Python 2.7** version of [method 3](#method_03)  
+  `method_01_py3`: **Python 3** version of [method 1](#method_01)  
+  `method_02_py3`: **Python 3** version of [method 2](#method_02)   
+  `method_03_py3`: **Python 3** version of [method 3](#method_03)  . 
+   (**default**: `method_01_py3`)  
 * **`-ui`**, **`--use_items`**  
   When working on Python 2, uses `dict.items()` instead of the more efficient `dict.iteritems()`.  
   (**default**: `False`)
