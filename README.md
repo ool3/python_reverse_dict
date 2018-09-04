@@ -114,9 +114,20 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
   Decimal precision used when displaying number results.  
   (**default**: `8`)
   
-* **`-pd`**, **`--print_dicts`** . 
+* **`-pd`**, **`--print_dicts`**  
   Print the original and reversed dictionaries at the end.  
-  (**default**: False)
+  (**default**: `False`)
+  
+* **`-unu`**, **`--use_non_uniques`**  
+  Initialize the original dictionary with non-unique values.  
+  (**default**: `False`)
+  
+* **`-uod`**, **`--use_ordered_dict`**  
+  Initialize the original dictionary with non-unique values.  
+  (**default**: `False`)
+  
+* **`-v`**, **`--version`**  
+Show program's version and exit.
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
