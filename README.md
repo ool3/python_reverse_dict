@@ -59,8 +59,6 @@ that is needed to compute the average run time of a method is defined such as th
 [arguments](https://github.com/raul23/python_reverse_dict/blob/master/reverse_dict/arguments.py) accepted by the methods
 through the command-line.   
 
-<div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
-
 ## Installation
 To use the **main** Python script
 [`compute_avg_run_time.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py):
@@ -76,6 +74,8 @@ be executed by `compute_avg_run_time.py`:
 
 Go to the section [Usage](#usage) for more details on the script [options](#options) and
 [examples of usage](#examples-of-usage).
+
+<div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## Usage
 `compute_run_time.py [-h] [--version] [OPTIONS]`
