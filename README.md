@@ -271,6 +271,8 @@ of reversing a <code>dict</code> in <b>Python 3</b>
 | Method 2: Py3, `setdefault` | 0.00037267 | 0.00432150 | 0.06343281 |
 | Method 3: Py3, `map(reversed,)` | 0.00031213 | 0.00319019 | 0.04577668 |
 
+<br/>
+
 <div align="center">  
 <b>Table 2<b/> Average running times of different methods <br/>
 of reversing a <code>dict</code> in <b>Python 2.7</b>
