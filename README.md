@@ -261,60 +261,6 @@ The following tables present the average run times of the different methods of r
 
 The shell commands for each methods are to be found in [commands.md](https://github.com/raul23/python_reverse_dict/blob/master/commands.md).
 
-<tbody>
-<tr><th style="text-align: center;">Method</th><th>Avg time (sec), 1k items, 1k times</th><th>Avg time (sec), 10k items, 100 times</th><th>Avg time (sec), 100k items, 100 times</th></tr>
-<tr><td><a href="http://www.example.com/#method_01_py2">Method 1: Py2</a>, <b>dict compre.</b>, <code>iteritems</code></td><td><span style="background-color: orange;"><b>0.00023302</b></span></td><td><span style="background-color: orange;"><b>0.00300904</b></span></td><td><span style="background-color: orange;"><b>0.04581560</b></span></td></tr>
-<tr><td>Method 1: <span style="background-color: white;">Py2</span>, <code>dict</code> compre., <code style="background-color: red;">items</code></td><td>0.00027322</td><td>0.00448439</td><td>0.07332781</td></tr>
-<tr><td><a href="http://www.example.com/#method_02_py2">Method 2: Py2</a>, <code>dict.get,&nbsp;</code><code>iteritems</code></td><td>0.00077242</td><td>0.01003583</td><td>0.12503990</td></tr>
-<!--
-<tr><td>Method 2: Py2, <code>dict.get</code>, <span style="background-color: red; font-family: monospace;"><code>dict.items()</code></span></td><td>0.0155</td><td>0.166</td><td>2.0656</td></tr>
--->
-<tr><td><a href="http://www.example.com/#method_02_setdefault_py2">Method 2: Py2</a>, <code>setdefault,&nbsp;</code><code>iteritems</code></td><td>0.00091063</td><td>0.01136959</td><td>0.13122012</td></tr>
-<!--
-<tr><td>Method 2: Py2y, <code>setdefault</code>, <span style="background-color: red;"><code>dict.items()</code></span></td><td>0.01209</td><td>0.135</td><td>1.743</td></tr>
--->
-<tr><td><a href="http://www.example.com/#method_03_py2">Method 3: Py2</a>, <code>map(reversed,),&nbsp;</code><code>iteritems</code></td><td>0.00085657</td><td>0.01071258</td><td>0.12190458</td></tr>
-<!--
-<tr><td>Method 3: Py2, <code>map(reversed,)</code>, <span style="background-color: red;"><code>dict.items()</code></span></td><td>0.01312</td><td>0.167</td><td>2.0996</td></tr>
--->
-</tbody></table>
-<br />
-<style>
-
-tbody {
-    border: 4px solid #000;
-}
-
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #000;
-    text-align: left;
-    padding: 8px;
-}
-
-th {
-    text-align: left;
-}
-
-td {
-    text-align: center;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-tr:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-</style>
-
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## References
