@@ -36,6 +36,8 @@ You can also check my blog post [Python tips: reverse a dictionary]() where I di
 the implementation of the different methods and the results of the comparaisons of
 the methods based on their average run times.
 
+**Note**: I tested the code with **Python 2.7.15** and **3.6.5**
+
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## Directories and files description
