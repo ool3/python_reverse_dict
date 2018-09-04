@@ -262,11 +262,11 @@ The following tables present the average run times of the different methods of r
 
 ## References
 
-* Method 1: code from https://stackoverflow.com/a/483833
-* Method 2: 
+* **Method 1**: code from https://stackoverflow.com/a/483833
+* **Method 2**: 
   * code with `dict.get()` from https://stackoverflow.com/a/485368
   * code with `dict.setdefault()` from https://stackoverflow.com/a/13057382
-* Method 3: code from https://stackoverflow.com/a/1679702
+* **Method 3**: code from https://stackoverflow.com/a/1679702
 
 ## License
 
