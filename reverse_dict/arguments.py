@@ -91,7 +91,7 @@ of all the tries, the average run time is computed. (default: {})
 class PrecisionArgument(Argument):
     __argument_name__ = 'precision'
     __common_option__ = True
-    __default_value__ = 8
+    __default_value__ = 10
     __help_arg__ = 'Decimal precision used when displaying the results. ' \
                    '(default: {})'.format(__default_value__)
 
