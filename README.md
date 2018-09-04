@@ -147,11 +147,11 @@ Inverse dictionary:
 though we are executing a **Python2-based** dict-reversing method
 (`method_01_py2`). As was [explained](#compute_avg_run_time_description)
 previously, `compute_avg_run_time.py`, which can be run with `python2` or
-`python3`, calls `run_python2_method.py` (a Python 2 script) which will run the
-`method_01_py2` method.
+`python3`, calls `run_python2_method.py` (a Python 2 script) which will run
+`method_01_py2`.
 * From the content of the dictionaries, we see that the order of
 insertion was not fully respected (`{'v10': 'k10'}` is at the beginning) as can
-be expected since `method_01_py2` is a Python2-based method that was using a
+be expected since `method_01_py2` is a Python2-based method that is using a
 `dict` as the data structure. If an `OrderedDict` would have been used (with the
 option `-uod`), then the initial order of insertion would have been maintained
 in the dictionaries.
@@ -189,8 +189,8 @@ Inverse dictionary:
 
 **Note**:
 * In my work environment, `python` points to `Python 3.6.5`
-* [Method 2](#method02) works also with non-unique values (`-unu`) with keys
-having the same values being added to a list.
+* [Method 2](#method02) works also with non-unique values (`-unu`) where keys
+having the same values are added to a list in the reversed dictionary.
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
