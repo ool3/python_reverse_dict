@@ -24,7 +24,9 @@ class Argument(object):
 
 class MethodNameArgument(Argument):
     __argument_name__ = 'method_name'
-    help_arg = '''\
+    __common_option__ = False
+    __default_value__ = Method01Py3.__method_name__
+    __help_arg__ = '''\
 Name of the method that reverses a dict's keys and values:
 
 {}: makes use of dict comprehension, and the dict must contain
@@ -36,20 +38,19 @@ Name of the method that reverses a dict's keys and values:
 {}: makes use of map(reversed,), and the type and order of the
                original dict are preserved (if for example it is an
                OrderedDict). Works on Python 2.7
-
 {}: Python 3 version of {}
 {}: Python 3 version of {}
 {}: Python 3 version of {}
-    '''.format(Method01Py2.__method_name__, Method02Py2.__method_name__,
-               Method03Py2.__method_name__, Method01Py3.__method_name__,
-               Method01Py2.__method_name__, Method02Py3.__method_name__,
-               Method02Py2.__method_name__, Method03Py3.__method_name__,
-               Method03Py2.__method_name__)
-    __common_option__ = True
+(default: {})
+'''.format(Method01Py2.__method_name__, Method02Py2.__method_name__,
+           Method03Py2.__method_name__, Method01Py3.__method_name__,
+           Method01Py2.__method_name__, Method02Py3.__method_name__,
+           Method02Py2.__method_name__, Method03Py3.__method_name__,
+           Method03Py2.__method_name__, __default_value__)
 
     def __init__(self, option_name=None, short_option='-m',
                  long_option='--{}'.format(__argument_name__),
-                 default=Method01Py3.__method_name__, help=help_arg, **kwargs):
+                 default=__default_value__, help=__help_arg__, **kwargs):
         super(MethodNameArgument, self).__init__(option_name, short_option,
                                                  long_option, default=default,
                                                  help=help, **kwargs)
@@ -58,12 +59,13 @@ Name of the method that reverses a dict's keys and values:
 class NumberItemsArgument(Argument):
     __argument_name__ = 'number_items'
     __common_option__ = True
-
-    help_arg = 'Number of items in the dictionary.'
+    __default_value__ = 1000
+    __help_arg__ = 'Number of items in the dictionary. ' \
+                   '(default: {})'.format(__default_value__)
 
     def __init__(self, option_name=None, short_option='-ni',
-                 long_option='--{}'.format(__argument_name__), default=10000,
-                 type=int, help=help_arg, **kwargs):
+                 long_option='--{}'.format(__argument_name__),
+                 default=__default_value__, type=int, help=__help_arg__, **kwargs):
         super(NumberItemsArgument, self).__init__(option_name, short_option,
                                                   long_option, default=default,
                                                   type=type, help=help, **kwargs)
@@ -71,15 +73,16 @@ class NumberItemsArgument(Argument):
 
 class NumberTimesArgument(Argument):
     __argument_name__ = 'number_times'
-    help_arg = '''Number of times the dictionary's keys and values will be reversed. 
-Each time, the run time of the reversal is computed and at the end 
-of all the tries, the average run time is computed.
-    '''
     __common_option__ = True
+    __default_value__ = 10
+    __help_arg__ = '''Number of times the dictionary's keys and values will be reversed. 
+Each time, the run time of the reversal is computed and at the end 
+of all the tries, the average run time is computed. (default: {})
+'''.format(__default_value__)
 
     def __init__(self, option_name=None, short_option='-nt',
-                 long_option='--{}'.format(__argument_name__), default=10, type=int,
-                 help=help_arg, **kwargs):
+                 long_option='--{}'.format(__argument_name__),
+                 default=__default_value__, type=int, help=__help_arg__, **kwargs):
         super(NumberTimesArgument, self).__init__(option_name, short_option,
                                                   long_option, default=default,
                                                   type=type, help=help, **kwargs)
@@ -88,12 +91,13 @@ of all the tries, the average run time is computed.
 class PrecisionArgument(Argument):
     __argument_name__ = 'precision'
     __common_option__ = True
-
-    help_arg = 'Decimal precision used when displaying number results.'
+    __default_value__ = 8
+    __help_arg__ = 'Decimal precision used when displaying the results. ' \
+                   '(default: {})'.format(__default_value__)
 
     def __init__(self, option_name=None, short_option='-p', type=int,
-                 long_option='--{}'.format(__argument_name__), default=4,
-                 help=help_arg, **kwargs):
+                 long_option='--{}'.format(__argument_name__),
+                 default=__default_value__, help=__help_arg__, **kwargs):
         super(PrecisionArgument, self).__init__(option_name, short_option,
                                                 long_option, default=default,
                                                 type=type, help=help, **kwargs)
@@ -102,12 +106,13 @@ class PrecisionArgument(Argument):
 class PrintDictsArgument(Argument):
     __argument_name__ = 'print_dicts'
     __common_option__ = True
-
-    help_arg = 'Print the original and reversed dictionaries at the end.'
+    __default_value__ = False
+    __help_arg__ = 'Print the original and reversed dictionaries at the end. ' \
+                   '(default: {})'.format(__default_value__)
 
     def __init__(self, option_name=None, short_option='-pd',
                  long_option='--{}'.format(__argument_name__), action='store_true',
-                 help=help_arg, **kwargs):
+                 help=__help_arg__, **kwargs):
         super(PrintDictsArgument, self).__init__(option_name, short_option,
                                                  long_option, action=action,
                                                   help=help, **kwargs)
@@ -116,13 +121,13 @@ class PrintDictsArgument(Argument):
 class UseItemsArgument(Argument):
     __argument_name__ = 'use_items'
     __common_option__ = False
-
-    help_arg = '''When working on Python 2, use dict.items() instead of the more efficient 
-dict.iteritems() (default).'''
+    __default_value__ = False
+    __help_arg__ = '''When working on Python 2, use dict.items() instead of the more efficient 
+dict.iteritems() (default: {}.)'''.format(__default_value__)
 
     def __init__(self, option_name=None, short_option='-ui',
                  long_option='--{}'.format(__argument_name__), action='store_true',
-                 help=help_arg, **kwargs):
+                 help=__help_arg__, **kwargs):
         super(UseItemsArgument, self).__init__(option_name, short_option,
                                                long_option, action=action,
                                                help=help, **kwargs)
@@ -131,12 +136,13 @@ dict.iteritems() (default).'''
 class UseNonUniquesArgument(Argument):
     __argument_name__ = 'use_non_uniques'
     __common_option__ = True
-
-    help_arg = 'Initialize the original dictionary with non-unique values.'
+    __default_value__ = False
+    __help_arg__ = 'Initialize the original dictionary with non-unique values. ' \
+                   '(default: {})'.format(__default_value__)
 
     def __init__(self, option_name=None, short_option='-unu',
                  long_option='--{}'.format(__argument_name__), action='store_true',
-                 help=help_arg, **kwargs):
+                 help=__help_arg__, **kwargs):
         super(UseNonUniquesArgument, self).__init__(option_name, short_option,
                                                     long_option, action=action,
                                                     help=help, **kwargs)
@@ -145,12 +151,13 @@ class UseNonUniquesArgument(Argument):
 class UseOrderedDictArgument(Argument):
     __argument_name__ = 'use_ordered_dict'
     __common_option__ = True
-
-    help_arg = 'Use OrderedDict instead of dict (default).'
+    __default_value__ = False
+    __help_arg__ = '''Use OrderedDict instead of dict for both dictionaries (original and inverse) 
+(default: {}).'''.format(__default_value__)
 
     def __init__(self, option_name=None, short_option='-uod',
                  long_option='--{}'.format(__argument_name__), action='store_true',
-                 help=help_arg, **kwargs):
+                 help=__help_arg__, **kwargs):
         super(UseOrderedDictArgument, self).__init__(option_name, short_option,
                                                      long_option, action=action,
                                                      help=help, **kwargs)
@@ -159,12 +166,13 @@ class UseOrderedDictArgument(Argument):
 class UseSetDefaultArgument(Argument):
     __argument_name__ = 'use_setdefault'
     __common_option__ = False
-
-    help_arg = 'Use dict.setdefault() instead of dict.get() (default) when populating the dictionary.'
+    __default_value__ = False
+    __help_arg__ = '''Use dict.setdefault() instead of dict.get() when populating the dictionary. 
+(default: {})'''.format(__default_value__)
 
     def __init__(self, option_name=None, short_option='-usd',
                  long_option='--{}'.format(__argument_name__), action='store_true',
-                 help=help_arg, **kwargs):
+                 help=__help_arg__, **kwargs):
         super(UseSetDefaultArgument, self).__init__(option_name, short_option,
                                                     long_option, action=action,
                                                     help=help, **kwargs)
@@ -173,12 +181,11 @@ class UseSetDefaultArgument(Argument):
 class VersionArgument(Argument):
     __argument_name__ = 'version'
     __common_option__ = True
-
-    help_arg = "Show program's version and exit."
+    __help_arg__ = "Show program's version and exit."
 
     def __init__(self, option_name=None, short_option='-v',
                  long_option='--{}'.format(__argument_name__),  action='version',
-                 version='%(prog)s {}'.format(cfg.version), help=help_arg,
+                 version='%(prog)s {}'.format(cfg.version), help=__help_arg__,
                  **kwargs):
         super(VersionArgument, self).__init__(option_name, short_option,
                                               long_option, action=action,
