@@ -98,7 +98,7 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
   (**default**: `False`)
 
 * **`-usd`**, **`--use_setdefault`**  
-  Uses `dict.setdefault()` instead of `dict.get()` when populating the dictionary.  
+  Use `dict.setdefault()` instead of `dict.get()` when populating the dictionary.  
   (**default**: `False`)
 
 * **`-ni NUMBER_ITEMS`**, **`--number_items NUMBER_ITEMS`**  
