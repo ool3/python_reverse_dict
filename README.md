@@ -122,19 +122,19 @@ Try 1000 times the [method 1](#method01) with **Python 2** on 10 items using
 **Output**:
 ```commandline
 Method name: method_01_py2
-#1 Run time: 0.00001192
-#2 Run time: 0.00000596
-#3 Run time: 0.00000501
-#4 Run time: 0.00000501
-#5 Run time: 0.00000501
+#1 Run time: 0.00001287
+#2 Run time: 0.00000787
+#3 Run time: 0.00000286
+#4 Run time: 0.00000310
+#5 Run time: 0.00000310
 [...]
-#995 Run time: 0.00000477
-#996 Run time: 0.00000501
-#997 Run time: 0.00000501
-#998 Run time: 0.00000501
-#999 Run time: 0.00000501
-#1000 Run time: 0.00000501
-Avg run time: 0.00000514 seconds
+#995 Run time: 0.00000286
+#996 Run time: 0.00000191
+#997 Run time: 0.00000310
+#998 Run time: 0.00000286
+#999 Run time: 0.00000191
+#1000 Run time: 0.00000310
+Avg run time: 0.00000289 seconds
 
 Original dict:
 {'k10': 'v10', 'k3': 'v3', 'k2': 'v2', 'k1': 'v1', 'k7': 'v7', 'k6': 'v6', 'k5': 'v5', 'k4': 'v4', 'k9': 'v9', 'k8': 'v8'}
@@ -149,37 +149,37 @@ though we are executing a **Python2-based** dict-reversing method
 previously, `compute_avg_run_time.py`, which can be run with `python2` or
 `python3`, calls `run_python2_method.py` (a Python 2 script) which will run the
 `method_01_py2` method.
-* From the content of the reversed dictionary, we see that the order of
+* From the content of the dictionaries, we see that the order of
 insertion was not fully respected (`{'v10': 'k10'}` is at the beginning) as can
 be expected since `method_01_py2` is a Python2-based method that was using a
 `dict` as the data structure. If an `OrderedDict` would have been used (with the
 option `-uod`), then the initial order of insertion would have been maintained
-in the inverse dictionary.
+in the dictionaries.
 * `-p 8` will display the results with 8 decimals.
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 #### Example 2: method 2
-Try 1000 times the [method 2](#method02) with Python 3 on 9 items using
+Try 1000 times the [method 2](#method02) with **Python 3** on 9 items using
 `dict.setdefault()`:  
 `$ python compute_avg_run_time.py -m method_02_py3 -ni 9 -nt 1000 -p 8 -usd -pd -unu`
 
 **Output**:
 ```commandline
 Method name: method_02_py3
-#1 Run time: 0.00001048
-#2 Run time: 0.00000666
-#3 Run time: 0.00000626
-#4 Run time: 0.00000615
-#5 Run time: 0.00000594
+#1 Run time: 0.00000782
+#2 Run time: 0.00000583
+#3 Run time: 0.00000477
+#4 Run time: 0.00000446
+#5 Run time: 0.00000461
 [...]
-#995 Run time: 0.00000449
-#996 Run time: 0.00000448
-#997 Run time: 0.00000450
-#998 Run time: 0.00000451
-#999 Run time: 0.00000447
-#1000 Run time: 0.00000448
-Avg run time: 0.00000492 seconds
+#995 Run time: 0.00000426
+#996 Run time: 0.00000430
+#997 Run time: 0.00000419
+#998 Run time: 0.00000426
+#999 Run time: 0.00000421
+#1000 Run time: 0.00000428
+Avg run time: 0.00000538 seconds
 
 Original dict:
 {'k1': 'v1', 'k2': 'v2', 'k3': 'v3', 'k4': 'v4', 'k5': 'v1', 'k6': 'v2', 'k7': 'v3', 'k8': 'v4', 'k9': 'v5'}
@@ -195,26 +195,26 @@ having the same values being added to a list.
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 #### Example 3: method 3
-Try 100 times the [method 3](#method03) with Python 3 on 10 items using
+Try 100 times the [method 3](#method03) with **Python 3** on 10 items using
 `OrderedDict`:  
 `$ python compute_avg_run_time.py -m method_03_py3 -ni 10 -nt 1000 -p 8 -uod -pd`
 
 **Output**:
 ```commandline
 Method name: method_03_py3
-#1 Run time: 0.00001387
-#2 Run time: 0.00000630
-#3 Run time: 0.00000594
-#4 Run time: 0.00000544
-#5 Run time: 0.00000533
+#1 Run time: 0.00001224
+#2 Run time: 0.00000586
+#3 Run time: 0.00000535
+#4 Run time: 0.00000493
+#5 Run time: 0.00000493
 [...]
-#995 Run time: 0.00000512
-#996 Run time: 0.00000490
-#997 Run time: 0.00000509
-#998 Run time: 0.00000504
-#999 Run time: 0.00000499
-#1000 Run time: 0.00000498
-Avg run time: 0.00000515 seconds
+#995 Run time: 0.00000455
+#996 Run time: 0.00000458
+#997 Run time: 0.00000461
+#998 Run time: 0.00000461
+#999 Run time: 0.00000456
+#1000 Run time: 0.00000462
+Avg run time: 0.00000486 seconds
 
 Original dict:
 OrderedDict([('k1', 'v1'), ('k2', 'v2'), ('k3', 'v3'), ('k4', 'v4'), ('k5', 'v5'), ('k6', 'v6'), ('k7', 'v7'), ('k8', 'v8'), ('k9', 'v9'), ('k10', 'v10')])

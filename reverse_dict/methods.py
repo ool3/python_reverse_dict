@@ -169,10 +169,14 @@ class Method01Py2(MethodPy2):
         # Dict comprehension template in Python2.6:
         # dict((key, value) for (key, value) in dictionary.items())
         # ref.: https://bit.ly/2Ce9xjm and https://stackoverflow.com/a/14507623
-        if self.use_ordered_dict:
-            return OrderedDict((v, k) for k, v in self.orig_dict_items)
+        if self.use_items:
+            items = self.orig_dict.items()
         else:
-            return {v: k for k, v in self.orig_dict_items}
+            items = self.orig_dict.iteritems()
+        if self.use_ordered_dict:
+            return OrderedDict((v, k) for k, v in items)
+        else:
+            return {v: k for k, v in items}
 
 
 class Method01Py3(Method):
