@@ -256,10 +256,6 @@ that insertion order is supported for `dict`.
 test
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
-
-Commands ran for each methods:
-* 
-
 ## License
 
 The code is licensed under the MIT license. See the
