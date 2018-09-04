@@ -116,7 +116,7 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
 
 * **`-p PRECISION`**, **`--precision PRECISION`**  
   Decimal precision used when displaying number results.  
-  (**default**: `8`)
+  (**default**: `10`)
 
 * **`-pd`**, **`--print_dicts`**  
   Print the original and reversed dictionaries at the end.  
