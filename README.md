@@ -31,6 +31,10 @@ time** for reversing the keys and values of a dictionary. See section
 [Comparaisons between different methods](#comparaisons-between-different-methods)
 for the average run times of the different methods based on the number of items.
 
+You can also check my blog post [Python tips: reverse a dictionary]() where I discuss
+the implementation of the different methods and the results of the comparaisons of
+the methods based on their average run times.
+
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## Directories and files description
