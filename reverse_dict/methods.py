@@ -194,8 +194,6 @@ class Method01Py3(Method):
     @Method.timer
     def reverse_orig_dict(self):
         # TODO: Factorize. Method01Py2 and Method01Py3 have the same method.
-        import ipdb
-        ipdb.set_trace()
         if self.use_ordered_dict:
             return OrderedDict((v, k) for k, v in self.orig_dict_items)
         else:

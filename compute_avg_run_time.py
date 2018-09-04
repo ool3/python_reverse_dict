@@ -62,6 +62,8 @@ if __name__ == '__main__':
     # option of the shell command
     cmd = "./run_{}_method.py {} {}".format(python_version, args.method_name, options)
     cmd = shlex.split(cmd)
+    print("Shell command executed and waiting on results...")
+    print("...waiting...waiting...waiting...waiting...")
     try:
         output = subprocess.check_output(cmd, stderr=subprocess.PIPE).decode()
     except subprocess.CalledProcessError as e:
