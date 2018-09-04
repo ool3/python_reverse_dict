@@ -299,5 +299,3 @@ of reversing a <code>dict</code> in <b>Python 2.7</b>
 
 The code is licensed under the MIT license. See the
 [license](https://github.com/raul23/python_reverse_dict/blob/master/LICENSE) for more details.
-
-<div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
