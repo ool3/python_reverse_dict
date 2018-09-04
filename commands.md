@@ -72,7 +72,7 @@
 **100k items, 1k times**:  
 `python compute_avg_run_time.py -m method_02_py2 -ni 100000 -nt 1000 -p 8 -unu`  
 
-### Method 2: Py2y, setdefault, iteritems
+### Method 2: Py2, setdefault, iteritems
 **1k items, 100k times**:  
 `python compute_avg_run_time.py  -m method_02_py2 -ni 1000 -nt 100000 -p 8 -unu -usd`  
 
