@@ -266,7 +266,7 @@ of reversing a <code>dict</code> in Python 3
 
 | Method | Avg time (sec),  1k items, 100k times | Avg time (sec), 10k items, 1k times | Avg time (sec), 100k items, 1k times |
 |:-----------------------------:|:-------------------------------------:|:-----------------------------------:|:------------------------------------:|
-| Method 1: Py3, `dict` comprehension | <mark>0.00009681</mark> | 0.00094601 | 0.02040542 |
+| Method 1: Py3, `dict` comprehension | <pre><b>0.00009681<b/></pre> | 0.00094601 | 0.02040542 |
 | Method 2: Py3, `dict.get` | 0.00037360 | 0.00428752 | 0.06315073 |
 | Method 2: Py3, `setdefault` | 0.00037267 | 0.00432150 | 0.06343281 |
 | Method 3: Py3, `map(reversed,)` | 0.00031213 | 0.00319019 | 0.04577668 |
