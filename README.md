@@ -261,7 +261,7 @@ The following tables present the average run times of the different methods of r
 The shell commands for each methods are to be found in [commands.md](https://github.com/raul23/python_reverse_dict/blob/master/commands.md).
 <div align="center">  
 <b>Table 1<b/> Average running times of different methods <br/>
-of reversing a <code>dict</code> in Python 3
+of reversing a <code>dict</code> in <b>Python 3</b>
 </div>
 
 | Method | Avg time (sec),  1k items, 100k times | Avg time (sec), 10k items, 1k times | Avg time (sec), 100k items, 1k times |
@@ -271,7 +271,17 @@ of reversing a <code>dict</code> in Python 3
 | Method 2: Py3, `setdefault` | 0.00037267 | 0.00432150 | 0.06343281 |
 | Method 3: Py3, `map(reversed,)` | 0.00031213 | 0.00319019 | 0.04577668 |
 
-Table 2
+<div align="center">  
+<b>Table 2<b/> Average running times of different methods <br/>
+of reversing a <code>dict</code> in <b>Python 2.7</b>
+</div>
+
+| Method | Avg time (sec),  1k items, 100k times | Avg time (sec), 10k items, 1k times | Avg time (sec), 100k items, 1k times |
+|:-----------------------------:|:-------------------------------------:|:-----------------------------------:|:------------------------------------:|
+| Method 1: Py3, dict compre. | 0.00009681 | 0.00094601 | 0.02040542 |
+| Method 2: Py3, dict.get | 0.00037360 | 0.00428752 | 0.06315073 |
+| Method 2: Py3, setdefault | 0.00037267 | 0.00432150 | 0.06343281 |
+| Method 3: Py3, map(reversed,) | 0.00031213 | 0.00319019 | 0.04577668 |
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## References
