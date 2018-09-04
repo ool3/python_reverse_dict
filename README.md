@@ -36,7 +36,7 @@ You can also check my blog post [Python tips: reverse a dictionary]() where I di
 the implementation of the different methods and the results of the comparaisons of
 the methods based on their average run times.
 
-**Note**: I tested the code with **Python 2.7.15** and **3.6.5** 
+**Note**: I tested the code with **Python 2.7.15** and **3.6.5**
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
@@ -117,19 +117,19 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
 * **`-p PRECISION`**, **`--precision PRECISION`**  
   Decimal precision used when displaying number results.  
   (**default**: `8`)
-  
+
 * **`-pd`**, **`--print_dicts`**  
   Print the original and reversed dictionaries at the end.  
   (**default**: `False`)
-  
+
 * **`-unu`**, **`--use_non_uniques`**  
   Initialize the original dictionary with non-unique values.  
   (**default**: `False`)
-  
+
 * **`-uod`**, **`--use_ordered_dict`**  
   Use `OrderedDict` instead of `dict` for both dictionaries (original and inverse).   
   (**default**: `False`)
-  
+
 * **`-v`**, **`--version`**  
 Show program's version and exit.
 
@@ -265,7 +265,7 @@ The shell commands for each methods are to be found in [commands.md](https://git
 ## References
 
 * **Method 1**: code from https://stackoverflow.com/a/483833
-* **Method 2**: 
+* **Method 2**:
   * code with `dict.get()` from https://stackoverflow.com/a/485368
   * code with `dict.setdefault()` from https://stackoverflow.com/a/13057382
 * **Method 3**: code from https://stackoverflow.com/a/1679702
