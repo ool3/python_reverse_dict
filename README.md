@@ -12,6 +12,7 @@
 		- [Example 2: method 2](#example-2-method-2)
 		- [Example 3: method 3](#example-3-method-3)
 - [Comparaisons between methods](#comparaisons-between-methods)
+- [References](#references)
 - [License](#license)
 
 <!-- /TOC -->
