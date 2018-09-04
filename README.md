@@ -259,7 +259,17 @@ that insertion order is supported for `dict`.
 The following tables present the average run times of the different methods of reversing a dictionary. As can be seen, **method 1 is the big winner**, offering the best average run times in Python 2 & 3. More details on the results can be found on my blog post [Python tips: reverse a dictionary](), which the tables are taken from.
 
 The shell commands for each methods are to be found in [commands.md](https://github.com/raul23/python_reverse_dict/blob/master/commands.md).
-test
+<div align="center">  
+<b>Table 1<b/> Average running times of different methods <br/>
+of reversing a <code>dict</code> in Python 3
+</div>
+
+| Method | Avg time (sec),  1k items, 100k times | Avg time (sec), 10k items, 1k times | Avg time (sec), 100k items, 1k times |
+|:-----------------------------:|:-------------------------------------:|:-----------------------------------:|:------------------------------------:|
+| Method 1: Py3, `dict` comprehension | 0.00009681 | 0.00094601 | 0.02040542 |
+| Method 2: Py3, `dict.get` | 0.00037360 | 0.00428752 | 0.06315073 |
+| Method 2: Py3, `setdefault` | 0.00037267 | 0.00432150 | 0.06343281 |
+| Method 3: Py3, `map(reversed,)` | 0.00031213 | 0.00319019 | 0.04577668 |
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
