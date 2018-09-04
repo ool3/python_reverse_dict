@@ -210,7 +210,7 @@ Inverse dictionary:
 {'v1': ['k1', 'k5'], 'v2': ['k2', 'k6'], 'v3': ['k3', 'k7'], 'v4': ['k4', 'k8'], 'v5': ['k9']}
 ```
 
-**Note**:
+**Notes**:
 * In my work environment, `python` points to `Python 3.6.5`
 * [Method 2](#method02) works also with non-unique values (`-unu`) where keys
 having the same values are added to a list in the reversed dictionary.
