@@ -64,11 +64,6 @@ To use the **main** Python script
 [`compute_avg_run_time.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py):
 
 * Clone the repository and extract it
-* Change permission to the two files
-[`run_python2_method.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python3_method.py) and
-[`run_python3_method.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python2_method.py) so they can
-be executed by `compute_avg_run_time.py`:  
-**`$ chmod 744 run_python*`**
 * You can now run the main script by providing it the right options:  
 **`$ python compute_avg_run_time.py [-h] [--version] [OPTIONS]`**  
 
@@ -78,7 +73,7 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## Usage
-`compute_run_time.py [-h] [--version] [OPTIONS]`
+`python compute_run_time.py [-h] [--version] [OPTIONS]`
 
 ### Options
 * **`-h`**, **`--help`**  
