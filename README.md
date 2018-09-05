@@ -29,10 +29,10 @@ the type and order of the original dictionary must be preserved (e.g.
 
 I ran some tests, and **method 1 is the one that provides the best average run
 time** for reversing the keys and values of a dictionary. See section
-[Comparaisons between different methods](#comparaisons-between-different-methods)
+[Comparaisons between different methods](#comparaisons-between-methods)
 for the average run times of the different methods based on the number of items.
 
-You can also check my blog post [Python tips: reverse a dictionary]() where I discuss
+You can also check my blog post [Python tips: reverse a dictionary](https://progsharing.blogspot.com/2018/09/python-tips-reverse-dictionary.html) where I discuss
 the implementation of the different methods and the results of the comparaisons of
 the methods based on their average run times.
 
@@ -248,7 +248,7 @@ that insertion order is supported for `dict`.
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## Comparaisons between methods
-The following tables present the average run times (in µ seconds)  of the different methods of reversing a dictionary. As can be seen, **method 1 is the big winner**, offering the best average run times in Python 2 & 3. More details on the results can be found on my blog post [Python tips: reverse a dictionary](), which the tables are taken from.
+The following tables present the average run times (in µ seconds)  of the different methods of reversing a dictionary. As can be seen, **method 1 is the big winner**, offering the best average run times in Python 2 & 3. More details on the results can be found on my blog post [Python tips: reverse a dictionary](https://progsharing.blogspot.com/2018/09/python-tips-reverse-dictionary.html#average_running_times), which the tables are taken from.
 
 The shell commands for each methods are to be found in [commands.md](https://github.com/raul23/python_reverse_dict/blob/master/commands.md).
 <div align="center">  
