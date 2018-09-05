@@ -114,7 +114,7 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
 
 * **`-p PRECISION`**, **`--precision PRECISION`**  
   Decimal precision used when displaying number results.  
-  (**default**: `10`)
+  (**default**: `8`)
 
 * **`-pd`**, **`--print_dicts`**  
   Print the original and reversed dictionaries at the end.  
@@ -138,7 +138,7 @@ Show program's version and exit.
 #### Example 1: method 1
 Try 1000 times the [method 1](#method01) with **Python 2** on 10 items using
 `dict.items()`:  
-`$ python3 compute_avg_run_time.py -m method_01_py2 -ni 10 -nt 1000 -p 8 -ui -pd`
+`$ python3 compute_avg_run_time.py -m method_01_py2 -ni 10 -nt 1000 -ui -pd`
 
 **Output**:
 ```commandline
@@ -176,14 +176,13 @@ be expected since `method_01_py2` is a Python2-based method that is using a
 `dict` as the data structure. If an `OrderedDict` would have been used (with the
 option `-uod`), then the initial order of insertion would have been maintained
 in the dictionaries.
-* `-p 8` will display the results with 8 decimals.
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 #### Example 2: method 2
 Try 1000 times the [method 2](#method02) with **Python 3** on 9 items using
 `dict.setdefault()`:  
-`$ python compute_avg_run_time.py -m method_02_py3 -ni 9 -nt 1000 -p 8 -usd -pd -unu`
+`$ python compute_avg_run_time.py -m method_02_py3 -ni 9 -nt 1000 -usd -pd -unu`
 
 **Output**:
 ```commandline
@@ -218,7 +217,7 @@ having the same values are added to a list in the reversed dictionary.
 #### Example 3: method 3
 Try 100 times the [method 3](#method03) with **Python 3** on 10 items using
 `OrderedDict`:  
-`$ python compute_avg_run_time.py -m method_03_py3 -ni 10 -nt 1000 -p 8 -uod -pd`
+`$ python compute_avg_run_time.py -m method_03_py3 -ni 10 -nt 1000 -uod -pd`
 
 **Output**:
 ```commandline
