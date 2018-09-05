@@ -163,7 +163,7 @@ Inverse dictionary:
 though we are executing a **Python2-based** dict-reversing method
 (`method_01_py2`). As was [explained](#compute_avg_run_time_description)
 previously, `compute_avg_run_time.py`, which can be run with `python2` or
-`python3`, calls `run_python2_method.py` (a Python 2 script) which will call
+`python3`, executes `run_python2_method.py` (a Python 2 script) which will call
 `method_01_py2`.
 * From the content of the dictionaries, we see that the order of
 insertion was not fully respected (`{'v10': 'k10'}` is at the beginning) as can
