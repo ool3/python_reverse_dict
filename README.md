@@ -44,7 +44,7 @@ the methods based on their average run times.
 * [`compute_avg_run_time.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py)
 <a id="compute_avg_run_time_description"></a>: it is the **main** script that will build the right `shell` command for
 computing the average run time of a dict-reversing method. It is run by providing it the right [options](#options)
-through the command-line.  It will call either `run_python2_method.py` if the wanted method is Python2-based or
+through the command-line.  It will execute either `run_python2_method.py` if the wanted method is Python2-based or
 `run_python3_method.py` if the method is Python3-based. It can be called with `python2` or `python3` through the
 command-line.   
 * [`run_python2_method.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python2_method.py): gets
