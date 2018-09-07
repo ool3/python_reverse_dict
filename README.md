@@ -17,7 +17,7 @@
 
 <!-- /TOC -->
 ## Introduction
-This project goal is to compute average run times of different methods of reversing a 
+This project's goal is to compute average run times of different methods of reversing a 
 dictionary's keys and values in **Python 2.7 &amp; 3**:
 * **method 1**<a id="method01"></a>: makes use of dictionary comprehension, and
 the dictionary must contain unique values
