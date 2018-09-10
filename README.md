@@ -298,7 +298,7 @@ inv_dict = {v: k for k, v in my_dict.items()}
 <br/>
 <a id="python-27-with-dictiteritems"></a>
 <div align="center">  
-	<b>Python 2.7 with <code>dict.iteritems()</code></b>
+	<b>Method 1: Python 2.7 with <code>dict.iteritems()</code></b>
 </div>  
 
 ```python
@@ -316,6 +316,8 @@ inv_dict = {v: k for k, v in my_dict.iteritems()}
 my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
 inv_dict = {v: k for k, v in my_dict.items()}
 ```
+
+<div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## Method 2: non-unique values
 <a id="python-3-with-dictget"></a>
@@ -376,6 +378,8 @@ for key, value in my_dict.iteritems():
     inv_dict.setdefault(value, []).append(key)
 ```
 
+<div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
+
 ## Method 3: type and order preserved
 <a id="python-3-1"></a>
 <div align="center">  
@@ -414,3 +418,5 @@ inv_dict = reverse_mapping(my_dict)
 
 The code is licensed under the MIT license. See the
 [license](https://github.com/raul23/python_reverse_dict/blob/master/LICENSE) for more details.
+
+<div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
