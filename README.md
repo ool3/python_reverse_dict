@@ -13,17 +13,8 @@
 		- [Example 3: method 3](#example-3-method-3)
 - [Comparaisons between methods](#comparaisons-between-methods)
 - [Method 1: unique-values, solution based on `dict`](#method-1-unique-values-solution-based-on-dict)
-	- [Python 3](#python-3)
-	- [Python 2.7 with `dict.iteritems()`](#python-27-with-dictiteritems)
-	- [Python 2.7 with `dict.items()`](#python-27-with-dictitems)
 - [Method 2: non-unique values](#method-2-non-unique-values)
-	- [Python 3 with `dict.get()`](#python-3-with-dictget)
-	- [Python 2.7 with `dict.get()`](#python-27-with-dictget)
-	- [Python 3 with dict.setdefault()](#python-3-with-dictsetdefault)
-	- [Python 2.7 with `dict.setdefault()`](#python-27-with-dictsetdefault)
 - [Method 3: type and order preserved](#method-3-type-and-order-preserved)
-	- [Python 3](#python-3)
-	- [Python 2.7](#python-27)
 - [References](#references)
 - [License](#license)
 
@@ -271,7 +262,7 @@ of reversing a <code>dict</code> in <b>Python 3</b>
 
 | Py3 Method | Avg time (µsec),  1k items, 100k times | Avg time (µsec), 10k items, 1k times | Avg time (µsec), 100k items, 1k times |
 |:-----------------------------:|:-------------------------------------:|:-----------------------------------:|:------------------------------------:|
-| [Method 1: `dict` comprehension](##python-3) | <h3>96.81</h3> | <h3>946.01</h3> | <h3>20405.42</h3> |
+| [Method 1: `dict` comprehension](#python-3) | <h3>96.81</h3> | <h3>946.01</h3> | <h3>20405.42</h3> |
 | [Method 2: `dict.get`](#python-3-with-dictget) | 373.60 | 4287.52 | 63150.73 |
 | [Method 2: `setdefault`](#python-3-with-dictsetdefault) | 372.67 | 4321.50 | 63432.81 |
 | [Method 3: `map(reversed,)`](#python-3-1) | 312.13 | 3190.19 | 45776.68 |
@@ -294,24 +285,24 @@ of reversing a <code>dict</code> in <b>Python 2.7</b>
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## Method 1: unique-values, solution based on `dict`
-### Python 3
+**Python 3**
 ```python
 my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
 inv_dict = {v: k for k, v in my_dict.items()}
 ```
-### Python 2.7 with `dict.iteritems()`
+**Python 2.7 with `dict.iteritems()`**
 ```python
 my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
 inv_dict = {v: k for k, v in my_dict.iteritems()}
 ```
-### Python 2.7 with `dict.items()`
+**Python 2.7 with `dict.items()`**
 ```python
 my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
 inv_dict = {v: k for k, v in my_dict.items()}
 ```
 
 ## Method 2: non-unique values
-### Python 3 with `dict.get()`
+**Python 3 with `dict.get()`**
 ```python
 from collections import OrderedDict
 
@@ -324,7 +315,7 @@ def reverse_dict(orig_dict):
 my_dict = OrderedDict({1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'})
 reverse_dict(my_dict)
 ```
-### Python 2.7 with `dict.get()`
+**Python 2.7 with `dict.get()`**
 ```python
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
 inv_dict = {}
@@ -332,14 +323,14 @@ for k, v in my_dict.iteritems():
     inv_dict[v] = inv_dict.get(v, [])
     inv_dict[v].append(k)
 ```
-### Python 3 with dict.setdefault()
+**Python 3 with `dict.setdefault()`**
 ```python
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
 inv_dict = {}
 for key, value in my_dict.items():
     inv_dict.setdefault(value, []).append(key)
 ```
-### Python 2.7 with `dict.setdefault()`
+**Python 2.7 with `dict.setdefault()`**
 ```python
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
 inv_dict = {}
@@ -348,7 +339,7 @@ for key, value in my_dict.iteritems():
 ```
 
 ## Method 3: type and order preserved
-### Python 3
+**Python 3**
 ```python
 def reverse_mapping(f):
     return f.__class__(map(reversed, f.items()))
@@ -356,7 +347,8 @@ def reverse_mapping(f):
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'd', 5: 'e'}
 inv_dict = reverse_mapping(my_dict)
 ```
-### Python 2.7
+
+**Python 2**<div id="#python-27"></div>
 ```python
 def reverse_mapping(f):
     return f.__class__(map(reversed, f.iteritems()))
