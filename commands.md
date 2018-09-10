@@ -1,4 +1,4 @@
-0# Commands
+# Commands
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Python 3](#python-3)

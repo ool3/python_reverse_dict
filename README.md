@@ -17,8 +17,8 @@
 
 <!-- /TOC -->
 ## Introduction
-Computes average run times of different methods of reversing a dictionary's keys
-and values in **Python 2.7 &amp; 3**:
+This project's goal is to compute average run times of different methods of reversing a 
+dictionary's keys and values in **Python 2.7 &amp; 3**:
 * **method 1**<a id="method01"></a>: makes use of dictionary comprehension, and
 the dictionary must contain unique values
 * **method 2**<a id="method02"></a>: the dictionary doesn't contain unique
@@ -29,10 +29,10 @@ the type and order of the original dictionary must be preserved (e.g.
 
 I ran some tests, and **method 1 is the one that provides the best average run
 time** for reversing the keys and values of a dictionary. See section
-[Comparaisons between different methods](#comparaisons-between-different-methods)
+[Comparaisons between different methods](#comparaisons-between-methods)
 for the average run times of the different methods based on the number of items.
 
-You can also check my blog post [Python tips: reverse a dictionary]() where I discuss
+You can also check my blog post [Python tips: reverse a dictionary](https://progsharing.blogspot.com/2018/09/python-tips-reverse-dictionary.html) where I discuss
 the implementation of the different methods and the results of the comparaisons of
 the methods based on their average run times.
 
@@ -44,7 +44,7 @@ the methods based on their average run times.
 * [`compute_avg_run_time.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py)
 <a id="compute_avg_run_time_description"></a>: it is the **main** script that will build the right `shell` command for
 computing the average run time of a dict-reversing method. It is run by providing it the right [options](#options)
-through the command-line.  It will call either `run_python2_method.py` if the wanted method is Python2-based or
+through the command-line.  It will execute either `run_python2_method.py` if the wanted method is Python2-based or
 `run_python3_method.py` if the method is Python3-based. It can be called with `python2` or `python3` through the
 command-line.   
 * [`run_python2_method.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python2_method.py): gets
@@ -64,11 +64,6 @@ To use the **main** Python script
 [`compute_avg_run_time.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py):
 
 * Clone the repository and extract it
-* Change permission to the two files
-[`run_python2_method.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python3_method.py) and
-[`run_python3_method.py`](https://github.com/raul23/python_reverse_dict/blob/master/run_python2_method.py) so they can
-be executed by `compute_avg_run_time.py`:  
-**`$ chmod 744 run_python*`**
 * You can now run the main script by providing it the right options:  
 **`$ python compute_avg_run_time.py [-h] [--version] [OPTIONS]`**  
 
@@ -78,7 +73,7 @@ Go to the section [Usage](#usage) for more details on the script [options](#opti
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## Usage
-`compute_run_time.py [-h] [--version] [OPTIONS]`
+`python compute_run_time.py [-h] [--version] [OPTIONS]`
 
 ### Options
 * **`-h`**, **`--help`**  
@@ -168,7 +163,7 @@ Inverse dictionary:
 though we are executing a **Python2-based** dict-reversing method
 (`method_01_py2`). As was [explained](#compute_avg_run_time_description)
 previously, `compute_avg_run_time.py`, which can be run with `python2` or
-`python3`, calls `run_python2_method.py` (a Python 2 script) which will run
+`python3`, executes `run_python2_method.py` (a Python 2 script) which will call
 `method_01_py2`.
 * From the content of the dictionaries, we see that the order of
 insertion was not fully respected (`{'v10': 'k10'}` is at the beginning) as can
@@ -253,7 +248,7 @@ that insertion order is supported for `dict`.
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## Comparaisons between methods
-The following tables present the average run times of the different methods of reversing a dictionary. As can be seen, **method 1 is the big winner**, offering the best average run times in Python 2 & 3. More details on the results can be found on my blog post [Python tips: reverse a dictionary](), which the tables are taken from.
+The following tables present the average run times (in µ seconds)  of the different methods of reversing a dictionary. As it can be seen, **method 1 is the big winner**, offering the best average run times in Python 2 & 3. More details on the results can be found on my blog post [Python tips: reverse a dictionary](https://progsharing.blogspot.com/2018/09/python-tips-reverse-dictionary.html#average_running_times), which the tables are taken from.
 
 The shell commands for each methods are to be found in [commands.md](https://github.com/raul23/python_reverse_dict/blob/master/commands.md).
 <div align="center">  
@@ -261,12 +256,12 @@ The shell commands for each methods are to be found in [commands.md](https://git
 of reversing a <code>dict</code> in <b>Python 3</b>
 </div>
 
-| Method | Avg time (sec),  1k items, 100k times | Avg time (sec), 10k items, 1k times | Avg time (sec), 100k items, 1k times |
+| Py3 Method | Avg time (µsec),  1k items, 100k times | Avg time (µsec), 10k items, 1k times | Avg time (µsec), 100k items, 1k times |
 |:-----------------------------:|:-------------------------------------:|:-----------------------------------:|:------------------------------------:|
-| [Method 1: Py3, `dict` comprehension](#) | <h3>0.00009681</h3> | <h3>0.00094601</h3> | <h3>0.02040542</h3> |
-| [Method 2: Py3, `dict.get`](#) | 0.00037360 | 0.00428752 | 0.06315073 |
-| [Method 2: Py3, `setdefault`](#) | 0.00037267 | 0.00432150 | 0.06343281 |
-| [Method 3: Py3, `map(reversed,)`](#) | 0.00031213 | 0.00319019 | 0.04577668 |
+| Method 1: `dict` comprehension | <h3>96.81</h3> | <h3>946.01</h3> | <h3>20405.42</h3> |
+| Method 2: `dict.get` | 373.60 | 4287.52 | 63150.73 |
+| Method 2: `setdefault` | 372.67 | 4321.50 | 63432.81 |
+| Method 3: `map(reversed,)` | 312.13 | 3190.19 | 45776.68 |
 
 <br/>
 
@@ -275,13 +270,13 @@ of reversing a <code>dict</code> in <b>Python 3</b>
 of reversing a <code>dict</code> in <b>Python 2.7</b>
 </div>
 
-| Method | Avg time (sec),  1k items, 100k times | Avg time (sec), 10k items, 1k times | Avg time (sec), 100k items, 1k times |
+| Py2 Method | Avg time (µsec),  1k items, 100k times | Avg time (µsec), 10k items, 1k times | Avg time (µsec), 100k items, 1k times |
 |:---------------------------------------------:|:-------------------------------------:|:-----------------------------------:|:------------------------------------:|
-| [Method 1: Py2,  `dict` comprehension, `iteritems()`](#) | <h3>0.00023302</h3> | <h3>0.00300904</h3> | <h3>0.04581560</h3> |
-| [Method 1: Py2,  `dict` comprehension,  `items()`](#) | 0.00027322 | 0.00448439 | 0.07332781 |
-| [Method 2: Py2,  `dict.get`, `iteritems()` |](#) 0.00077242 | 0.01003583 | 0.12503990 |
-| [Method 2: Py2,  `setdefault`, `iteritems()`](#) | 0.00091063 | 0.01136959 | 0.13122012 |
-| [Method 3: Py2,  `map(reversed, iterable)`, `iteritems()`](#) | 0.00085657 | 0.01071258 | 0.12190458 |
+| Method 1: `dict` comprehension, `iteritems()` | <h3>233.02</h3> | <h3>3009.04</h3> | <h3>45815.60</h3> |
+| Method 1: `dict` comprehension,  `items()` | 273.22 | 4484.39 | 73327.81 |
+| Method 2: `dict.get`, `iteritems()` | 772.42 | 10035.83 | 125039.90 |
+| Method 2: `setdefault`, `iteritems()` | 910.63 | 11369.59 | 131220.12 |
+| Method 3: `map(reversed, iterable)`,  `iteritems()` | 856.57 | 10712.58 | 121904.58 |
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
