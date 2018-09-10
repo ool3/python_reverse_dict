@@ -12,9 +12,10 @@
 		- [Example 2: method 2](#example-2-method-2)
 		- [Example 3: method 3](#example-3-method-3)
 - [Comparaisons between methods](#comparaisons-between-methods)
-- [Method 1: unique-values, solution based on `dict`](#method-1-unique-values-solution-based-on-dict)
-- [Method 2: non-unique values](#method-2-non-unique-values)
-- [Method 3: type and order preserved](#method-3-type-and-order-preserved)
+- [Methods: Python code](#methods-python-code)
+	- [Method 1: unique-values, solution based on `dict`](#method-1-unique-values-solution-based-on-dict)
+	- [Method 2: non-unique values](#method-2-non-unique-values)
+	- [Method 3: type and order preserved](#method-3-type-and-order-preserved)
 - [References](#references)
 - [License](#license)
 
@@ -284,7 +285,8 @@ of reversing a <code>dict</code> in <b>Python 2.7</b>
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
-## Method 1: unique-values, solution based on `dict`
+## Methods: Python code
+### Method 1: unique-values, solution based on `dict`
 <a id="python-3"></a>
 <div align="center">  
 	<b>Method 1: Python 3</b>
@@ -319,7 +321,7 @@ inv_dict = {v: k for k, v in my_dict.items()}
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
-## Method 2: non-unique values
+### Method 2: non-unique values
 <a id="python-3-with-dictget"></a>
 <div align="center">  
 	<b>Method 2: Python 3 with <code>dict.get()</code></b>
@@ -380,7 +382,7 @@ for key, value in my_dict.iteritems():
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
-## Method 3: type and order preserved
+### Method 3: type and order preserved
 <a id="python-3-1"></a>
 <div align="center">  
 <b>Method 3: Python 3</b>
