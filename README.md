@@ -348,7 +348,8 @@ my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'd', 5: 'e'}
 inv_dict = reverse_mapping(my_dict)
 ```
 
-**Python 2**<a id="python-27"></a>
+<a id="python-27"></a>
+**Python 2**
 ```python
 def reverse_mapping(f):
     return f.__class__(map(reversed, f.iteritems()))
