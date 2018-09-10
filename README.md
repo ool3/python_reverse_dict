@@ -286,25 +286,16 @@ of reversing a <code>dict</code> in <b>Python 2.7</b>
 
 ## Method 1: unique-values, solution based on `dict`
 <a id="python-3"></a>
-<div align="center">  
-	<b>Method 1: Python 3</b>
-</div>
 ```python
 my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
 inv_dict = {v: k for k, v in my_dict.items()}
 ```
 <a id="python-27-with-dictiteritems"></a>
-<div align="center">  
-	<b>Python 2.7 with <code>dict.iteritems()</code></b>
-</div>
 ```python
 my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
 inv_dict = {v: k for k, v in my_dict.iteritems()}
 ```
 <a id="python-27-with-dictitems"></a>
-<div align="center">  
-	<b>Method 1: Python 2.7 with <code>dict.items()</code></b>
-</div>
 ```python
 my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
 inv_dict = {v: k for k, v in my_dict.items()}
@@ -312,9 +303,6 @@ inv_dict = {v: k for k, v in my_dict.items()}
 
 ## Method 2: non-unique values
 <a id="python-3-with-dictget"></a>
-<div align="center">  
-	<b>Method 2: Python 3 with <code>dict.get()</code></b>
-</div>
 ```python
 from collections import OrderedDict
 
@@ -328,9 +316,6 @@ my_dict = OrderedDict({1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'})
 reverse_dict(my_dict)
 ```
 <a id="python-27-with-dictsetdefault"></a>
-<div align="center">  
-	<b>Method 2: Python 2.7 with <code>dict.get()</code></b>
-</div>
 ```python
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
 inv_dict = {}
@@ -339,9 +324,6 @@ for k, v in my_dict.iteritems():
     inv_dict[v].append(k)
 ```
 <a id="python-3-with-dictsetdefault"></a>
-<div align="center">  
-	<b>Method 2: Python 3 with <code>dict.setdefault()</code></b>
-</div>
 ```python
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
 inv_dict = {}
@@ -349,9 +331,6 @@ for key, value in my_dict.items():
     inv_dict.setdefault(value, []).append(key)
 ```
 <a id="python-27-with-dictsetdefault"></a>
-<div align="center">  
-	<b>Method 2: Python 2.7 with <code>dict.setdefault()</code></b>
-</div>
 ```python
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
 inv_dict = {}
@@ -361,9 +340,6 @@ for key, value in my_dict.iteritems():
 
 ## Method 3: type and order preserved
 <a id="python-3-1"></a>
-<div align="center">  
-<b>Method 3: Python 3</b>
-</div>
 ```python
 def reverse_mapping(f):
     return f.__class__(map(reversed, f.items()))
@@ -372,9 +348,6 @@ my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'd', 5: 'e'}
 inv_dict = reverse_mapping(my_dict)
 ```
 <a id="python-27"></a>
-<div align="center">  
-<b>Method 3: Python 2</b>
-</div>
 ```python
 def reverse_mapping(f):
     return f.__class__(map(reversed, f.iteritems()))
