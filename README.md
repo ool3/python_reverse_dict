@@ -263,10 +263,10 @@ of reversing a <code>dict</code> in <b>Python 3</b>
 
 | Method | Avg time (sec),  1k items, 100k times | Avg time (sec), 10k items, 1k times | Avg time (sec), 100k items, 1k times |
 |:-----------------------------:|:-------------------------------------:|:-----------------------------------:|:------------------------------------:|
-| Method 1: Py3, `dict` comprehension | <h3>0.00009681</h3> | <h3>0.00094601</h3> | <h3>0.02040542</h3> |
-| Method 2: Py3, `dict.get` | 0.00037360 | 0.00428752 | 0.06315073 |
-| Method 2: Py3, `setdefault` | 0.00037267 | 0.00432150 | 0.06343281 |
-| Method 3: Py3, `map(reversed,)` | 0.00031213 | 0.00319019 | 0.04577668 |
+| [Method 1: Py3, `dict` comprehension](#) | <h3>0.00009681</h3> | <h3>0.00094601</h3> | <h3>0.02040542</h3> |
+| [Method 2: Py3, `dict.get`](#) | 0.00037360 | 0.00428752 | 0.06315073 |
+| [Method 2: Py3, `setdefault`](#) | 0.00037267 | 0.00432150 | 0.06343281 |
+| [Method 3: Py3, `map(reversed,)`](#) | 0.00031213 | 0.00319019 | 0.04577668 |
 
 <br/>
 
@@ -277,13 +277,85 @@ of reversing a <code>dict</code> in <b>Python 2.7</b>
 
 | Method | Avg time (sec),  1k items, 100k times | Avg time (sec), 10k items, 1k times | Avg time (sec), 100k items, 1k times |
 |:---------------------------------------------:|:-------------------------------------:|:-----------------------------------:|:------------------------------------:|
-| Method 1: Py2,  `dict` comprehension, `iteritems()` | <h3>0.00023302</h3> | <h3>0.00300904</h3> | <h3>0.04581560</h3> |
-| Method 1: Py2,  `dict` comprehension,  `items()` | 0.00027322 | 0.00448439 | 0.07332781 |
-| Method 2: Py2,  `dict.get`, `iteritems()` | 0.00077242 | 0.01003583 | 0.12503990 |
-| Method 2: Py2,  `setdefault`, `iteritems()` | 0.00091063 | 0.01136959 | 0.13122012 |
-| Method 3: Py2,  `map(reversed, iterable)`,  `iteritems()` | 0.00085657 | 0.01071258 | 0.12190458 |
+| [Method 1: Py2,  `dict` comprehension, `iteritems()`](#) | <h3>0.00023302</h3> | <h3>0.00300904</h3> | <h3>0.04581560</h3> |
+| [Method 1: Py2,  `dict` comprehension,  `items()`](#) | 0.00027322 | 0.00448439 | 0.07332781 |
+| [Method 2: Py2,  `dict.get`, `iteritems()` |](#) 0.00077242 | 0.01003583 | 0.12503990 |
+| [Method 2: Py2,  `setdefault`, `iteritems()`](#) | 0.00091063 | 0.01136959 | 0.13122012 |
+| [Method 3: Py2,  `map(reversed, iterable)`, `iteritems()`](#) | 0.00085657 | 0.01071258 | 0.12190458 |
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
+
+## Method 1: unique-values, solution based on `dict`
+### Python 3
+```python
+my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
+inv_dict = {v: k for k, v in my_dict.items()}
+```
+### Python 2.7 with `dict.iteritems()`
+```python
+my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
+inv_dict = {v: k for k, v in my_dict.iteritems()}
+```
+### Python 2.7 with `dict.items()`
+```python
+my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
+inv_dict = {v: k for k, v in my_dict.items()}
+```
+
+## Method 2: non-unique values
+### Python 3 with `dict.get()`
+```python
+from collections import OrderedDict
+
+def reverse_dict(orig_dict):
+    inv_dict = {}
+    for k, v in orig_dict.items():
+        inv_dict[v] = inv_dict.get(v, [])
+        inv_dict[v].append(k)
+
+my_dict = OrderedDict({1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'})
+reverse_dict(my_dict)
+```
+### Python 2.7 with `dict.get()`
+```python
+my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
+inv_dict = {}
+for k, v in my_dict.iteritems():
+    inv_dict[v] = inv_dict.get(v, [])
+    inv_dict[v].append(k)
+```
+### Python 3 with dict.setdefault()
+```python
+my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
+inv_dict = {}
+for key, value in my_dict.items():
+    inv_dict.setdefault(value, []).append(key)
+```
+### Python 2.7 with `dict.setdefault()`
+```python
+my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
+inv_dict = {}
+for key, value in my_dict.iteritems():
+    inv_dict.setdefault(value, []).append(key)
+```
+
+## Method 3: type and order preserved
+### Python 3
+```python
+def reverse_mapping(f):
+    return f.__class__(map(reversed, f.items()))
+
+my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'd', 5: 'e'}
+inv_dict = reverse_mapping(my_dict)
+```
+### Python 2.7
+```python
+def reverse_mapping(f):
+    return f.__class__(map(reversed, f.iteritems()))
+
+my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'd', 5: 'e'}
+inv_dict = reverse_mapping(my_dict)
+```
 
 ## References
 
