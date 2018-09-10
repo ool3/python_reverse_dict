@@ -295,6 +295,7 @@ my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
 inv_dict = {v: k for k, v in my_dict.items()}
 ```
 
+<br/>
 <a id="python-27-with-dictiteritems"></a>
 <div align="center">  
 	<b>Python 2.7 with <code>dict.iteritems()</code></b>
@@ -305,6 +306,7 @@ my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
 inv_dict = {v: k for k, v in my_dict.iteritems()}
 ```
 
+<br/>
 <a id="python-27-with-dictitems"></a>
 <div align="center">  
 	<b>Method 1: Python 2.7 with <code>dict.items()</code></b>
@@ -334,10 +336,12 @@ my_dict = OrderedDict({1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'})
 reverse_dict(my_dict)
 ```
 
+<br/>
 <a id="python-27-with-dictget"></a>
 <div align="center">  
 	<b>Method 2: Python 2.7 with <code>dict.get()</code></b>
-</div>
+</div>  
+
 ```python
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
 inv_dict = {}
@@ -346,6 +350,7 @@ for k, v in my_dict.iteritems():
     inv_dict[v].append(k)
 ```
 
+<br/>
 <a id="python-3-with-dictsetdefault"></a>
 <div align="center">  
 	<b>Method 2: Python 3 with <code>dict.setdefault()</code></b>
@@ -358,6 +363,7 @@ for key, value in my_dict.items():
     inv_dict.setdefault(value, []).append(key)
 ```
 
+<br/>
 <a id="python-27-with-dictsetdefault"></a>
 <div align="center">  
 	<b>Method 2: Python 2.7 with <code>dict.setdefault()</code></b>
