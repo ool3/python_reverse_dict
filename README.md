@@ -280,7 +280,7 @@ of reversing a <code>dict</code> in <b>Python 2.7</b>
 | [Method 1: `dict` comprehension,  `items()`](#python-27-with-dictitems) | 273.22 | 4484.39 | 73327.81 |
 | [Method 2: `dict.get`, `iteritems()`](#python-27-with-dictget) | 772.42 | 10035.83 | 125039.90 |
 | [Method 2: `setdefault`, `iteritems()`](#python-27-with-dictsetdefault) | 910.63 | 11369.59 | 131220.12 |
-| [Method 3: `map(reversed, iterable)`,  `iteritems()`](#python-27) | 856.57 | 10712.58 | 121904.58 |
+| <a href="#python-27">Method 3: `map(reversed, iterable)`,  `iteritems()`</a> | 856.57 | 10712.58 | 121904.58 |
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
