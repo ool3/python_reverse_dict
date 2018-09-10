@@ -351,6 +351,7 @@ inv_dict = reverse_mapping(my_dict)
 <div align="center">  
 <b>Method 3: Python 2</b>
 </div>  
+
 ```python
 def reverse_mapping(f):
     return f.__class__(map(reversed, f.iteritems()))
