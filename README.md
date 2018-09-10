@@ -285,16 +285,19 @@ of reversing a <code>dict</code> in <b>Python 2.7</b>
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## Method 1: unique-values, solution based on `dict`
+<a id="python-3"></a>
 **Python 3**
 ```python
 my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
 inv_dict = {v: k for k, v in my_dict.items()}
 ```
+<a id="python-27-with-dictiteritems"></a>
 **Python 2.7 with `dict.iteritems()`**
 ```python
 my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
 inv_dict = {v: k for k, v in my_dict.iteritems()}
 ```
+<a id="python-27-with-dictitems"></a>
 **Python 2.7 with `dict.items()`**
 ```python
 my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
@@ -302,6 +305,7 @@ inv_dict = {v: k for k, v in my_dict.items()}
 ```
 
 ## Method 2: non-unique values
+<a id="python-3-with-dictget"></a>
 **Python 3 with `dict.get()`**
 ```python
 from collections import OrderedDict
@@ -315,6 +319,7 @@ def reverse_dict(orig_dict):
 my_dict = OrderedDict({1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'})
 reverse_dict(my_dict)
 ```
+<a id="python-27-with-dictsetdefault"></a>
 **Python 2.7 with `dict.get()`**
 ```python
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
@@ -323,6 +328,7 @@ for k, v in my_dict.iteritems():
     inv_dict[v] = inv_dict.get(v, [])
     inv_dict[v].append(k)
 ```
+<a id="python-3-with-dictsetdefault"></a>
 **Python 3 with `dict.setdefault()`**
 ```python
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
@@ -330,6 +336,7 @@ inv_dict = {}
 for key, value in my_dict.items():
     inv_dict.setdefault(value, []).append(key)
 ```
+<a id="python-27-with-dictsetdefault"></a>
 **Python 2.7 with `dict.setdefault()`**
 ```python
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
@@ -339,7 +346,8 @@ for key, value in my_dict.iteritems():
 ```
 
 ## Method 3: type and order preserved
-**Python 3**
+<a id="python-3-1"></a>
+**Python 3**:
 ```python
 def reverse_mapping(f):
     return f.__class__(map(reversed, f.items()))
@@ -347,9 +355,8 @@ def reverse_mapping(f):
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'd', 5: 'e'}
 inv_dict = reverse_mapping(my_dict)
 ```
-
 <a id="python-27"></a>
-**Python 2**
+**Python 2**:
 ```python
 def reverse_mapping(f):
     return f.__class__(map(reversed, f.iteritems()))
