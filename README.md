@@ -12,12 +12,25 @@
 		- [Example 2: method 2](#example-2-method-2)
 		- [Example 3: method 3](#example-3-method-3)
 - [Comparaisons between methods](#comparaisons-between-methods)
+- [Method 1: unique-values, solution based on `dict`](#method-1-unique-values-solution-based-on-dict)
+	- [Python 3](#python-3)
+	- [Python 2.7 with `dict.iteritems()`](#python-27-with-dictiteritems)
+	- [Python 2.7 with `dict.items()`](#python-27-with-dictitems)
+- [Method 2: non-unique values](#method-2-non-unique-values)
+	- [Python 3 with `dict.get()`](#python-3-with-dictget)
+	- [Python 2.7 with `dict.get()`](#python-27-with-dictget)
+	- [Python 3 with dict.setdefault()](#python-3-with-dictsetdefault)
+	- [Python 2.7 with `dict.setdefault()`](#python-27-with-dictsetdefault)
+- [Method 3: type and order preserved](#method-3-type-and-order-preserved)
+	- [Python 3](#python-3)
+	- [Python 2.7](#python-27)
 - [References](#references)
 - [License](#license)
 
 <!-- /TOC -->
+
 ## Introduction
-This project's goal is to compute average run times of different methods of reversing a 
+This project's goal is to compute average run times of different methods of reversing a
 dictionary's keys and values in **Python 2.7 &amp; 3**:
 * **method 1**<a id="method01"></a>: makes use of dictionary comprehension, and
 the dictionary must contain unique values
