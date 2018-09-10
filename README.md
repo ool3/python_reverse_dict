@@ -340,6 +340,10 @@ for key, value in my_dict.iteritems():
 
 ## Method 3: type and order preserved
 <a id="python-3-1"></a>
+<div align="center">  
+<b>Method 3: Python 3</b>
+</div>  
+
 ```python
 def reverse_mapping(f):
     return f.__class__(map(reversed, f.items()))
@@ -352,6 +356,7 @@ inv_dict = reverse_mapping(my_dict)
 <div align="center">  
 <b>Method 3: Python 2.7</b>
 </div>  
+
 ```python
 def reverse_mapping(f):
     return f.__class__(map(reversed, f.iteritems()))
