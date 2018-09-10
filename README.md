@@ -347,6 +347,7 @@ def reverse_mapping(f):
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'd', 5: 'e'}
 inv_dict = reverse_mapping(my_dict)
 ```
+
 <a id="python-27"></a>
 <div align="center">  
 <b>Method 3: Python 2</b>
