@@ -12,8 +12,10 @@
 		- [Example 2: method 2](#example-2-method-2)
 		- [Example 3: method 3](#example-3-method-3)
 - [Results: Comparaisons between methods](#results-comparaisons-between-methods)
-- [Methods: Python code](#methods-python-code)
 	- [Major updates](#major-updates)
+	- [Table 1: Python2-based methods](#table-1-python2-based-methods)
+	- [Table 2: Python3-based methods](#table-2-python3-based-methods)
+- [Methods: Python code](#methods-python-code)
 	- [Method 1: unique-values, solution based on `dict`](#method-1-unique-values-solution-based-on-dict)
 	- [Method 2: non-unique values](#method-2-non-unique-values)
 	- [Method 3: type and order preserved](#method-3-type-and-order-preserved)
@@ -276,6 +278,7 @@ the results can be found on my blog post
 
 The python commands for each methods are to be found in [commands.md](https://github.com/raul23/python_reverse_dict/blob/master/commands.md#commands).
 
+### Table 1: Python2-based methods
 <div align="center">  
 <b>Table 1<b/> Average running times of different methods <br/>
 of reversing a <code>dict</code> in <b>Python 2.7</b>
@@ -289,8 +292,7 @@ of reversing a <code>dict</code> in <b>Python 2.7</b>
 | [Method 2: `setdefault`, `iteritems()`](#python-27-with-dictsetdefault) | 656.03 | 8539.27 | 108347.76 |
 | <a href="#python-27">Method 3: `map(reversed, iterable)`,  `iteritems()`</a> | 895.95 | 10788.73 | 146115.25 |
 
-<br/>
-
+### Table 2: Python3-based methods
 <div align="center">  
 <b>Table 2<b/> Average running times of different methods <br/>
 of reversing a <code>dict</code> in <b>Python 3</b>
