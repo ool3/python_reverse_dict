@@ -273,7 +273,7 @@ As it can be seen, **method 1 is the big winner**, offering the best average run
 the results can be found on my blog post 
 [Python tips: reverse a dictionary](https://progsharing.blogspot.com/2018/09/python-tips-reverse-dictionary.html#average_running_times).
 
-The python commands for each methods are to be found in [commands.md](https://github.com/raul23/python_reverse_dict/blob/master/commands.md).
+The python commands for each methods are to be found in [commands.md](https://github.com/raul23/python_reverse_dict/blob/master/commands.md#commands).
 
 <div align="center">  
 <b>Table 1<b/> Average running times of different methods <br/>
