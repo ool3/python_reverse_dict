@@ -1,5 +1,5 @@
-**IMPORTANT:** The rows [Method 2: `setdefault`, `iteritems()`](#python-27-with-dictsetdefault) in Table 1 and 
-[Method 2: `setdefault`](#python-3-with-dictsetdefault) in Table 2 were obtained actually with `dict.get()` instead of `dict.setdefault()`. 
+**IMPORTANT:** The rows [Method 2: `setdefault`, `iteritems()`](#python-27-with-dictsetdefault) in **Table 1** and 
+[Method 2: `setdefault`](#python-3-with-dictsetdefault) in **Table 2** were obtained actually with `dict.get()` instead of `dict.setdefault()`. 
 As stated on the [2018-09-16 update](https://github.com/raul23/python_reverse_dict#major-updates), I thought the 
 `--use_setdefault` option was implemented when I ran the main script 
 [`compute_avg_run_time.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py) which was not 
