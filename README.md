@@ -265,9 +265,9 @@ re-populate the following [two tables](#table-1-python2-based-methods) with new 
 `dict`-reversing methods are defined by putting all the common code from Python 2 & 3 methods into base classes.
 
 - I also implemented the important missing option `--use_setdefault` which I thought was already implemented when I 
-generated the [first results](https://github.com/raul23/python_reverse_dict/blob/master/old_results.md). Big mistake on 
-my part! Thus the old results for the rows **Method 2: setdefault** were generated actually with 
-`dict.get()` instead of `dict.setdefault()` :(
+generated the [results the first time](https://github.com/raul23/python_reverse_dict/blob/master/old_results.md). Big mistake 
+on my part! Thus the old results for the rows **Method 2: setdefault** were generated actually with `dict.get()` instead of 
+`dict.setdefault()` :(
 
 <br/>
 
