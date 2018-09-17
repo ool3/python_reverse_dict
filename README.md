@@ -401,20 +401,7 @@ for key, value in my_dict.iteritems():
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
-### Method 3: type and order preserved
-<a id="python-3-1"></a>
-<div align="center">  
-<b>Method 3: Python 3</b>
-</div>  
-
-```python
-def reverse_mapping(f):
-    return f.__class__(map(reversed, f.items()))
-
-my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'd', 5: 'e'}
-inv_dict = reverse_mapping(my_dict)
-```  
-<br/>
+### Method 3: type and order preserved 
 <a id="python-27"></a>
 <div align="center">  
 <b>Method 3: Python 2.7</b>
@@ -427,6 +414,21 @@ def reverse_mapping(f):
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'd', 5: 'e'}
 inv_dict = reverse_mapping(my_dict)
 ```
+
+<br/>
+
+<a id="python-3-1"></a>
+<div align="center">  
+<b>Method 3: Python 3</b>
+</div>  
+
+```python
+def reverse_mapping(f):
+    return f.__class__(map(reversed, f.items()))
+
+my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'd', 5: 'e'}
+inv_dict = reverse_mapping(my_dict)
+``` 
 
 ## References
 
