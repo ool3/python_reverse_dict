@@ -11,7 +11,7 @@
 		- [Example 1: method 1](#example-1-method-1)
 		- [Example 2: method 2](#example-2-method-2)
 		- [Example 3: method 3](#example-3-method-3)
-- [Comparaisons between methods](#comparaisons-between-methods)
+- [Results: Comparaisons between methods](#results-comparaisons-between-methods)
 - [Methods: Python code](#methods-python-code)
 	- [Method 1: unique-values, solution based on `dict`](#method-1-unique-values-solution-based-on-dict)
 	- [Method 2: non-unique values](#method-2-non-unique-values)
@@ -252,12 +252,12 @@ that insertion order is supported for `dict`.
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
-## Comparaisons between methods
+## Results: Comparaisons between methods
 ### Major updates  
 **2018-09-16:** 
-- I updated the code base (commit HASH: ) and re-ran the [python commands]() to re-populate the following two tables with 
-new results. I factorized [methods.py]() where the different `dict`-reversing methods are defined by putting all the 
-common code from Python 2 & 3 methods into base classes.  
+- I updated the [code base]() and re-ran the [python commands]() to 
+re-populate the following two tables with new results. I factorized [methods.py]() where the different `dict`-reversing 
+methods are defined by putting all the common code from Python 2 & 3 methods into base classes.
 
 - I also implemented the important missing option `--use_setdefault` which I thought was already implemented when I 
 generated the [first results](). Big mistake on my part! Thus the old results for the row 
