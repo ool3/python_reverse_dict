@@ -258,7 +258,7 @@ that insertion order is supported for `dict`.
 **2018-09-16:** 
 - I updated the [code base](https://github.com/raul23/python_reverse_dict/commit/a163e9df9d5001704c5f2836f1febe4a96e77e0a) 
 and re-ran the [python commands](https://github.com/raul23/python_reverse_dict/blob/master/commands.md#commands) to 
-re-populate the following two tables with new results. I factorized 
+re-populate the following [two tables](#table_01) with new results. I factorized 
 [methods.py](https://github.com/raul23/python_reverse_dict/blob/master/reverse_dict/methods.py) where the different 
 `dict`-reversing methods are defined by putting all the common code from Python 2 & 3 methods into base classes.
 
