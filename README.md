@@ -305,7 +305,7 @@ of reversing a <code>dict</code> in <b>Python 3</b>
 | [Method 1: `dict` comprehension](#python-3) | <h3>89.97</h3> | <h3>905.46</h3> | <h3>18487.63</h3> |
 | [Method 2: `dict.get`](#python-3-with-dictget) | 417.17 | 4949.22 | 66599.29 |
 | [Method 2: `setdefault`](#python-3-with-dictsetdefault) | 333.02 | 4171.31 | 58628.69 |
-| [Method 3: `map(reversed,)`](#python-3-1) | 311.59 | 3366.20 | 46960.80 |
+| [Method 3: `map(reversed, iterable)`](#python-3-1) | 311.59 | 3366.20 | 46960.80 |
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
