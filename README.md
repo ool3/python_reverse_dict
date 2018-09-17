@@ -295,7 +295,7 @@ of reversing a <code>dict</code> in <b>Python 2.7</b>
 
 <br/>
 
-<div id="table-2-python3-based-methods align="center">  
+<div id="table-2-python3-based-methods" align="center">  
 <b>Table 2<b/> Average running times of different methods <br/>
 of reversing a <code>dict</code> in <b>Python 3</b>
 </div>
