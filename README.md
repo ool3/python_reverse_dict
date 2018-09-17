@@ -306,17 +306,6 @@ of reversing a <code>dict</code> in <b>Python 3</b>
 
 ## Methods: Python code
 ### Method 1: unique-values, solution based on `dict`
-<a id="python-3"></a>
-<div align="center">  
-	<b>Method 1: Python 3</b>
-</div>  
-
-```python
-my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
-inv_dict = {v: k for k, v in my_dict.items()}
-```
-
-<br/>
 <a id="python-27-with-dictiteritems"></a>
 <div align="center">  
 	<b>Method 1: Python 2.7 with <code>dict.iteritems()</code></b>
@@ -338,9 +327,34 @@ my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
 inv_dict = {v: k for k, v in my_dict.items()}
 ```
 
+<br/>
+<a id="python-3"></a>
+<div align="center">  
+	<b>Method 1: Python 3</b>
+</div>  
+
+```python
+my_dict = { 'a': 1, 'b':2, 'c': 3, 'd':4, 'e':5}
+inv_dict = {v: k for k, v in my_dict.items()}
+```
+
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ### Method 2: non-unique values
+<a id="python-27-with-dictget"></a>
+<div align="center">  
+	<b>Method 2: Python 2.7 with <code>dict.get()</code></b>
+</div>  
+
+```python
+my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
+inv_dict = {}
+for k, v in my_dict.iteritems():
+    inv_dict[v] = inv_dict.get(v, [])
+    inv_dict[v].append(k)
+```
+
+<br/>
 <a id="python-3-with-dictget"></a>
 <div align="center">  
 	<b>Method 2: Python 3 with <code>dict.get()</code></b>
@@ -360,17 +374,16 @@ reverse_dict(my_dict)
 ```
 
 <br/>
-<a id="python-27-with-dictget"></a>
+<a id="python-27-with-dictsetdefault"></a>
 <div align="center">  
-	<b>Method 2: Python 2.7 with <code>dict.get()</code></b>
+	<b>Method 2: Python 2.7 with <code>dict.setdefault()</code></b>
 </div>  
 
 ```python
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
 inv_dict = {}
-for k, v in my_dict.iteritems():
-    inv_dict[v] = inv_dict.get(v, [])
-    inv_dict[v].append(k)
+for key, value in my_dict.iteritems():
+    inv_dict.setdefault(value, []).append(key)
 ```
 
 <br/>
@@ -383,19 +396,6 @@ for k, v in my_dict.iteritems():
 my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
 inv_dict = {}
 for key, value in my_dict.items():
-    inv_dict.setdefault(value, []).append(key)
-```
-
-<br/>
-<a id="python-27-with-dictsetdefault"></a>
-<div align="center">  
-	<b>Method 2: Python 2.7 with <code>dict.setdefault()</code></b>
-</div>  
-
-```python
-my_dict = {1: 'a', 2:'b', 3: 'c', 4: 'a', 5: 'c'}
-inv_dict = {}
-for key, value in my_dict.iteritems():
     inv_dict.setdefault(value, []).append(key)
 ```
 
@@ -416,7 +416,6 @@ inv_dict = reverse_mapping(my_dict)
 ```
 
 <br/>
-
 <a id="python-3-1"></a>
 <div align="center">  
 <b>Method 3: Python 3</b>
