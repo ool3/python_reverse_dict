@@ -13,6 +13,7 @@
 		- [Example 3: method 3](#example-3-method-3)
 - [Results: Comparaisons between methods](#results-comparaisons-between-methods)
 - [Methods: Python code](#methods-python-code)
+	- [Major updates](#major-updates)
 	- [Method 1: unique-values, solution based on `dict`](#method-1-unique-values-solution-based-on-dict)
 	- [Method 2: non-unique values](#method-2-non-unique-values)
 	- [Method 3: type and order preserved](#method-3-type-and-order-preserved)
