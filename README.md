@@ -280,8 +280,7 @@ The python commands for each methods are to be found in [commands.md](https://gi
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
-### Table 1: Python2-based methods
-<div align="center">  
+<div id="table-1-python2-based-methods" align="center">  
 <b>Table 1<b/> Average running times of different methods <br/>
 of reversing a <code>dict</code> in <b>Python 2.7</b>
 </div>
@@ -296,8 +295,7 @@ of reversing a <code>dict</code> in <b>Python 2.7</b>
 
 <br/>
 
-### Table 2: Python3-based methods
-<div align="center">  
+<div id="table-2-python3-based-methods align="center">  
 <b>Table 2<b/> Average running times of different methods <br/>
 of reversing a <code>dict</code> in <b>Python 3</b>
 </div>
