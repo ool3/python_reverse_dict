@@ -278,6 +278,8 @@ the results can be found on my blog post
 
 The python commands for each methods are to be found in [commands.md](https://github.com/raul23/python_reverse_dict/blob/master/commands.md#commands).
 
+<div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
+
 ### Table 1: Python2-based methods
 <div align="center">  
 <b>Table 1<b/> Average running times of different methods <br/>
