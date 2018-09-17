@@ -260,14 +260,14 @@ that insertion order is supported for `dict`.
 **2018-09-16:** 
 - I updated the [code base](https://github.com/raul23/python_reverse_dict/commit/a163e9df9d5001704c5f2836f1febe4a96e77e0a) 
 and re-ran the [python commands](https://github.com/raul23/python_reverse_dict/blob/master/commands.md#commands) to 
-re-populate the following [two tables](#table-1-python2-based-methods) with new results. I factorized 
-[methods.py](https://github.com/raul23/python_reverse_dict/blob/master/reverse_dict/methods.py) where the different 
-`dict`-reversing methods are defined by putting all the common code from Python 2 & 3 methods into base classes.
-
-- I also implemented the important missing option `--use_setdefault` which I thought was already implemented when I 
-generated the [results the first time](https://github.com/raul23/python_reverse_dict/blob/master/old_results.md). Big mistake 
-on my part! Thus the old results for the rows **Method 2: setdefault** were generated actually with `dict.get()` instead of 
+re-populate the following [two tables](#table-1-python2-based-methods) with new results. The changes consisted in implementing 
+the important missing option `--use_setdefault` which I thought was already implemented when I generated the 
+[results the first time](https://github.com/raul23/python_reverse_dict/blob/master/old_results.md). Big mistake on my part! 
+Thus the old results for the rows **Method 2: setdefault** were generated actually with `dict.get()` instead of 
 `dict.setdefault()` :(
+
+- Also, I factorized [methods.py](https://github.com/raul23/python_reverse_dict/blob/master/reverse_dict/methods.py) where the 
+different `dict`-reversing methods are defined by putting all the common code from Python 2 & 3 methods into base classes.
 
 <br/>
 
