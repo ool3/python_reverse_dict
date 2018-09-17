@@ -62,11 +62,12 @@ if __name__ == '__main__':
     cmd = "./run_{}_method.py {} {}".format(python_version, args.method_name,
                                             options)
     cmd = shlex.split(cmd)
-    # subprocess.call(cmd)
+    subprocess.call(cmd)
     # TODO: Slower code since you have to wait for all the results to generate
     # from the launched script. But it takes a little bit longer when using
     # the supposedly better solution `subprocess.call(cmd)`, where you get the
     # results in real-time. Why is it so?
+    """
     print("Shell command executed and waiting on results...")
     print("...waiting...waiting...waiting...waiting...")
     try:
@@ -75,3 +76,4 @@ if __name__ == '__main__':
         output = e.output.decode()
     finally:
         print('{}'.format(output))
+    """
