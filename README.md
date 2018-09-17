@@ -16,7 +16,7 @@
 	- [Table 1: Python2-based methods](#table-1-python2-based-methods)
 	- [Table 2: Python3-based methods](#table-2-python3-based-methods)
 - [Methods: Python code](#methods-python-code)
-	- [Method 1: unique-values, solution based on `dict`](#method-1-unique-values-solution-based-on-dict)
+	- [Method 1: unique-values, solution based on `dict` comprehension](#method-1-unique-values-solution-based-on-dict-comprehension)
 	- [Method 2: non-unique values](#method-2-non-unique-values)
 	- [Method 3: type and order preserved](#method-3-type-and-order-preserved)
 - [References](#references)
@@ -310,7 +310,7 @@ of reversing a <code>dict</code> in <b>Python 3</b>
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## Methods: Python code
-### Method 1: unique-values, solution based on <code>dict</code> comprehension
+### Method 1: unique-values, solution based on `dict` comprehension
 <a id="python-27-with-dictiteritems"></a>
 <div align="center">  
 	<b>Method 1: Python 2.7 with <code>dict.iteritems()</code></b>
