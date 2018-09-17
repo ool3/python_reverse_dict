@@ -34,7 +34,7 @@ the type and order of the original dictionary must be preserved (e.g.
 
 I ran some tests, and **method 1 is the one that provides the best average run
 time** for reversing the keys and values of a dictionary. See section
-[Comparaisons between different methods](#comparaisons-between-methods)
+[Comparaisons between different methods](#results-comparaisons-between-methods)
 for the average run times of the different methods based on the number of items.
 
 You can also check my blog post [Python tips: reverse a dictionary](https://progsharing.blogspot.com/2018/09/python-tips-reverse-dictionary.html) where I discuss
