@@ -311,6 +311,7 @@ of reversing a <code>dict</code> in <b>Python 3</b>
 
 ## Methods: Python code
 ### Method 1: unique-values, solution based on `dict` comprehension
+<br/>
 <a id="python-27-with-dictiteritems"></a>
 <div align="center">  
 	<b>Method 1: Python 2.7 with <code>dict.iteritems()</code></b>
