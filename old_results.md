@@ -5,7 +5,7 @@ As stated on the [2018-09-16 update](https://github.com/raul23/python_reverse_di
 [`compute_avg_run_time.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py) which was not 
 the case. `dict.get()` was used instead of `dict.setdefault()`. Check the 
 [newest results](https://github.com/raul23/python_reverse_dict#table-1-python2-based-methods) where I re-ran the 
-[python commands](https://github.com/raul23/python_reverse_dict/blob/master/commands.md#commands) with the code updated. 
+[python commands](https://github.com/raul23/python_reverse_dict/blob/master/commands.md#commands) with the updated code. 
 
 The following two tables present average run times that were obtained with 
 [python scripts](https://github.com/raul23/python_reverse_dict/commit/c834169f4b7f74f21e3fe3006483baa44f83ef91) having 
