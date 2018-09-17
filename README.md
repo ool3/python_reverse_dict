@@ -266,7 +266,7 @@ re-populate the following [two tables](#table-1-python2-based-methods) with new 
 
 - I also implemented the important missing option `--use_setdefault` which I thought was already implemented when I 
 generated the [first results](https://github.com/raul23/python_reverse_dict/blob/master/old_results.md). Big mistake on 
-my part! Thus the old results for the row **Method 2: setdefault, iteritems()** were generated actually with 
+my part! Thus the old results for the rows **Method 2: setdefault** were generated actually with 
 `dict.get()` instead of `dict.setdefault()` :(
 
 <br/>
