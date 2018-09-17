@@ -274,7 +274,7 @@ my part! Thus the old results for the row **Method 2: setdefault, iteritems()** 
 The following tables present the average run times (in µ seconds) of the different methods of reversing a dictionary. 
 As it can be seen, **method 1 is the big winner**, offering the best average run times in Python 2 & 3. More details on 
 the results can be found on my blog post 
-[Python tips: reverse a dictionary](https://progsharing.blogspot.com/2018/09/python-tips-reverse-dictionary.html#average_running_times).
+[Python tips: reverse a dictionary](https://progsharing.blogspot.com/2018/09/python-tips-reverse-dictionary.html#results).
 
 The python commands for each methods are to be found in [commands.md](https://github.com/raul23/python_reverse_dict/blob/master/commands.md#commands).
 
