@@ -6,7 +6,17 @@ class ArgParserBuilder:
     def __init__(self, prog, script_description='', list_arguments=[]):
         self.prog = prog
         self.script_description = script_description
-        self.list_arguments = list_arguments
+        # Check that the list of arguments is unique
+        unique_args = []
+        self.list_arguments = []
+        for arg in list_arguments:
+            if arg.__argument_name__ in unique_args:
+                print('The argument {} appears more than once in the list of '
+                      'arguments. Only the original argument will be '
+                      'kept.'.format(arg.__argument_name__))
+            else:
+                unique_args.append(arg.__argument_name__)
+                self.list_arguments.append(arg)
         self.parser = self._get_arg_parser()
 
     def get_parser(self):

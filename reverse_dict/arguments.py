@@ -193,9 +193,11 @@ class VersionArgument(Argument):
                                               **kwargs)
 
 
+# TODO: specify what it is meant by common. Options that are common to both Python 3
+# and Python 2 methods
 # TODO: add also a get_all_arguments() function to be used in the main script
 def get_common_arguments():
     # TODO: make use of `__common_option__` to know which argument to add to the list
     return [NumberItemsArgument(), NumberTimesArgument(), PrecisionArgument(),
             PrintDictsArgument(), UseNonUniquesArgument(), UseOrderedDictArgument(),
-            VersionArgument()]
+            UseSetDefaultArgument(), VersionArgument()]

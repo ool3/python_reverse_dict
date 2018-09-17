@@ -47,8 +47,8 @@ the methods based on their average run times.
 
 ## Directories and files description
 * [`compute_avg_run_time.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py)
-<a id="compute_avg_run_time_description"></a>: it is the **main** script that will build the right `shell` command for
-computing the average run time of a dict-reversing method. It is run by providing it the right [options](#options)
+<a id="compute_avg_run_time_description"></a>: it is the **main** script that will build the right `shell`-based python 
+command for computing the average run time of a dict-reversing method. It is run by providing it the right [options](#options)
 through the command-line.  It will execute either `run_python2_method.py` if the wanted method is Python2-based or
 `run_python3_method.py` if the method is Python3-based. It can be called with `python2` or `python3` through the
 command-line.   
@@ -253,35 +253,52 @@ that insertion order is supported for `dict`.
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ## Comparaisons between methods
-The following tables present the average run times (in µ seconds)  of the different methods of reversing a dictionary. As it can be seen, **method 1 is the big winner**, offering the best average run times in Python 2 & 3. More details on the results can be found on my blog post [Python tips: reverse a dictionary](https://progsharing.blogspot.com/2018/09/python-tips-reverse-dictionary.html#average_running_times), which the tables are taken from.
+### Major updates  
+**2018-09-16:** 
+- I updated the code base (commit HASH: ) and re-ran the [python commands]() to re-populate the following two tables with 
+new results. I factorized [methods.py]() where the different `dict`-reversing methods are defined by putting all the 
+common code from Python 2 & 3 methods into base classes.  
 
-The shell commands for each methods are to be found in [commands.md](https://github.com/raul23/python_reverse_dict/blob/master/commands.md).
-<div align="center">  
-<b>Table 1<b/> Average running times of different methods <br/>
-of reversing a <code>dict</code> in <b>Python 3</b>
-</div>
-
-| Py3 Method | Avg time (µsec),  1k items, 100k times | Avg time (µsec), 10k items, 1k times | Avg time (µsec), 100k items, 1k times |
-|:-----------------------------:|:-------------------------------------:|:-----------------------------------:|:------------------------------------:|
-| [Method 1: `dict` comprehension](#python-3) | <h3>96.81</h3> | <h3>946.01</h3> | <h3>20405.42</h3> |
-| [Method 2: `dict.get`](#python-3-with-dictget) | 373.60 | 4287.52 | 63150.73 |
-| [Method 2: `setdefault`](#python-3-with-dictsetdefault) | 372.67 | 4321.50 | 63432.81 |
-| [Method 3: `map(reversed,)`](#python-3-1) | 312.13 | 3190.19 | 45776.68 |
+- I also implemented the important missing option `--use_setdefault` which I thought was already implemented when I 
+generated the [first results](). Big mistake on my part! Thus the old results for the row 
+**Method 2: setdefault, iteritems()** were generated actually with `dict.get()` instead of 
+`dict.setdefault()` :(
 
 <br/>
 
+The following tables present the average run times (in µ seconds) of the different methods of reversing a dictionary. 
+As it can be seen, **method 1 is the big winner**, offering the best average run times in Python 2 & 3. More details on 
+the results can be found on my blog post 
+[Python tips: reverse a dictionary](https://progsharing.blogspot.com/2018/09/python-tips-reverse-dictionary.html#average_running_times).
+
+The python commands for each methods are to be found in [commands.md](https://github.com/raul23/python_reverse_dict/blob/master/commands.md).
+
 <div align="center">  
-<b>Table 2<b/> Average running times of different methods <br/>
+<b>Table 1<b/> Average running times of different methods <br/>
 of reversing a <code>dict</code> in <b>Python 2.7</b>
 </div>
 
 | Py2 Method | Avg time (µsec),  1k items, 100k times | Avg time (µsec), 10k items, 1k times | Avg time (µsec), 100k items, 1k times |
 |:---------------------------------------------:|:-------------------------------------:|:-----------------------------------:|:------------------------------------:|
-| [Method 1: `dict` comprehension, `iteritems()`](#python-27-with-dictiteritems) | <h3>233.02</h3> | <h3>3009.04</h3> | <h3>45815.60</h3> |
-| [Method 1: `dict` comprehension,  `items()`](#python-27-with-dictitems) | 273.22 | 4484.39 | 73327.81 |
-| [Method 2: `dict.get`, `iteritems()`](#python-27-with-dictget) | 772.42 | 10035.83 | 125039.90 |
-| [Method 2: `setdefault`, `iteritems()`](#python-27-with-dictsetdefault) | 910.63 | 11369.59 | 131220.12 |
-| <a href="#python-27">Method 3: `map(reversed, iterable)`,  `iteritems()`</a> | 856.57 | 10712.58 | 121904.58 |
+| [Method 1: `dict` comprehension, `iteritems()`](#python-27-with-dictiteritems) | <h3>217.96</h3> | <h3>2665.56</h3> | <h3>45301.06</h3> |
+| [Method 1: `dict` comprehension,  `items()`](#python-27-with-dictitems) | 256.79 | 4125.60 | 70901.29 |
+| [Method 2: `dict.get`, `iteritems()`](#python-27-with-dictget) | 838.27 | 10410.03 | 127703 |
+| [Method 2: `setdefault`, `iteritems()`](#python-27-with-dictsetdefault) | 656.03 | 8539.27 | 108347.76 |
+| <a href="#python-27">Method 3: `map(reversed, iterable)`,  `iteritems()`</a> | 895.95 | 10788.73 | 146115.25 |
+
+<br/>
+
+<div align="center">  
+<b>Table 2<b/> Average running times of different methods <br/>
+of reversing a <code>dict</code> in <b>Python 3</b>
+</div>
+
+| Py3 Method | Avg time (µsec),  1k items, 100k times | Avg time (µsec), 10k items, 1k times | Avg time (µsec), 100k items, 1k times |
+|:-----------------------------:|:-------------------------------------:|:-----------------------------------:|:------------------------------------:|
+| [Method 1: `dict` comprehension](#python-3) | <h3>89.97</h3> | <h3>905.46</h3> | <h3>18487.63</h3> |
+| [Method 2: `dict.get`](#python-3-with-dictget) | 417.17 | 4949.22 | 66599.29 |
+| [Method 2: `setdefault`](#python-3-with-dictsetdefault) | 333.02 | 4171.31 | 58628.69 |
+| [Method 3: `map(reversed,)`](#python-3-1) | 311.59 | 3366.20 | 46960.80 |
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 

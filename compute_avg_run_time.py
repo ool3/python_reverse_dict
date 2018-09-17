@@ -11,7 +11,7 @@ import subprocess
 # Own modules
 from reverse_dict.argparser_builder import ArgParserBuilder
 from reverse_dict.arguments import get_common_arguments, MethodNameArgument, \
-    UseItemsArgument, UseSetDefaultArgument
+    UseItemsArgument
 from reverse_dict.config import cfg
 import reverse_dict.methods as methods
 
@@ -32,8 +32,7 @@ if __name__ == '__main__':
 
     Github project @ {}
     '''.format(cfg.version, cfg.github_url)
-    list_arguments = [MethodNameArgument(), UseItemsArgument(),
-                      UseSetDefaultArgument()]
+    list_arguments = [MethodNameArgument(), UseItemsArgument()]
     list_arguments.extend(get_common_arguments())
     parser_builder = ArgParserBuilder(prog=__file__,
                                       script_description=script_description,
@@ -57,11 +56,17 @@ if __name__ == '__main__':
     method_class_name = cfg.methods[args.method_name]
     method_class = methods.__getattribute__(method_class_name)
     python_version = method_class.__python_version__
-    # TODO: add as first argument to run_python{2,3}_method.py the `method_name`
-    # without short and long options so you won't have to add it again as the first
-    # option of the shell command
-    cmd = "./run_{}_method.py {} {}".format(python_version, args.method_name, options)
+    # TODO: add as first argument to run_python{2,3}_method.py the `
+    # method_name` without short and long options so you won't have to add it
+    # again as the first option of the shell command
+    cmd = "./run_{}_method.py {} {}".format(python_version, args.method_name,
+                                            options)
     cmd = shlex.split(cmd)
+    # subprocess.call(cmd)
+    # TODO: Slower code since you have to wait for all the results to generate
+    # from the launched script. But it takes a little bit longer when using
+    # the supposedly better solution `subprocess.call(cmd)`, where you get the
+    # results in real-time. Why is it so?
     print("Shell command executed and waiting on results...")
     print("...waiting...waiting...waiting...waiting...")
     try:
