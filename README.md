@@ -292,6 +292,8 @@ of reversing a <code>dict</code> in <b>Python 2.7</b>
 | [Method 2: `setdefault`, `iteritems()`](#python-27-with-dictsetdefault) | 656.03 | 8539.27 | 108347.76 |
 | <a href="#python-27">Method 3: `map(reversed, iterable)`,  `iteritems()`</a> | 895.95 | 10788.73 | 146115.25 |
 
+<br/>
+
 ### Table 2: Python3-based methods
 <div align="center">  
 <b>Table 2<b/> Average running times of different methods <br/>
