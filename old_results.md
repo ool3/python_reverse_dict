@@ -6,6 +6,8 @@ done actually with `dict.get()` instead of `dict.setdefault()`. As stated on [20
 The following two tables present average run times that were obtained with [python scripts](https://github.com/raul23/python_reverse_dict/commit/c834169f4b7f74f21e3fe3006483baa44f83ef91) having *commit HASH* 
 **c834169f4b7f74f21e3fe3006483baa44f83ef91**. 
 
+<br/>
+
 <div align="center">  
 <b>Table 1<b/> Average running times of different methods <br/>
 of reversing a <code>dict</code> in <b>Python 2.7</b>
@@ -19,6 +21,7 @@ of reversing a <code>dict</code> in <b>Python 2.7</b>
 | [Method 2: `setdefault`, `iteritems()`](#python-27-with-dictsetdefault) | 910.63 | 11369.59 | 131220.12 |
 | <a href="#python-27">Method 3: `map(reversed, iterable)`,  `iteritems()`</a> | 856.57 | 10712.58 | 121904.58 |
 
+<br/>
 <br/>
 
 <div align="center">  
