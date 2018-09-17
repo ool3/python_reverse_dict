@@ -1,6 +1,6 @@
 **IMPORTANT:** The rows [Python2's setdefault](#python-27-with-dictsetdefault) and 
 [Python3's setdefault](#python-3-with-dictsetdefault) were obtained actually with `dict.get()` instead of `dict.setdefault()`. 
-As stated on the [2018-09-16 Update](https://github.com/raul23/python_reverse_dict#major-updates), I thought the 
+As stated on the [2018-09-16 update](https://github.com/raul23/python_reverse_dict#major-updates), I thought the 
 `--use_setdefault` option was implemented when I ran the main script 
 [`compute_avg_run_time.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py) which was not 
 the case. `dict.get()` was used instead of `dict.setdefault()`. Check the 
