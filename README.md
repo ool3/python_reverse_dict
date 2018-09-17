@@ -347,6 +347,7 @@ inv_dict = {v: k for k, v in my_dict.items()}
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ### Method 2: non-unique values
+<br/>
 <a id="python-27-with-dictget"></a>
 <div align="center">  
 	<b>Method 2: Python 2.7 with <code>dict.get()</code></b>
@@ -408,6 +409,7 @@ for key, value in my_dict.items():
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ### Method 3: type and order preserved 
+<br/>
 <a id="python-27"></a>
 <div align="center">  
 <b>Method 3: Python 2.7</b>
