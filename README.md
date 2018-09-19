@@ -8,9 +8,9 @@
 - [Usage](#usage)
 	- [Options](#options)
 	- [Examples of usage](#examples-of-usage)
-		- [Example 1: method 1](#example-1-method-1)
-		- [Example 2: method 2](#example-2-method-2)
-		- [Example 3: method 3](#example-3-method-3)
+		- [Example 1: method 1 (Python 2.7)](#example-1-method-1-python-27)
+		- [Example 2: method 2 (Python 3)](#example-2-method-2-python-3)
+		- [Example 3: method 3 (Python 3)](#example-3-method-3-python-3)
 - [Results: Comparaisons between methods](#results-comparaisons-between-methods)
 	- [Major updates](#major-updates)
 	- [Table 1: Python2-based methods](#table-1-python2-based-methods)
@@ -138,7 +138,7 @@ Show program's version and exit.
 
 ### Examples of usage
 
-#### Example 1: method 1
+#### Example 1: method 1 (Python 2.7)
 Try 1000 times the [method 1](#method01) with **Python 2** on 10 items using
 `dict.items()`:  
 `$ python3 compute_avg_run_time.py -m method_01_py2 -ni 10 -nt 1000 -ui -pd`
@@ -182,7 +182,7 @@ in the dictionaries.
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
-#### Example 2: method 2
+#### Example 2: method 2 (Python 3)
 Try 1000 times the [method 2](#method02) with **Python 3** on 9 items using
 `dict.setdefault()`:  
 `$ python compute_avg_run_time.py -m method_02_py3 -ni 9 -nt 1000 -usd -pd -unu`
@@ -217,7 +217,7 @@ having the same values are added to a list in the reversed dictionary.
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
-#### Example 3: method 3
+#### Example 3: method 3 (Python 3)
 Try 1000 times the [method 3](#method03) with **Python 3** on 10 items using
 `OrderedDict`:  
 `$ python compute_avg_run_time.py -m method_03_py3 -ni 10 -nt 1000 -uod -pd`
