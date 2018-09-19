@@ -190,19 +190,19 @@ Try 1000 times the [method 2](#method02) with **Python 3** on 9 items using
 **Output**:
 ```commandline
 Method name: method_02_py3
-#1 Run time: 0.00000782
-#2 Run time: 0.00000583
-#3 Run time: 0.00000477
-#4 Run time: 0.00000446
-#5 Run time: 0.00000461
+#1 Run time: 0.00001127
+#2 Run time: 0.00000531
+#3 Run time: 0.00000447
+#4 Run time: 0.00000418
+#5 Run time: 0.00000409
 [...]
-#995 Run time: 0.00000426
-#996 Run time: 0.00000430
-#997 Run time: 0.00000419
-#998 Run time: 0.00000426
-#999 Run time: 0.00000421
-#1000 Run time: 0.00000428
-Avg run time: 0.00000538 seconds
+#995 Run time: 0.00000372
+#996 Run time: 0.00000380
+#997 Run time: 0.00000375
+#998 Run time: 0.00000372
+#999 Run time: 0.00000371
+#1000 Run time: 0.00000368
+Avg run time: 0.00000386 seconds
 
 Original dict:
 {'k1': 'v1', 'k2': 'v2', 'k3': 'v3', 'k4': 'v4', 'k5': 'v1', 'k6': 'v2', 'k7': 'v3', 'k8': 'v4', 'k9': 'v5'}
@@ -212,8 +212,8 @@ Inverse dictionary:
 
 **Notes**:
 * In my work environment, `python` points to `Python 3.6.5`
-* [Method 2](#method02) works also with non-unique values (`-unu`) where keys
-having the same values are added to a list in the reversed dictionary.
+* [Method 2](#method02) works also with non-unique values (`-unu`), i.e. keys might have the same values in the original
+`dict`.
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
