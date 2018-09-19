@@ -1,10 +1,11 @@
-**IMPORTANT:** The rows [Python2's setdefault](#python-27-with-dictsetdefault) and 
-[Python3's setdefault](#python-3-with-dictsetdefault) were obtained actually with `dict.get()` instead of `dict.setdefault()`. 
-As stated on [2018-09-16 Update](https://github.com/raul23/python_reverse_dict#major-updates), I thought the `--use_setdefault` 
-option was implemented when I ran the main script `compute_avg_run_time.py` which was not the case. `dict.get()` was used 
-instead of `dict.setdefault()`. Check the 
-[newest results](https://github.com/raul23/python_reverse_dict#results-comparaisons-between-methods) where I re-ran the 
-[python commands](https://github.com/raul23/python_reverse_dict/blob/master/commands.md#commands). 
+**IMPORTANT:** The rows [Method 2: `setdefault`, `iteritems()`](#python-27-with-dictsetdefault) in **Table 1** and 
+[Method 2: `setdefault`](#python-3-with-dictsetdefault) in **Table 2** were obtained actually with `dict.get()` instead of `dict.setdefault()`. 
+As stated on the [2018-09-16 update](https://github.com/raul23/python_reverse_dict#major-updates), I thought the 
+`--use_setdefault` option was implemented when I ran the main script 
+[`compute_avg_run_time.py`](https://github.com/raul23/python_reverse_dict/blob/master/compute_avg_run_time.py) which was not 
+the case. `dict.get()` was used instead of `dict.setdefault()`. Check the 
+[newest results](https://github.com/raul23/python_reverse_dict#table-1-python2-based-methods) where I re-ran the 
+[python commands](https://github.com/raul23/python_reverse_dict/blob/master/commands.md#commands) with the updated code. 
 
 The following two tables present average run times that were obtained with 
 [python scripts](https://github.com/raul23/python_reverse_dict/commit/c834169f4b7f74f21e3fe3006483baa44f83ef91) having 

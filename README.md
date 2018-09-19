@@ -8,9 +8,9 @@
 - [Usage](#usage)
 	- [Options](#options)
 	- [Examples of usage](#examples-of-usage)
-		- [Example 1: method 1](#example-1-method-1)
-		- [Example 2: method 2](#example-2-method-2)
-		- [Example 3: method 3](#example-3-method-3)
+		- [Example 1: method 1 (Python 2.7)](#example-1-method-1-python-27)
+		- [Example 2: method 2 (Python 3)](#example-2-method-2-python-3)
+		- [Example 3: method 3 (Python 3)](#example-3-method-3-python-3)
 - [Results: Comparaisons between methods](#results-comparaisons-between-methods)
 	- [Major updates](#major-updates)
 	- [Table 1: Python2-based methods](#table-1-python2-based-methods)
@@ -137,8 +137,9 @@ Show program's version and exit.
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ### Examples of usage
+<!-- Examples done with commit HASH a163e9df9d5001704c5f2836f1febe4a96e77e0a -->
 
-#### Example 1: method 1
+#### Example 1: method 1 (Python 2.7)
 Try 1000 times the [method 1](#method01) with **Python 2** on 10 items using
 `dict.items()`:  
 `$ python3 compute_avg_run_time.py -m method_01_py2 -ni 10 -nt 1000 -ui -pd`
@@ -146,19 +147,19 @@ Try 1000 times the [method 1](#method01) with **Python 2** on 10 items using
 **Output**:
 ```commandline
 Method name: method_01_py2
-#1 Run time: 0.00001287
-#2 Run time: 0.00000787
-#3 Run time: 0.00000286
-#4 Run time: 0.00000310
+#1 Run time: 0.00000501
+#2 Run time: 0.00000381
+#3 Run time: 0.00000310
+#4 Run time: 0.00000286
 #5 Run time: 0.00000310
 [...]
 #995 Run time: 0.00000286
-#996 Run time: 0.00000191
+#996 Run time: 0.00000215
 #997 Run time: 0.00000310
-#998 Run time: 0.00000286
-#999 Run time: 0.00000191
-#1000 Run time: 0.00000310
-Avg run time: 0.00000289 seconds
+#998 Run time: 0.00000191
+#999 Run time: 0.00000286
+#1000 Run time: 0.00000215
+Avg run time: 0.00000269 seconds
 
 Original dict:
 {'k10': 'v10', 'k3': 'v3', 'k2': 'v2', 'k1': 'v1', 'k7': 'v7', 'k6': 'v6', 'k5': 'v5', 'k4': 'v4', 'k9': 'v9', 'k8': 'v8'}
@@ -182,7 +183,7 @@ in the dictionaries.
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
-#### Example 2: method 2
+#### Example 2: method 2 (Python 3)
 Try 1000 times the [method 2](#method02) with **Python 3** on 9 items using
 `dict.setdefault()`:  
 `$ python compute_avg_run_time.py -m method_02_py3 -ni 9 -nt 1000 -usd -pd -unu`
@@ -190,19 +191,19 @@ Try 1000 times the [method 2](#method02) with **Python 3** on 9 items using
 **Output**:
 ```commandline
 Method name: method_02_py3
-#1 Run time: 0.00000782
-#2 Run time: 0.00000583
-#3 Run time: 0.00000477
-#4 Run time: 0.00000446
-#5 Run time: 0.00000461
+#1 Run time: 0.00001127
+#2 Run time: 0.00000531
+#3 Run time: 0.00000447
+#4 Run time: 0.00000418
+#5 Run time: 0.00000409
 [...]
-#995 Run time: 0.00000426
-#996 Run time: 0.00000430
-#997 Run time: 0.00000419
-#998 Run time: 0.00000426
-#999 Run time: 0.00000421
-#1000 Run time: 0.00000428
-Avg run time: 0.00000538 seconds
+#995 Run time: 0.00000372
+#996 Run time: 0.00000380
+#997 Run time: 0.00000375
+#998 Run time: 0.00000372
+#999 Run time: 0.00000371
+#1000 Run time: 0.00000368
+Avg run time: 0.00000386 seconds
 
 Original dict:
 {'k1': 'v1', 'k2': 'v2', 'k3': 'v3', 'k4': 'v4', 'k5': 'v1', 'k6': 'v2', 'k7': 'v3', 'k8': 'v4', 'k9': 'v5'}
@@ -212,32 +213,32 @@ Inverse dictionary:
 
 **Notes**:
 * In my work environment, `python` points to `Python 3.6.5`
-* [Method 2](#method02) works also with non-unique values (`-unu`) where keys
-having the same values are added to a list in the reversed dictionary.
+* [Method 2](#method02) works also with non-unique values (`-unu`), i.e. keys might have the same values in the original
+`dict`.
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
-#### Example 3: method 3
-Try 100 times the [method 3](#method03) with **Python 3** on 10 items using
+#### Example 3: method 3 (Python 3)
+Try 1000 times the [method 3](#method03) with **Python 3** on 10 items using
 `OrderedDict`:  
 `$ python compute_avg_run_time.py -m method_03_py3 -ni 10 -nt 1000 -uod -pd`
 
 **Output**:
 ```commandline
 Method name: method_03_py3
-#1 Run time: 0.00001224
-#2 Run time: 0.00000586
-#3 Run time: 0.00000535
-#4 Run time: 0.00000493
-#5 Run time: 0.00000493
+#1 Run time: 0.00001149
+#2 Run time: 0.00000642
+#3 Run time: 0.00000523
+#4 Run time: 0.00000480
+#5 Run time: 0.00000483
 [...]
-#995 Run time: 0.00000455
-#996 Run time: 0.00000458
-#997 Run time: 0.00000461
-#998 Run time: 0.00000461
-#999 Run time: 0.00000456
-#1000 Run time: 0.00000462
-Avg run time: 0.00000486 seconds
+#995 Run time: 0.00000447
+#996 Run time: 0.00000453
+#997 Run time: 0.00000452
+#998 Run time: 0.00000445
+#999 Run time: 0.00000447
+#1000 Run time: 0.00000452
+Avg run time: 0.00000495 seconds
 
 Original dict:
 OrderedDict([('k1', 'v1'), ('k2', 'v2'), ('k3', 'v3'), ('k4', 'v4'), ('k5', 'v5'), ('k6', 'v6'), ('k7', 'v7'), ('k8', 'v8'), ('k9', 'v9'), ('k10', 'v10')])
@@ -260,21 +261,21 @@ that insertion order is supported for `dict`.
 **2018-09-16:** 
 - I updated the [code base](https://github.com/raul23/python_reverse_dict/commit/a163e9df9d5001704c5f2836f1febe4a96e77e0a) 
 and re-ran the [python commands](https://github.com/raul23/python_reverse_dict/blob/master/commands.md#commands) to 
-re-populate the following [two tables](#table-1-python2-based-methods) with new results. I factorized 
-[methods.py](https://github.com/raul23/python_reverse_dict/blob/master/reverse_dict/methods.py) where the different 
-`dict`-reversing methods are defined by putting all the common code from Python 2 & 3 methods into base classes.
+re-populate the following [two tables](#table-1-python2-based-methods) with new results. The changes consisted in implementing 
+the important missing option `--use_setdefault` which I thought was already implemented when I generated the 
+[results the first time](https://github.com/raul23/python_reverse_dict/blob/master/old_results.md). Big mistake on my part! 
+Thus the old results for the rows **Method 2: setdefault** were generated actually with `dict.get()` instead of 
+`dict.setdefault()` :(
 
-- I also implemented the important missing option `--use_setdefault` which I thought was already implemented when I 
-generated the [first results](https://github.com/raul23/python_reverse_dict/blob/master/old_results.md). Big mistake on 
-my part! Thus the old results for the row **Method 2: setdefault, iteritems()** were generated actually with 
-`dict.get()` instead of `dict.setdefault()` :(
+- Also, I factorized [methods.py](https://github.com/raul23/python_reverse_dict/blob/master/reverse_dict/methods.py) where the 
+different `dict`-reversing methods are defined by putting all the common code from Python 2 & 3 methods into base classes.
 
 <br/>
 
 The following tables present the average run times (in µ seconds) of the different methods of reversing a dictionary. 
 As it can be seen, **method 1 is the big winner**, offering the best average run times in Python 2 & 3. More details on 
 the results can be found on my blog post 
-[Python tips: reverse a dictionary](https://progsharing.blogspot.com/2018/09/python-tips-reverse-dictionary.html#average_running_times).
+[Python tips: reverse a dictionary](https://progsharing.blogspot.com/2018/09/python-tips-reverse-dictionary.html#results).
 
 The python commands for each methods are to be found in [commands.md](https://github.com/raul23/python_reverse_dict/blob/master/commands.md#commands).
 
@@ -305,7 +306,7 @@ of reversing a <code>dict</code> in <b>Python 3</b>
 | [Method 1: `dict` comprehension](#python-3) | <h3>89.97</h3> | <h3>905.46</h3> | <h3>18487.63</h3> |
 | [Method 2: `dict.get`](#python-3-with-dictget) | 417.17 | 4949.22 | 66599.29 |
 | [Method 2: `setdefault`](#python-3-with-dictsetdefault) | 333.02 | 4171.31 | 58628.69 |
-| [Method 3: `map(reversed,)`](#python-3-1) | 311.59 | 3366.20 | 46960.80 |
+| [Method 3: `map(reversed, iterable)`](#python-3-1) | 311.59 | 3366.20 | 46960.80 |
 
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
