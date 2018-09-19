@@ -218,7 +218,7 @@ having the same values are added to a list in the reversed dictionary.
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 #### Example 3: method 3
-Try 100 times the [method 3](#method03) with **Python 3** on 10 items using
+Try 1000 times the [method 3](#method03) with **Python 3** on 10 items using
 `OrderedDict`:  
 `$ python compute_avg_run_time.py -m method_03_py3 -ni 10 -nt 1000 -uod -pd`
 
