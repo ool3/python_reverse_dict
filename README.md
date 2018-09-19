@@ -137,6 +137,7 @@ Show program's version and exit.
 <div align="right"> <a href="#python_reverse_dict"> ^top </a> </div>
 
 ### Examples of usage
+<!-- Examples done with commit HASH a163e9df9d5001704c5f2836f1febe4a96e77e0a -->
 
 #### Example 1: method 1 (Python 2.7)
 Try 1000 times the [method 1](#method01) with **Python 2** on 10 items using
@@ -146,19 +147,19 @@ Try 1000 times the [method 1](#method01) with **Python 2** on 10 items using
 **Output**:
 ```commandline
 Method name: method_01_py2
-#1 Run time: 0.00001287
-#2 Run time: 0.00000787
-#3 Run time: 0.00000286
-#4 Run time: 0.00000310
+#1 Run time: 0.00000501
+#2 Run time: 0.00000381
+#3 Run time: 0.00000310
+#4 Run time: 0.00000286
 #5 Run time: 0.00000310
 [...]
 #995 Run time: 0.00000286
-#996 Run time: 0.00000191
+#996 Run time: 0.00000215
 #997 Run time: 0.00000310
-#998 Run time: 0.00000286
-#999 Run time: 0.00000191
-#1000 Run time: 0.00000310
-Avg run time: 0.00000289 seconds
+#998 Run time: 0.00000191
+#999 Run time: 0.00000286
+#1000 Run time: 0.00000215
+Avg run time: 0.00000269 seconds
 
 Original dict:
 {'k10': 'v10', 'k3': 'v3', 'k2': 'v2', 'k1': 'v1', 'k7': 'v7', 'k6': 'v6', 'k5': 'v5', 'k4': 'v4', 'k9': 'v9', 'k8': 'v8'}
@@ -225,19 +226,19 @@ Try 1000 times the [method 3](#method03) with **Python 3** on 10 items using
 **Output**:
 ```commandline
 Method name: method_03_py3
-#1 Run time: 0.00001224
-#2 Run time: 0.00000586
-#3 Run time: 0.00000535
-#4 Run time: 0.00000493
-#5 Run time: 0.00000493
+#1 Run time: 0.00001149
+#2 Run time: 0.00000642
+#3 Run time: 0.00000523
+#4 Run time: 0.00000480
+#5 Run time: 0.00000483
 [...]
-#995 Run time: 0.00000455
-#996 Run time: 0.00000458
-#997 Run time: 0.00000461
-#998 Run time: 0.00000461
-#999 Run time: 0.00000456
-#1000 Run time: 0.00000462
-Avg run time: 0.00000486 seconds
+#995 Run time: 0.00000447
+#996 Run time: 0.00000453
+#997 Run time: 0.00000452
+#998 Run time: 0.00000445
+#999 Run time: 0.00000447
+#1000 Run time: 0.00000452
+Avg run time: 0.00000495 seconds
 
 Original dict:
 OrderedDict([('k1', 'v1'), ('k2', 'v2'), ('k3', 'v3'), ('k4', 'v4'), ('k5', 'v5'), ('k6', 'v6'), ('k7', 'v7'), ('k8', 'v8'), ('k9', 'v9'), ('k10', 'v10')])
