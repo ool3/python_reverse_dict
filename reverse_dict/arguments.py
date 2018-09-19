@@ -10,14 +10,13 @@ class Argument(object):
         self.option_name = option_name
         self.short_option = short_option
         self.long_option = long_option
+        # IMPORTANT: when an argument's option name is used instead of the
+        # argument's short and long options, the short and long options are
+        # ignored
         if option_name:
             self.args = option_name
         else:
-            self.args = []
-            if short_option:
-                self.args.append(short_option)
-            if long_option:
-                self.args.append(long_option)
+            self.args = [opt for opt in [short_option, long_option] if opt]
         if kwargs:
             self.kwargs.update(kwargs)
 
@@ -51,9 +50,9 @@ Name of the method that reverses a dict's keys and values:
     def __init__(self, option_name=None, short_option='-m',
                  long_option='--{}'.format(__argument_name__),
                  default=__default_value__, help=__help_arg__, **kwargs):
-        super(MethodNameArgument, self).__init__(option_name, short_option,
-                                                 long_option, default=default,
-                                                 help=help, **kwargs)
+        super(MethodNameArgument, self).__init__(
+            option_name, short_option, long_option, default=default, help=help,
+            **kwargs)
 
 
 class NumberItemsArgument(Argument):
@@ -66,9 +65,9 @@ class NumberItemsArgument(Argument):
     def __init__(self, option_name=None, short_option='-ni',
                  long_option='--{}'.format(__argument_name__),
                  default=__default_value__, type=int, help=__help_arg__, **kwargs):
-        super(NumberItemsArgument, self).__init__(option_name, short_option,
-                                                  long_option, default=default,
-                                                  type=type, help=help, **kwargs)
+        super(NumberItemsArgument, self).__init__(
+            option_name, short_option, long_option, default=default, type=type,
+            help=help, **kwargs)
 
 
 class NumberTimesArgument(Argument):
@@ -83,9 +82,9 @@ of all the tries, the average run time is computed. (default: {})
     def __init__(self, option_name=None, short_option='-nt',
                  long_option='--{}'.format(__argument_name__),
                  default=__default_value__, type=int, help=__help_arg__, **kwargs):
-        super(NumberTimesArgument, self).__init__(option_name, short_option,
-                                                  long_option, default=default,
-                                                  type=type, help=help, **kwargs)
+        super(NumberTimesArgument, self).__init__(
+            option_name, short_option, long_option, default=default, type=type,
+            help=help, **kwargs)
 
 
 class PrecisionArgument(Argument):
@@ -98,9 +97,9 @@ class PrecisionArgument(Argument):
     def __init__(self, option_name=None, short_option='-p', type=int,
                  long_option='--{}'.format(__argument_name__),
                  default=__default_value__, help=__help_arg__, **kwargs):
-        super(PrecisionArgument, self).__init__(option_name, short_option,
-                                                long_option, default=default,
-                                                type=type, help=help, **kwargs)
+        super(PrecisionArgument, self).__init__(
+            option_name, short_option, long_option, default=default, type=type,
+            help=help, **kwargs)
 
 
 class PrintDictsArgument(Argument):
@@ -113,9 +112,9 @@ class PrintDictsArgument(Argument):
     def __init__(self, option_name=None, short_option='-pd',
                  long_option='--{}'.format(__argument_name__), action='store_true',
                  help=__help_arg__, **kwargs):
-        super(PrintDictsArgument, self).__init__(option_name, short_option,
-                                                 long_option, action=action,
-                                                  help=help, **kwargs)
+        super(PrintDictsArgument, self).__init__(
+            option_name, short_option, long_option, action=action, help=help,
+            **kwargs)
 
 
 class UseItemsArgument(Argument):
@@ -128,9 +127,9 @@ dict.iteritems() (default: {}.)'''.format(__default_value__)
     def __init__(self, option_name=None, short_option='-ui',
                  long_option='--{}'.format(__argument_name__), action='store_true',
                  help=__help_arg__, **kwargs):
-        super(UseItemsArgument, self).__init__(option_name, short_option,
-                                               long_option, action=action,
-                                               help=help, **kwargs)
+        super(UseItemsArgument, self).__init__(
+            option_name, short_option, long_option, action=action, help=help,
+            **kwargs)
 
 
 class UseNonUniquesArgument(Argument):
@@ -143,9 +142,9 @@ class UseNonUniquesArgument(Argument):
     def __init__(self, option_name=None, short_option='-unu',
                  long_option='--{}'.format(__argument_name__), action='store_true',
                  help=__help_arg__, **kwargs):
-        super(UseNonUniquesArgument, self).__init__(option_name, short_option,
-                                                    long_option, action=action,
-                                                    help=help, **kwargs)
+        super(UseNonUniquesArgument, self).__init__(
+            option_name, short_option, long_option, action=action, help=help,
+            **kwargs)
 
 
 class UseOrderedDictArgument(Argument):
@@ -158,9 +157,9 @@ class UseOrderedDictArgument(Argument):
     def __init__(self, option_name=None, short_option='-uod',
                  long_option='--{}'.format(__argument_name__), action='store_true',
                  help=__help_arg__, **kwargs):
-        super(UseOrderedDictArgument, self).__init__(option_name, short_option,
-                                                     long_option, action=action,
-                                                     help=help, **kwargs)
+        super(UseOrderedDictArgument, self).__init__(
+            option_name, short_option, long_option, action=action, help=help,
+            **kwargs)
 
 
 class UseSetDefaultArgument(Argument):
@@ -173,9 +172,9 @@ class UseSetDefaultArgument(Argument):
     def __init__(self, option_name=None, short_option='-usd',
                  long_option='--{}'.format(__argument_name__), action='store_true',
                  help=__help_arg__, **kwargs):
-        super(UseSetDefaultArgument, self).__init__(option_name, short_option,
-                                                    long_option, action=action,
-                                                    help=help, **kwargs)
+        super(UseSetDefaultArgument, self).__init__(
+            option_name, short_option, long_option, action=action, help=help,
+            **kwargs)
 
 
 class VersionArgument(Argument):
@@ -187,10 +186,9 @@ class VersionArgument(Argument):
                  long_option='--{}'.format(__argument_name__),  action='version',
                  version='%(prog)s {}'.format(cfg.version), help=__help_arg__,
                  **kwargs):
-        super(VersionArgument, self).__init__(option_name, short_option,
-                                              long_option, action=action,
-                                              version=version, help=help,
-                                              **kwargs)
+        super(VersionArgument, self).__init__(
+            option_name, short_option, long_option, action=action,
+            version=version, help=help, **kwargs)
 
 
 # TODO: specify what it is meant by common. Options that are common to both Python 3
